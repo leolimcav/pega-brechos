@@ -19,3 +19,8 @@ adicionar as mudanças ao repositório faça o commit as mudanças com os seguin
 ```git push origin branch-atual```  
 Após esses comandos serem usados deverá aparecer a opção de fazer uma pull request  
 no repositório, sendo feito através do github.
+
+## Links de apoio
+1. Vídeo da Rocketseat sobre contribuição opensource: [https://www.youtube.com/watch?v=mcd7lqpUzIA&t=4s](https://www.youtube.com/watch?v=mcd7lqpUzIA&t=4s)
+2. Vídeo da Rocketseat sobre git básico: [https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s](https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s)
+3. Documentação do node-postgres: [https://node-postgres.com/](https://node-postgres.com/)
