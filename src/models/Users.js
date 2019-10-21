@@ -20,6 +20,22 @@ class Users {
     await client.release();
     return user;
   }
+
+  static async findAll() {
+    const client = await pool.connect();
+    const { rows: users } = await client.query('SELECT * FROM users');
+    await client.release();
+    return users;
+  }
+
+  static async findById(userId) {
+    const client = await pool.connect();
+    const { rows: user } = await client.query('SELECT * FROM users WHERE users.userid = $1', [
+      userId,
+    ]);
+    await client.release();
+    return user;
+  }
 }
 
 module.exports = Users;
