@@ -13,6 +13,7 @@ header {
   margin: 3% 10% 0 10%;
   height: 8%;
 }
+
 header > #logo {
   height: 80%;
 }
@@ -67,8 +68,24 @@ ul {
 li > strong {
   font-weight: bold;
 }
+
 #content-separated {
   margin-left: 10%;
+}
+@media only screen and (max-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 3% 0 0 0;
+  }
+  nav {
+    display: flex;
+    margin: 2.5% 0 0 0;
+  }
+  #content-separated {
+    margin-left: 5%;
+  }
 }
 #line {
   margin-top: 0.5%;
@@ -102,6 +119,23 @@ li > strong {
   font-size: 150%;
   font-weight: 500;
 }
+@media only screen and (max-width: 768px) {
+  #textbody {
+    margin-top: -10%;
+  }
+  #notice {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  #textbody {
+    margin-bottom: -10%;
+  }
+  #notice {
+    margin-top: -12%;
+  }
+}
 #notice > strong {
   font-weight: bolder;
 }
@@ -125,6 +159,7 @@ section {
   font-weight: 400;
   margin-bottom: -6%;
 }
+
 .ad > .content {
   font-size: 135%;
 }
@@ -171,9 +206,45 @@ section {
   font-weight: bolder;
 }
 
+@media only screen and (max-width: 768px) {
+  section {
+    margin-top: -15% !important;
+  }
+  .ad,
+  .items {
+    width: 90%;
+  }
+  .item > img {
+    height: 65%;
+  }
+  .items {
+    margin-top: -20% !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  section {
+    margin-top: -2%;
+  }
+  .items {
+    margin-top: -5%;
+  }
+}
 .pega {
   display: flex;
   flex-flow: column wrap;
+}
+@media only screen and (max-width: 768px) {
+  .pega {
+    margin-bottom: -5% !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .pega {
+    margin-bottom: 20%;
+    margin-top: 5%;
+  }
 }
 
 .photogrid {
@@ -183,6 +254,29 @@ section {
   grid-template-columns: 2fr 1fr;
   grid-auto-rows: 53%;
 }
+@media only screen and (max-width: 1200px) {
+  .photogrid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  #img1 {
+    margin-right: 5%;
+  }
+  #img1 > img {
+    width: 100%;
+    height: 96%;
+  }
+  #img2 > img {
+    width: 100%;
+  }
+  #img3 > img {
+    width: 90%;
+    margin-right: 15%;
+  }
+  #img4 > img {
+    width: 90%;
+    margin-left: 10%;
+  }
+}
 
 #img1 {
   border-radius: 5px;
@@ -191,7 +285,9 @@ section {
 #img2 {
   border-radius: 5px;
   grid-area: 1 / 2 / 1 / 4;
-  margin-left: 1%;
+}
+#img2 > img {
+  width: 100%;
 }
 #img3 {
   border-radius: 5px;
@@ -204,7 +300,7 @@ section {
 
 .newsletter {
   background-color: #a34590;
-  width: 80%;
+  width: 70%;
   height: 20%;
   border-radius: 5px;
   padding: 5%;
@@ -213,6 +309,13 @@ section {
   color: #ffffff;
   display: flex;
   justify-content: space-around;
+  margin-top: -20%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .newsletter {
+    margin: -50% 0 -35% 0;
+  }
 }
 .texts > div:first-child {
   margin-bottom: 10%;
@@ -266,14 +369,37 @@ footer {
   height: 40%;
   align-items: center;
   flex-direction: column;
+  margin-top: -5%;
 }
 .firstbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
   margin-bottom: 1%;
 }
+@media only screen and (max-width: 768px) {
+  .clastbar {
+    width: 100% !important;
+    display: flex;
+    flex-flow: column wrap !important;
+    padding-bottom: 2% !important;
+    text-align: center !important;
+  }
+  .firstbar {
+    width: 98% !important;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  footer {
+    margin-top: -10%;
+  }
+  .firstbar {
+    width: 90%;
+  }
+}
+
 .fcontent {
   width: 100%;
   flex-direction: column;
@@ -312,13 +438,25 @@ footer {
 .lastbar {
   width: 100%;
   background-color: #a34590;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clastbar {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: space-around;
+  width: 85%;
   height: auto;
   flex-direction: row;
-  color: azure;
-  text-align: center;
+  color: white;
   font-weight: normal;
   font-size: 14px;
-  padding-bottom: 1%;
+}
+
+#left > strong {
+  font-weight: 600;
 }
 .lastbar p {
   margin-bottom: 1%;
