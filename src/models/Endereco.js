@@ -20,6 +20,13 @@ class Endereco {
     await client.release();
     return enderecos;
   }
+
+  static async findById(cep) {
+    const client = await pool.connect();
+    const { rows: endereco } = await client.query('SELECT * FROM endereco WHERE cep = $1', [cep]);
+    await client.release();
+    return endereco;
+  }
 }
 
 module.exports = Endereco;
