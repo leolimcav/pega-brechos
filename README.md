@@ -25,3 +25,26 @@ no repositório, sendo feito através do github.
 2. Vídeo da Rocketseat sobre git básico: [https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s](https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s)
 3. Documentação do node-postgres: [https://node-postgres.com/](https://node-postgres.com/)
 4. Git-flow: [https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow](https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow)
+
+## Feito até agora
+### Backend
+#### Models
+- [x] Model de Usuario
+- [ ] Model de Pessoa Fisica 
+- [ ] Model de Pessoa Jurídica
+- [ ] Model de Endereço
+- [ ] Model de Produto
+- [ ] Model de Avaliação
+- [ ] Model de Categoria
+- [ ] Model de Pedido
+- [ ] Model de Produtos do Pedido
+- [ ] Model de Pergunta
+- [ ] Model de Resposta
+#### Controllers
+- [ ] Controller de Usuario
+- [ ] Controller de Pessoa Fisica
+- [ ] Controller de Pessoa Juridica
+- [ ] Controller de Pedido
+- [ ] Controller de Pergunta
+- [ ] Controller de Resposta
+- [ ] Controller de Avaliação
