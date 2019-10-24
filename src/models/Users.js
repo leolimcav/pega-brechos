@@ -27,6 +27,8 @@ class Users {
     await client.release();
     return user;
   }
+
+  // static async update(userid, data) {}
 }
 
 module.exports = Users;
