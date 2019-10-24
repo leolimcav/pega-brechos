@@ -18,7 +18,7 @@ module.exports = {
     return res.json(user);
   },
 
-  async findByIdAndUpdate(req, res) {
+  async update(req, res) {
     return res.json({ msg: 'oi' });
   },
 };
