@@ -10,7 +10,15 @@ class Endereco {
       'INSERT INTO endereco (cep, rua, bairro, cidade, uf, numero, complemento) VALUES ($1, $2, $3, $4, $5, $6, $7)',
       [cep, rua, bairro, cidade, uf, numero, complemento],
     );
+    await client.release();
     return endereco;
+  }
+
+  static async findAll() {
+    const client = await pool.connect();
+    const { rows: enderecos } = await client.query('SELECT * FROM endereco');
+    await client.release();
+    return enderecos;
   }
 }
 
