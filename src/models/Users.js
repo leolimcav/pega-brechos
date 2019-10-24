@@ -44,6 +44,16 @@ class Users {
     }
     return user;
   }
+
+  static async findByIdAndDelete(userid) {
+    const client = await pool.connect();
+    const { rows: user } = await client.query('SELECT * FROM users WHERE userid = $1', [userid]);
+    if (user) {
+      await client.query('DELETE FROM users WHERE userid = $1', [userid]);
+      return user;
+    }
+    return user;
+  }
 }
 
 module.exports = Users;
