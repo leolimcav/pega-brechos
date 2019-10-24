@@ -17,4 +17,8 @@ module.exports = {
     const user = await Users.findById(userid);
     return res.json(user);
   },
+
+  async update(req, res) {
+    return res.json({ msg: 'oi' });
+  },
 };
