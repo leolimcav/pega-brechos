@@ -1,15 +1,15 @@
 const pool = require('../config/database');
 
-class Users {
+class Usuario {
   static async create(data) {
     const { nome, email, senha } = data;
     const client = await pool.connect();
-    const { rows: user } = await client.query(
-      'INSERT INTO users (nome, email, senha) VALUES ($1, $2, $3) RETURNING *',
+    const { rows: usuario } = await client.query(
+      'INSERT INTO users (nome, email, senha, endereco, ) VALUES ($1, $2, $3) RETURNING *',
       [nome, email, senha],
     );
     await client.release();
-    return user;
+    return usuario;
   }
 
   static async findAll() {
@@ -19,19 +19,21 @@ class Users {
     return users;
   }
 
-  static async findById(userId) {
+  static async findById(usuarioid) {
     const client = await pool.connect();
-    const { rows: user } = await client.query('SELECT * FROM users WHERE users.userid = $1', [
-      userId,
+    const { rows: usuario } = await client.query('SELECT * FROM users WHERE users.usuarioid = $1', [
+      usuarioid,
     ]);
     await client.release();
-    return user;
+    return usuario;
   }
 
-  static async findByIdAndUpdate(userid, data) {
+  static async findByIdAndUpdate(usuarioid, data) {
     const client = await pool.connect();
-    const { rows: user } = await client.query('SELECT * FROM users WHERE userid = $1', [userid]);
-    if (user) {
+    const { rows: usuario } = await client.query('SELECT * FROM users WHERE usuarioid = $1', [
+      usuarioid,
+    ]);
+    if (usuario) {
       const {
         nome, endereco, email, senha, telefone,
       } = data;
@@ -42,18 +44,20 @@ class Users {
       await client.release();
       return updatedUser;
     }
-    return user;
+    return usuario;
   }
 
-  static async findByIdAndDelete(userid) {
+  static async findByIdAndDelete(usuarioid) {
     const client = await pool.connect();
-    const { rows: user } = await client.query('SELECT * FROM users WHERE userid = $1', [userid]);
-    if (user) {
-      await client.query('DELETE FROM users WHERE userid = $1', [userid]);
-      return user;
+    const { rows: usuario } = await client.query('SELECT * FROM users WHERE usuarioid = $1', [
+      usuarioid,
+    ]);
+    if (usuario) {
+      await client.query('DELETE FROM users WHERE usuarioid = $1', [usuarioid]);
+      return usuario;
     }
-    return user;
+    return usuario;
   }
 }
 
-module.exports = Users;
+module.exports = Usuario;
