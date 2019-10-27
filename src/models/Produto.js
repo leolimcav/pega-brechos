@@ -49,6 +49,20 @@ class Produto {
     await client.release();
     return produto;
   }
+
+  static async findByIdAndDelete(produtoId) {
+    const client = await pool.connect();
+    const { rows: produto } = await client.query('SELECT * FROM produto WHERE produtoid = $1', [
+      produtoId,
+    ]);
+    if (produto) {
+      await client.query('DELETE from produto WHERE produtoid = $1', [produtoId]);
+      await client.release();
+      return produto;
+    }
+    await client.release();
+    return produto;
+  }
 }
 
 module.exports = Produto;
