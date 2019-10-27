@@ -13,6 +13,22 @@ class Produto {
     await client.release();
     return produto;
   }
+
+  static async findAll() {
+    const client = await pool.connect();
+    const { rows: produtos } = await client.query('SELECT * FROM produto');
+    await client.release();
+    return produtos;
+  }
+
+  static async findById(produtoId) {
+    const client = await pool.connect();
+    const { rows: produto } = await client.query('SELECT * FROM produto WHERE produtoid = $1', [
+      produtoId,
+    ]);
+    await client.release();
+    return produto;
+  }
 }
 
 module.exports = Produto;
