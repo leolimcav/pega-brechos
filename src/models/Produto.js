@@ -29,6 +29,26 @@ class Produto {
     await client.release();
     return produto;
   }
+
+  static async findByIdAndUpdate(produtoId, data) {
+    const client = await pool.connect();
+    const { rows: produto } = await client.query('SELECT * FROM produto WHERE produtoid = $1', [
+      produtoId,
+    ]);
+    if (produto) {
+      const {
+        nome, descricao, valor, categoria, tamanho, estado,
+      } = data;
+      const produtoNovo = await client.query(
+        'UPDATE produto SET nome = $1, descricao = $2, valor = $3, categoria = $4, tamanho = $5, estado = $6 RETURNING *',
+        [nome, descricao, valor, categoria, tamanho, estado],
+      );
+      await client.release();
+      return produtoNovo;
+    }
+    await client.release();
+    return produto;
+  }
 }
 
 module.exports = Produto;
