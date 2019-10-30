@@ -30,8 +30,8 @@ no repositório, sendo feito através do github.
 ### Backend
 #### Models
 - [x] Model de Usuario
-- [ ] Model de Pessoa Fisica 
-- [ ] Model de Pessoa Jurídica
+- [x] Model de Pessoa Fisica 
+- [x] Model de Pessoa Jurídica
 - [x] Model de Endereço
 - [x] Model de Produto
 - [ ] Model de Avaliação
