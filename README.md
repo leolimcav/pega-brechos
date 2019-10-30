@@ -32,10 +32,9 @@ no repositório, sendo feito através do github.
 - [x] Model de Usuario
 - [ ] Model de Pessoa Fisica 
 - [ ] Model de Pessoa Jurídica
-- [ ] Model de Endereço
-- [ ] Model de Produto
+- [x] Model de Endereço
+- [x] Model de Produto
 - [ ] Model de Avaliação
-- [ ] Model de Categoria
 - [ ] Model de Pedido
 - [ ] Model de Produtos do Pedido
 - [ ] Model de Pergunta
