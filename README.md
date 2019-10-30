@@ -35,7 +35,7 @@ no repositório, sendo feito através do github.
 - [x] Model de Endereço
 - [x] Model de Produto
 - [ ] Model de Avaliação
-- [ ] Model de Pedido
+- [x] Model de Pedido
 - [x] Model de Produtos do Pedido
 - [ ] Model de Pergunta
 - [ ] Model de Resposta
