@@ -25,7 +25,3 @@ no repositório, sendo feito através do github.
 2. Vídeo da Rocketseat sobre git básico: [https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s](https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s)
 3. Documentação do node-postgres: [https://node-postgres.com/](https://node-postgres.com/)
 4. Git-flow: [https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow](https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow)
-
-## FRONTEND
-A página index mostrará um banner logo de início para divulgação do projeto e os anúncios impulsionados. Também mostrará anúncios selecionados para o usuário, esteja ele logado ou não. A página index também conterá um grid para divulgar as fotos do próprio projeto, um newsletter para receber novidades e o footer.
-
