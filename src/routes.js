@@ -1,7 +1,9 @@
-const { Router } = require('express');
+const express = require('express');
 const UsuarioController = require('./controllers/UsuarioController');
 
-const routes = Router();
+const routes = express.Router();
+
+routes.get('/', UsuarioController.index);
 
 routes.post('/users', UsuarioController.store);
 routes.get('/users/:userid', UsuarioController.findById);
