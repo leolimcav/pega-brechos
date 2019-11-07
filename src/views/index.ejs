@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Testando EJS</title>
+  </head>
+  <body>
+    <ul>
+      <%usuarios.map(usuario => { %>
+      <li><%= usuario.usuarioid %></li>
+      <li><%= usuario.nome %></li>
+      <li><%= usuario.email %></li>
+      <li><%= usuario.senha %></li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

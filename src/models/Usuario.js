@@ -5,7 +5,7 @@ class Usuario {
     const { nome, email, senha } = data;
     const client = await pool.connect();
     const { rows: usuario } = await client.query(
-      'INSERT INTO users (nome, email, senha, endereco, ) VALUES ($1, $2, $3) RETURNING *',
+      'INSERT INTO usuario (nome, email, senha) VALUES ($1, $2, $3) RETURNING *',
       [nome, email, senha],
     );
     await client.release();
@@ -14,7 +14,7 @@ class Usuario {
 
   static async findAll() {
     const client = await pool.connect();
-    const { rows: users } = await client.query('SELECT * FROM users');
+    const { rows: users } = await client.query('SELECT * FROM usuario');
     await client.release();
     return users;
   }
