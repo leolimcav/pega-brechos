@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="pt-br">
+=======
+<html lang="en">
+>>>>>>> 31af1bc6346e6645766d41e98e1c2a097812eaa2
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <title>Pega!</title>
@@ -299,5 +304,18 @@
       </div>
   </div>
     </footer>
+=======
+    <title>Testando EJS</title>
+  </head>
+  <body>
+    <ul>
+      <%usuarios.map(usuario => { %>
+      <li><%= usuario.usuarioid %></li>
+      <li><%= usuario.nome %></li>
+      <li><%= usuario.email %></li>
+      <li><%= usuario.senha %></li>
+      <% }) %>
+    </ul>
+>>>>>>> 31af1bc6346e6645766d41e98e1c2a097812eaa2
   </body>
 </html>

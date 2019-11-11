@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
     "pg": "^7.12.1"
   },
@@ -16,6 +17,7 @@
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.4"
   }
 }
