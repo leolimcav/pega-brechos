@@ -21,6 +21,9 @@ module.exports = {
   },
 
   async update(req, res) {
-    return res.json({ msg: 'oi' });
+    const { userid } = req.params;
+    const { data } = req.body;
+    const user = await Usuario.findByIdAndUpdate(userid, data);
+    return res.json(user);
   },
 };
