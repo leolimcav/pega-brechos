@@ -1,14 +1,14 @@
-const pool = require('../config/database');
+const pool = require("../config/database");
 
 class Endereco {
   static async create(data) {
     const client = await pool.connect();
+    const { cep, rua, bairro, cidade, uf, numero, complemento } = data;
     const {
-      cep, rua, bairro, cidade, uf, numero, complemento,
-    } = data;
-    const { rows: endereco } = await client.query(
-      'INSERT INTO endereco (cep, rua, bairro, cidade, uf, numero, complemento) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-      [cep, rua, bairro, cidade, uf, numero, complemento],
+      rows: endereco
+    } = await client.query(
+      "INSERT INTO endereco (cep, rua, bairro, cidade, uf, numero, complemento) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+      [cep, rua, bairro, cidade, uf, numero, complemento]
     );
     await client.release();
     return endereco;
@@ -16,28 +16,36 @@ class Endereco {
 
   static async findAll() {
     const client = await pool.connect();
-    const { rows: enderecos } = await client.query('SELECT * FROM endereco');
+    const { rows: enderecos } = await client.query("SELECT * FROM endereco");
     await client.release();
     return enderecos;
   }
 
-  static async findById(cep) {
+  static async findById(enderecoId) {
     const client = await pool.connect();
-    const { rows: endereco } = await client.query('SELECT * FROM endereco WHERE cep = $1', [cep]);
+    const {
+      rows: endereco
+    } = await client.query("SELECT * FROM endereco WHERE end_id = $1", [
+      enderecoId
+    ]);
     await client.release();
     return endereco;
   }
 
-  static async findByIdAndUpdate(cep, data) {
+  static async findByIdAndUpdate(enderecoId, data) {
     const client = await pool.client();
-    const { rows: endereco } = await client.query('SELECT * FROM endereco WHERE cep = $1', [cep]);
+    const {
+      rows: endereco
+    } = await client.query("SELECT * FROM endereco WHERE end_id = $1", [
+      enderecoId
+    ]);
     if (endereco) {
+      const { rua, bairro, cidade, uf, numero, complemento } = data;
       const {
-        rua, bairro, cidade, uf, numero, complemento,
-      } = data;
-      const { rows: novoEndereco } = await client.query(
-        'UPDATE endereco set rua = $1, bairro = $2, cidade = $3, uf = $4, numero = $5, complemento = $6 RETURNING *',
-        [rua, bairro, cidade, uf, numero, complemento],
+        rows: novoEndereco
+      } = await client.query(
+        "UPDATE endereco set rua = $1, bairro = $2, cidade = $3, uf = $4, numero = $5, complemento = $6 WHERE end_id = $7 RETURNING *",
+        [rua, bairro, cidade, uf, numero, complemento, enderecoId]
       );
       await client.release();
       return novoEndereco;
@@ -45,11 +53,17 @@ class Endereco {
     return endereco;
   }
 
-  static async findByIdAndDelete(cep) {
+  static async findByIdAndDelete(enderecoId) {
     const client = await pool.connect();
-    const { rows: endereco } = await client.query('SELECT * FROM endereco WHERE cep = $1', [cep]);
+    const {
+      rows: endereco
+    } = await client.query("SELECT * FROM endereco WHERE end_id = $1", [
+      enderecoId
+    ]);
     if (endereco) {
-      await client.query('DELETE FROM endereco WHERE cep = $1', [cep]);
+      await client.query("DELETE FROM endereco WHERE end_id = $1", [
+        enderecoId
+      ]);
       await client.release();
       return endereco;
     }
