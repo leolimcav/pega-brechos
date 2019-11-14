@@ -1,10 +1,10 @@
-const Usuario = require('../models/Usuario');
+const Usuario = require("../models/Usuario");
 
 module.exports = {
   async index(req, res) {
     const usuarios = await Usuario.findAll();
-    return res.render('index', {
-      usuarios,
+    return res.render("index", {
+      usuarios
     });
   },
 
@@ -25,5 +25,5 @@ module.exports = {
     const { data } = req.body;
     const user = await Usuario.findByIdAndUpdate(userid, data);
     return res.json(user);
-  },
+  }
 };
