@@ -2,6 +2,7 @@ const express = require("express");
 const UsuarioController = require("./controllers/UsuarioController");
 const PessoaFisicaController = require("./controllers/PessoaFisicaController");
 const PessoaJuridicaController = require("./controllers/PessoaJuridicaController");
+const ProdutoController = require("./controllers/ProdutoController");
 
 const routes = express.Router();
 
@@ -22,5 +23,10 @@ routes.delete("/pf/:pfid", PessoaFisicaController.destroy);
 routes.get("/pj/:pjid", PessoaJuridicaController.index);
 routes.post("/pj/:userid", PessoaJuridicaController.store);
 routes.put("/pj/:pjid", PessoaJuridicaController.update);
+
+routes.get("/product/:product_id", ProdutoController.index);
+routes.post("/product/:user_id", ProdutoController.store);
+routes.get("/product/:product_id", ProdutoController.update);
+routes.get("/product/:product_id", ProdutoController.destroy);
 
 module.exports = routes;

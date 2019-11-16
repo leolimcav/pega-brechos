@@ -1,14 +1,14 @@
 const pool = require("../config/database");
 
 class Produto {
-  static async create(data, usuarioid) {
+  static async create(data, usuario_id) {
     const client = await pool.connect();
     const { nome, descricao, valor, categoria, tamanho, estado } = data;
     const {
       rows: produto
     } = await client.query(
-      "INSERT INTO produto (nome, descricao, valor, categoria, tamanho, estado, usuarioid) values ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [nome, descricao, valor, categoria, tamanho, estado, usuarioid]
+      "INSERT INTO produto (nome, descricao, valor, categoria, tamanho, estado, usuario_id) values ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [nome, descricao, valor, categoria, tamanho, estado, usuario_id]
     );
     await client.release();
     return produto;
