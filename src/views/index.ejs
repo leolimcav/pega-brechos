@@ -3,301 +3,192 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./css/reset.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+
     <title>Pega!</title>
   </head>
   <body>
-    <header>
-      <img src="./assets/logo/logoazul.svg" alt="Logo do Pega!" id="logo" />
-      <div id="search">
-        <input
-          type="text"
-          name="idSearch"
-          id="idSearch"
-          placeholder="Procure aqui :)"
-        />
+    <%- include('./partials/header.ejs'); -%>
+    <main>
+      <div id="line"></div>
+      <div id="banner">
+        <img src="./assets/banner.png" alt="Anúncio Pega!" />
+      </div>
 
-        <button id="btnSearch">
-          <img src="./assets/search.svg" alt="Pesquisar" />
-        </button>
-      </div>
-      <div id="user">
-        Seja bem-vindo!
-        <br />
-        <strong>Cadastre-se agora.</strong>
-      </div>
-      <div id="cart">
-        <img src="./assets/cart.svg" alt="Carrinho de compras" />
-      </div>
-    </header>
-
-    <nav>
-      <div class="content"></div>
-      <ul>
-        <li>
-          <strong>
-            <img src="./assets/menu.svg" alt="Menu todas as categorias"/> Todas
-            as categorias
-            <img
-              src="./assets/seta-down.svg"
-              alt="Abrir menu todas as categorias"
-          /></strong>
-        </li>
-        <li>Homens</li>
-        <li>Mulheres</li>
-        <li>Roupas</li>
-        <li>Acessórios</li>
-        <li>Calçados</li>
-        <li id="content-separated"><strong>Ofertas do dia</strong></li>
-        <li><strong>Anuncie</strong></li>
-      </ul>
-    </nav>
-    <div id="line"></div>
-    <div id="banner">
-      <img src="./assets/banner.png" alt="Anúncio Pega!" />
-    </div>
-    <div id="textbody">
-      <div id="notice">
-        <strong>Pegue</strong> no site, receba em <strong>casa</strong> ou
-        <strong>pegue em mãos =)</strong>
-      </div>
-    </div>
-
-    <section>
-      <div class="ad">
-        <div class="content">
-          Ofertas selecionadas para <strong>você!</strong>
-        </div>
-        <div class="content2">
-          <strong>Ver mais ></strong>
+      <div id="textbody">
+        <div id="notice">
+          <p>
+            <strong>Pegue</strong> no site, receba em <strong>casa</strong> ou
+            <strong>pegue em mãos =)</strong>
+          </p>
         </div>
       </div>
 
-      <div class="items">
-        <div class="item">
-          <img src="./assets/item.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 20,00</div>
-            <div class="name">Camiseta Laranja básica</div>
-            <div class="user">Brechó do Nathan</div>
+      <section>
+        <div class="ad">
+          <div class="content">
+            Ofertas selecionadas para <strong>você!</strong>
+          </div>
+          <div class="content2">
+            <a href=""><strong>Ver mais ></strong></a>
           </div>
         </div>
 
-        <div class="item">
-          <img src="./assets/alice.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 14,00</div>
-            <div class="name">Regata branca</div>
-            <div class="user">Brechó da Alice</div>
+        <div class="items">
+          <div class="item">
+            <a href="">
+              <img src="./assets/item.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 20,00</div>
+                <div class="name">Camiseta Laranja básica</div>
+                <div class="user">Brechó do Nathan</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/alice.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 14,00</div>
+                <div class="name">Regata branca</div>
+                <div class="user">Brechó da Alice</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 20,00</div>
+                <div class="name">Camisa florida com botão</div>
+                <div class="user">Brechó do Rodrigues</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/livia.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 20,00</div>
+                <div class="name">Ciganinha tomara que caia</div>
+                <div class="user">Fuá Coletivo</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="adpega">
+        <div class="ad pega">
+          <div class="content">Encontre seu <strong>estilo</strong></div>
+
+          <div class="photogrid">
+            <img src="./assets/1.png" alt="" id="img1" />
+            <div id="breakpoint">
+              <img src="./assets/2.png" alt="" id="img2" />
+              <div id="breakpoint2">
+                <img src="./assets/3.png" alt="" id="img3" />
+                <img src="./assets/4.png" alt="" id="img4" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="ad">
+          <div class="content">
+            <strong>Quem pegou, pega:</strong>
           </div>
         </div>
 
-        <div class="item">
-          <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 20,00</div>
-            <div class="name">Camisa florida com botão</div>
-            <div class="user">Brechó do Rodrigues</div>
+        <div class="items">
+          <div class="item">
+            <a href="">
+              <img src="./assets/item.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 20,00</div>
+                <div class="name">Camiseta Laranja básica</div>
+                <div class="user">Brechó do Nathan</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/alice.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 14,00</div>
+                <div class="name">Regata branca</div>
+                <div class="user">Brechó da Alice</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 20,00</div>
+                <div class="name">Camisa florida com botão</div>
+                <div class="user">Brechó do Rodrigues</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/livia.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="price">R$ 20,00</div>
+                <div class="name">Ciganinha tomara que caia</div>
+                <div class="user">Fuá Coletivo</div>
+              </div>
+            </a>
           </div>
         </div>
+      </section>
 
-        <div class="item">
-          <img src="./assets/livia.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 20,00</div>
-            <div class="name">Ciganinha tomara que caia</div>
-            <div class="user">Fuá Coletivo</div>
+      <section>
+        <div class="newsletter">
+          <div class="texts">
+            <div>
+              Fique por dentro de tudo <br />que tá <strong>pegando!</strong>
+            </div>
+            <div><strong>Assine nossa newsletter!</strong></div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="ad pega">
-        <div class="content">Encontre seu <strong>estilo</strong></div>
-
-        <div class="photogrid">
-          <div id="img1">
-            <img src="./assets/1.png" alt="" />
-          </div>
-          <div id="img2">
-            <img src="./assets/2.png" alt="" />
-          </div>
-          <div id="img3">
-            <img src="./assets/3.png" alt="" />
-          </div>
-          <div id="img4">
-            <img src="./assets/4.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="ad">
-        <div class="content">
-          <strong>O que tá pegando!</strong>
-        </div>
-      </div>
-
-      <div class="items">
-        <div class="item">
-          <img src="./assets/item.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 20,00</div>
-            <div class="name">Camiseta Laranja básica</div>
-            <div class="user">Brechó do Nathan</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="./assets/alice.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 14,00</div>
-            <div class="name">Regata branca</div>
-            <div class="user">Brechó da Alice</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 20,00</div>
-            <div class="name">Camisa florida com botão</div>
-            <div class="user">Brechó do Rodrigues</div>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="./assets/livia.png" alt="foto do anuncio" />
-          <div class="info">
-            <div class="price">R$ 20,00</div>
-            <div class="name">Ciganinha tomara que caia</div>
-            <div class="user">Fuá Coletivo</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="newsletter">
-        <div class="texts">
-          <div>
-            Fique por dentro de tudo <br />que tá <strong>pegando!</strong>
-          </div>
-          <div><strong>Assine nossa newsletter!</strong></div>
-        </div>
-        <form action="" method="post">
-          <input
-            type="text"
-            name="name"
-            id="idName"
-            placeholder="Seu nome"
-            class="newsForm"
-          />
-          <div class="wrap">
+          <form action="" method="post">
             <input
-              type="email"
-              name="email"
-              id="idEmail"
-              placeholder="Seu e-mail"
+              type="text"
+              name="name"
+              id="idName"
+              placeholder="Seu nome"
               class="newsForm"
             />
-            <button id="idBtn">Enviar</button>
-          </div>
-        </form>
-      </div>
-    </section>
+            <div class="wrap">
+              <input
+                type="email"
+                name="email"
+                id="idEmail"
+                placeholder="Seu e-mail"
+                class="newsForm"
+              />
+              <button id="idBtn">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
 
-    <footer>
-      <div class="firstbar">
-        <!-- Div acima é pra gerenciar o conteudo da primeira parte do footer-->
-        <!-- Div abaixo é pra gerenciar o conteudo de cada "seção" do footer-->
-        <div class="fcontent">
-          <h1 class="title">Sobre o Pega!</h1>
-          <div class="barra"></div>
-          <ul class="links">
-            <li>Quem somos</li>
-            <li>Manifesto</li>
-            <li>Slow Fashion</li>
-            <li>Valores</li>
-            <li>Manual de Marca</li>
-          </ul>
-        </div>
-        <!---->
-        <div class="fcontent">
-          <h1 class="title">Relacionamento</h1>
-          <div class="barra"></div>
-          <ul class="links">
-            <li>Contato</li>
-            <li>Tire sua dúvida</li>
-            <li>Privacidade</li>
-            <li>Segurança</li>
-          </ul>
-        </div>
-        <!---->
-        <div class="fcontent">
-          <h1 class="title">Faq</h1>
-          <div class="barra"></div>
-          <ul class="links">
-            <li>Como vender</li>
-            <li>Como comprar</li>
-            <li>Posso experimentar?</li>
-            <li>Posso devolver?</li>
-          </ul>
-        </div>
-        <!---->
-        <div class="fcontent">
-          <h1 class="title">Dicas do pega!</h1>
-          <div class="barra"></div>
-          <ul class="links">
-            <li>Foto ideal</li>
-            <li>tendências</li>
-            <li>Conquistando o cliente</li>
-          </ul>
-        </div>
-        <!---->
-        <div class="fcontent">
-          <h1 class="title">Formas de pagamento</h1>
-          <div class="barra"></div>
-          <ul class="paymentlist">
-            <li>
-              <img src="./assets/logopag/master.png" />
-            </li>
-            <li>
-              <img src="./assets/logopag/visa.png" />
-            </li>
-            <li>
-              <img src="./assets/logopag/Paypal.png" />
-            </li>
-            <li>
-              <img src="./assets/logopag/picpay.png" />
-            </li>
-          </ul>
-        </div>
-      </div>
-<div class="lastbar">
-      <div class="clastbar">
-        <img src="./assets/Logo/logobranca.svg" width="8%" height="auto" />
-
-        <div>
-          <p>
-            &copy; Copyright 2019 - Todos os direitos reservados - pega.com.br
-            brechó online LMTA CNPJ: 00000111/1100-00
-          </p>
-          <p>
-            av José de Freitas Queiroz, 5003 – Cedro – Quixadá – Ceará 63902-580
-          </p>
-        </div>
-        <div>
-          <p id="left">
-            Produzido por <strong>turma <div id="left">exclamada!</strong></div>
-          </p>
-        </div>
-      </div>
-  </div>
-    </footer>
+    <%- include('./partials/footer.ejs'); -%>
   </body>
 </html>
