@@ -1,0 +1,117 @@
+@media only screen and (max-width: 600px) {
+  footer {
+    margin-top: 5%;
+    font-size: 0.5em;
+  }
+
+  .clastbar {
+    margin-top: -10%;
+    flex-flow: column;
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .left {
+    margin-top: 10px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  footer {
+    margin-top: 5%;
+    font-size: 0.6em;
+  }
+}
+@media only screen and (min-width: 768px) {
+  footer {
+    margin-top: 5%;
+    font-size: 0.8em;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  footer {
+    margin-top: 5%;
+    font-size: 1em;
+  }
+  .clastbar {
+    font-size: 14px;
+    text-align: left;
+  }
+}
+footer {
+  display: flex;
+  width: 100%;
+  height: 40%;
+  align-items: center;
+  flex-direction: column;
+}
+.firstbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin-bottom: 1%;
+}
+footer li a {
+  color: #414041;
+}
+.fcontent {
+  width: 100%;
+  flex-direction: column;
+}
+.title {
+  color: #4d9ecc;
+  font-weight: bold;
+  padding-bottom: 5%;
+}
+.barra {
+  width: 10%;
+  border-bottom: 0.45vh solid #4d9ecc;
+  margin-bottom: 5%;
+}
+.links {
+  flex-direction: column;
+  align-items: initial;
+  padding-bottom: 7%;
+}
+.links li {
+  padding-bottom: 7%;
+}
+.paymentlist {
+  flex-direction: row;
+  width: 100%;
+}
+.paymentlist li {
+  margin: 0% 5% 5% 0;
+  width: 70%;
+  height: auto;
+}
+.paymentlist li img {
+  width: 100%;
+  height: auto;
+}
+.lastbar {
+  width: 100%;
+  height: 100%;
+  background-color: #a34590;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clastbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 85%;
+  height: auto;
+  color: white;
+  font-weight: normal;
+}
+
+#left strong {
+  font-weight: 600;
+}
+.lastbar p {
+  margin-bottom: 1%;
+}
+.lastbar img {
+  margin: 2%;
+}
