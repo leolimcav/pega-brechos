@@ -48,7 +48,7 @@ class ProdutoPedido {
       const {
         rows: pedidoUpd
       } = await client.query(
-        "UPDATE produto_pedido set pedido_id = $1, produto_id = $2 RETURNING *",
+        "UPDATE produto_pedido SET pedido_id = $1, produto_id = $2 RETURNING *",
         [pedidoId, produtoId]
       );
       await client.release();
