@@ -7,7 +7,7 @@ class Pedido {
     const {
       rows: pedido
     } = await client.query(
-      "INSERT INTO pedido (usuarioid, total, data_pedido) VALUES ($1, $2, $3)",
+      "INSERT INTO pedido (usuario_id, total, data_pedido) VALUES ($1, $2, $3)",
       [usuarioId, total, dataPedido]
     );
     await client.release();
@@ -21,50 +21,27 @@ class Pedido {
     return pedidos;
   }
 
-  static async findById(pedidoId) {
+  static async findById(pedidoId, usuarioId) {
     const client = await pool.connect();
     const {
       rows: pedido
-    } = await client.query("SELECT * FROM pedido WHERE pedido_id = $1", [
-      pedidoId
-    ]);
+    } = await client.query(
+      "SELECT * FROM pedido WHERE pedido_id = $1 and usuario_id = $2",
+      [pedidoId, usuarioId]
+    );
     await client.release();
     return pedido;
   }
 
-  static async findByIdAndUpdate(pedidoId, data) {
-    const client = await pool.client();
-    const {
-      rows: pedido
-    } = await client.query("SELECT * FROM pedido WHERE pedido_id = $1", [
-      pedidoId
-    ]);
-    if (pedido) {
-      const { usuarioId, total, dataPedido } = data;
-      const {
-        rows: pedidoUpd
-      } = await client.query(
-        "UPDATE pedido set usuarioid = $1, total = $2, data_pedido = $3 RETURNING *",
-        [usuarioId, total, dataPedido]
-      );
-      await client.release();
-      return pedidoUpd;
-    }
-    return pedido;
-  }
-
-  static async findByIdAndDelete(pedidoId) {
+  static async updateTotal(pedidoId, total) {
     const client = await pool.connect();
     const {
       rows: pedido
-    } = await client.query("SELECT * FROM pedido WHERE pedido_id = $1", [
-      pedidoId
-    ]);
-    if (pedido) {
-      await client.query("DELETE FROM pedido WHERE pedido_id = $1", [pedidoId]);
-      await client.release();
-      return pedido;
-    }
+    } = await client.query(
+      "UPDATE pedido SET total = $1 WHERE pedido_id = $2 RETURNING *",
+      [total, pedidoId]
+    );
+    await client.release();
     return pedido;
   }
 }
