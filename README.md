@@ -25,6 +25,8 @@ no repositório, sendo feito através do github.
 2. Vídeo da Rocketseat sobre git básico: [https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s](https://www.youtube.com/watch?v=2alg7MQ6_sI&t=898s)
 3. Documentação do node-postgres: [https://node-postgres.com/](https://node-postgres.com/)
 4. Git-flow: [https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow](https://imasters.com.br/agile/fluxo-de-desenvolvimento-com-gitflow)
+<<<<<<< HEAD
+=======
 
 ## Feito até agora
 ### Backend
@@ -47,3 +49,4 @@ no repositório, sendo feito através do github.
 - [ ] Controller de Pergunta
 - [ ] Controller de Resposta
 - [ ] Controller de Avaliação
+>>>>>>> 31af1bc6346e6645766d41e98e1c2a097812eaa2

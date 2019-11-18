@@ -5,6 +5,8 @@ const PessoaJuridicaController = require("./controllers/PessoaJuridicaController
 
 const routes = express.Router();
 
+routes.get('/users/:userid', UsuarioController.findById);
+routes.get('/users', UsuarioController.index);
 // routes.get('/', UsuarioController.index);
 routes.get("/", (req, res) => {
   res.render("index");
