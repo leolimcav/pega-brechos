@@ -1,0 +1,915 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: start;
+}
+
+@media screen and (max-width: 600px) {
+  .categories {
+    width: 80%;
+    height: 5%;
+    font-size: 0.8em;
+    margin-top: 5%;
+  }
+  #path {
+    width: 90%;
+    height: 100%;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 600px) {
+  .categories {
+    width: 80%;
+    height: 5%;
+    font-size: 0.8em;
+    margin-top: 5%;
+  }
+  #path {
+    width: 60%;
+    height: 100%;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .categories {
+    width: 80%;
+    height: 5%;
+    font-size: 0.8em;
+    margin-top: 2%;
+  }
+  #path {
+    width: 60%;
+    height: 100%;
+    justify-content: space-between;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .categories {
+    width: 80%;
+    height: 5%;
+    font-size: 0.8em;
+    margin-top: 2%;
+  }
+  #path {
+    width: 30%;
+    height: 100%;
+  }
+}
+.categories {
+  display: flex;
+  color: #414041;
+  margin-bottom: 2%;
+  align-self: center;
+}
+
+#path {
+  display: flex;
+  font-weight: 400;
+}
+
+#path li:nth-child(2n) {
+  color: #be5599;
+}
+
+@media screen and (max-width: 600px) {
+  #aboutProduct {
+    width: 80%;
+  }
+  #product {
+    flex-flow: column wrap;
+  }
+
+  .photosProduct {
+    width: 100%;
+  }
+  .rowSlide {
+    width: 100%;
+  }
+
+  #productInfo {
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  #productInfo h2 {
+    font-size: 1.3em;
+  }
+  #productInfo p {
+    margin-top: 5%;
+    font-size: 0.9em;
+  }
+}
+@media screen and (min-width: 600px) {
+  #aboutProduct {
+    width: 80%;
+  }
+  #product {
+    flex-flow: column wrap;
+  }
+
+  .photosProduct {
+    width: 95%;
+  }
+  .rowSlide {
+    width: 95%;
+  }
+
+  #productInfo {
+    width: 80%;
+    margin-top: 10%;
+  }
+
+  #productInfo h2 {
+    font-size: 1.3em;
+  }
+  #productInfo p {
+    margin-top: 5%;
+    font-size: 0.9em;
+  }
+}
+@media screen and (min-width: 768px) {
+  #aboutProduct {
+    width: 80%;
+  }
+  #product {
+    flex-flow: row;
+  }
+
+  .photosProduct {
+    width: 95%;
+  }
+  .rowSlide {
+    width: 95%;
+  }
+
+  #productInfo {
+    width: 80%;
+    margin-top: 0%;
+  }
+
+  #productInfo h2 {
+    font-size: 1em;
+  }
+  #productInfo p {
+    margin-top: 5%;
+    font-size: 0.8em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #aboutProduct {
+    width: 80%;
+  }
+  #product {
+    flex-flow: column;
+
+    margin-right: -35%;
+  }
+
+  .photosProduct {
+    width: 50%;
+  }
+  .rowSlide {
+    width: 45%;
+  }
+
+  #productInfo {
+    margin-top: 5%;
+  }
+
+  #productInfo h2 {
+    font-size: 1.5em;
+  }
+  #productInfo p {
+    margin-top: 2%;
+    font-size: 0.8em;
+  }
+}
+
+#aboutProduct {
+  display: flex;
+  align-self: center;
+}
+#product {
+  display: flex;
+  align-self: flex-start;
+}
+#photoColumn {
+  display: flex;
+  flex-flow: column wrap;
+}
+.photosProduct img {
+  vertical-align: middle;
+}
+.mySlide {
+  display: none;
+}
+.cursor {
+  cursor: pointer;
+}
+.rowSlide {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+.rowSlide:after {
+  content: "";
+  clear: both;
+}
+.columnSlide {
+  width: 16.66%;
+  margin-right: 15px;
+}
+demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+#productInfo h2 {
+  color: #414041;
+  font-weight: 600;
+}
+#productInfo p {
+  color: #707070;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  #aboutProduct {
+    flex-flow: column wrap;
+  }
+
+  #detailsProduct {
+    margin-top: 15%;
+    width: 100%;
+    align-items: center;
+  }
+  #name {
+    font-size: 1.8em;
+  }
+  #status {
+    font-size: 1em;
+  }
+  #price {
+    margin-top: 2%;
+    width: 70%;
+    justify-content: space-around;
+  }
+  #price #promo {
+    font-size: 1em;
+  }
+  #price p {
+    font-size: 1.5em;
+  }
+  #price img {
+    width: 10%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    width: 90%;
+  }
+  #payments #card,
+  #delivery #clothe,
+  #tryOn #try {
+    width: 8%;
+  }
+  #payments img,
+  #delivery img,
+  #tryOn img {
+    width: 8%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    font-size: 0.8em;
+  }
+  #payments p {
+    font-size: 0.8em;
+  }
+  .btn {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  #detailsInfo p {
+    font-size: 0.8em;
+  }
+
+  #detailsInfo .details {
+    font-size: 0.8em;
+  }
+  .fig {
+    width: 15px;
+    height: 15px;
+    padding: 10px 10px 5px 10px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #aboutProduct {
+    flex-flow: column wrap;
+  }
+
+  #detailsProduct {
+    margin-top: 15%;
+    width: 100%;
+    align-items: center;
+  }
+  #name {
+    font-size: 1.8em;
+  }
+  #status {
+    font-size: 1em;
+  }
+  #price {
+    margin-top: 2%;
+    width: 70%;
+    justify-content: space-around;
+  }
+  #price #promo {
+    font-size: 1em;
+  }
+  #price p {
+    font-size: 1.5em;
+  }
+  #price img {
+    width: 10%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    width: 90%;
+  }
+  #payments #card,
+  #delivery #clothe,
+  #tryOn #try {
+    width: 8%;
+  }
+  #payments img,
+  #delivery img,
+  #tryOn img {
+    width: 8%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    font-size: 1em;
+  }
+  #payments p {
+    font-size: 0.8em;
+  }
+  .btn {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  #detailsInfo p {
+    font-size: 0.8em;
+  }
+
+  #detailsInfo .details {
+    font-size: 0.8em;
+  }
+  .fig {
+    width: 15px;
+    height: 15px;
+    padding: 10px 10px 5px 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #aboutProduct {
+    flex-flow: column wrap;
+  }
+
+  #detailsProduct {
+    margin-top: 15%;
+    width: 100%;
+    align-items: center;
+  }
+  #name {
+    font-size: 1.8em;
+  }
+  #status {
+    font-size: 1em;
+  }
+  #price {
+    margin-top: 2%;
+    width: 50%;
+  }
+  #price #promo {
+    font-size: 1em;
+  }
+  #price p {
+    font-size: 1.5em;
+  }
+  #price img {
+    width: 10%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    width: 90%;
+  }
+  #payments #card,
+  #delivery #clothe,
+  #tryOn #try {
+    width: 8%;
+  }
+  #payments img,
+  #delivery img,
+  #tryOn img {
+    width: 8%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    font-size: 1em;
+  }
+  #payments p {
+    font-size: 0.8em;
+  }
+  .btn {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  #detailsInfo p {
+    font-size: 0.8em;
+  }
+
+  #detailsInfo .details {
+    font-size: 0.8em;
+  }
+  .fig {
+    width: 15px;
+    height: 15px;
+    padding: 10px 10px 5px 10px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #aboutProduct {
+    flex-flow: row;
+  }
+  #detailsProduct {
+    width: 50%;
+    align-items: flex-start;
+    margin-top: 0;
+  }
+  #name {
+    font-size: 1.5em;
+  }
+  #status {
+    font-size: 0.8em;
+  }
+  #price {
+    width: 60%;
+  }
+  #price #promo {
+    font-size: 1em;
+  }
+  #price p {
+    font-size: 1.5em;
+  }
+  #price img {
+    width: 10%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    width: 70%;
+  }
+  #payments #card,
+  #delivery #clothe,
+  #tryOn #try {
+    width: 10%;
+  }
+  #payments img,
+  #delivery img,
+  #tryOn img {
+    width: 8%;
+  }
+  #payments,
+  #delivery,
+  #tryOn {
+    font-size: 0.8em;
+  }
+  #payments p {
+    font-size: 0.7em;
+  }
+  .btn {
+    width: 100%;
+    font-size: 1.1em;
+  }
+
+  #detailsInfo p {
+    font-size: 0.8em;
+  }
+
+  #detailsInfo .details {
+    font-size: 0.8em;
+  }
+  .fig {
+    width: 15px;
+    height: 15px;
+    padding: 10px 10px 5px 10px;
+  }
+}
+
+#detailsProduct {
+  display: flex;
+  flex-flow: column;
+  color: #414041;
+}
+#name {
+  font-weight: 600;
+  margin-bottom: 4%;
+}
+#status {
+  margin-bottom: 3%;
+}
+#price {
+  display: flex;
+  flex-flow: row;
+}
+#price #promo {
+  font-weight: 400;
+  color: #707070;
+  align-self: center;
+}
+#price #was {
+  color: #666666;
+  font-weight: 400;
+  text-decoration: line-through;
+}
+#price p {
+  margin-right: 5%;
+  color: #f16364;
+  font-weight: 600;
+  align-self: center;
+}
+#price img {
+  margin-right: 3%;
+  align-self: center;
+}
+#payments,
+#delivery,
+#tryOn {
+  display: flex;
+  align-items: center;
+  margin-top: 3%;
+}
+
+#payments img,
+#delivery img,
+#tryOn img {
+  margin-right: 5%;
+}
+#payments,
+#delivery,
+#tryOn {
+  font-weight: 500;
+}
+
+#payments p {
+  color: #414041;
+}
+.btn {
+  text-align: center;
+  font-weight: 600;
+  padding: 6px 0 6px 0;
+  margin-top: 3%;
+}
+
+.fullRed {
+  background-color: #f16364;
+  border: 2px solid #f16364;
+  color: white;
+  border-radius: 9px;
+}
+.fullWhite {
+  background-color: white;
+  color: #f16364;
+  border: 2px solid #f16364;
+  border-radius: 9px;
+}
+
+#detailsInfo {
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+#detailsInfo p {
+  font-weight: 600;
+  color: #414041;
+  margin-right: 10%;
+}
+#tam,
+#marca,
+#color {
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+}
+
+#detailsInfo .details {
+  color: #707070;
+  text-transform: uppercase;
+}
+.fig {
+  text-align: center;
+  border-radius: 100%;
+  border: 1px solid #707070;
+}
+
+#owner {
+  margin-top: 15%;
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  border: 2px solid #be5599;
+  border-radius: 9px;
+}
+#ownerInfo {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  border-bottom: 2px solid #be5599;
+  margin-bottom: 5%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+#ownerAbout {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-left: 15px;
+}
+#ownerPhoto {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 1px solid #be5599;
+  margin-right: 3%;
+}
+#ownerPhoto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+#ownerMore {
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+#ownerMore p {
+  margin-bottom: 5px;
+  align-self: flex-start;
+  color: #4c4c4c;
+}
+#nameOwner {
+  font-size: 1.8em;
+}
+.follow {
+  margin-right: 15px;
+  width: 35%;
+  height: 35px;
+  align-self: center;
+  border: 1px solid #be5599;
+  color: #be5599;
+  background-color: white;
+  border-radius: 9px;
+}
+
+#ownerDetails {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  width: 100%;
+  text-align: center;
+}
+#rate,
+#lastD,
+#since {
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 0.7em;
+  width: 35%;
+  background-color: #fff;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+#stars,
+#lastStatus {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+#stars img,
+#lastD img {
+  margin-top: 5%;
+  margin-right: 3%;
+  width: 10%;
+}
+
+#since p {
+  margin-bottom: 5.5%;
+}
+#sinceDate {
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 600px) {
+  .faqProduct {
+    width: 80%;
+    margin-top: 5%;
+  }
+  .faqProduct h2 {
+    align-self: center;
+    font-size: 1.2em;
+  }
+  .btnFaq {
+    justify-content: center;
+  }
+  .btnFaq button {
+    width: 100%;
+    height: 35px;
+    font-size: 0.7em;
+    margin-bottom: 5%;
+  }
+  #ask {
+    width: 100%;
+    margin-bottom: 5%;
+    height: 40px;
+  }
+
+  .asks {
+    width: 90%;
+  }
+  .question h3 {
+    font-size: 1em;
+  }
+  .question p {
+    font-size: 0.8em;
+  }
+}
+@media screen and (min-width: 600px) {
+  .faqProduct {
+    width: 80%;
+    margin-top: 5%;
+  }
+  .faqProduct h2 {
+    align-self: center;
+    font-size: 1.5em;
+  }
+  .btnFaq {
+    justify-content: center;
+  }
+  .btnFaq button {
+    width: 30%;
+    height: 35px;
+    font-size: 0.7em;
+  }
+  #ask {
+    width: 60%;
+    height: 40px;
+  }
+  .asks {
+    width: 90%;
+  }
+  .question h3 {
+    font-size: 1.3em;
+  }
+  .question p {
+    font-size: 0.8em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .faqProduct {
+    width: 80%;
+    margin-top: 5%;
+  }
+  .faqProduct h2 {
+    align-self: center;
+    font-size: 1.5em;
+  }
+  .btnFaq {
+    justify-content: center;
+  }
+  .btnFaq button {
+    width: 30%;
+    height: 35px;
+    font-size: 0.7em;
+  }
+  #ask {
+    width: 60%;
+    height: 40px;
+  }
+  .asks {
+    width: 90%;
+  }
+  .question h3 {
+    font-size: 1.3em;
+  }
+  .question p {
+    font-size: 0.8em;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .faqProduct {
+    width: 80%;
+  }
+  .faqProduct h2 {
+    align-self: flex-start;
+
+    font-size: 1.5em;
+  }
+  .btnFaq {
+    justify-content: flex-start;
+  }
+  .btnFaq button {
+    width: 15%;
+    height: 35px;
+    font-size: 0.7em;
+  }
+  #ask {
+    width: 30%;
+    height: 35px;
+  }
+  .asks {
+    width: 50%;
+  }
+  .question h3 {
+    font-size: 1.3em;
+  }
+  .question p {
+    font-size: 0.8em;
+  }
+}
+
+.faqProduct {
+  display: flex;
+  flex-flow: column wrap;
+  align-self: center;
+  color: #414041;
+  margin-bottom: 2%;
+}
+.faqProduct h2 {
+  color: #414041;
+  font-weight: 600;
+  margin-bottom: 2%;
+  margin-top: 5%;
+}
+.btnFaq {
+  display: flex;
+  flex-flow: row wrap;
+}
+.btnFaq button {
+  padding: 0 10px 0 10px;
+  font-weight: 600;
+  color: #be5599;
+  border-radius: 9px;
+  border: 2px solid #be5599;
+  background-color: white;
+  margin-right: 2%;
+}
+
+#ask {
+  background-color: white;
+  border-radius: 9px;
+  border: 2px solid #be5599;
+  padding-left: 5px;
+  color: #be5599;
+}
+
+#askBtn {
+  margin-left: 3%;
+  color: white;
+  background-color: #be5599;
+  align-self: center;
+}
+
+.asks {
+  margin-top: 5%;
+  display: flex;
+  flex-flow: column wrap;
+}
+.question {
+  margin-bottom: 8%;
+}
+.question h3 {
+  color: #be5599;
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+.question p {
+  font-weight: 500;
+  color: #707070;
+}

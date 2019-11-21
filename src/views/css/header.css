@@ -296,3 +296,19 @@ a {
   color: #be5599;
   text-decoration: none;
 }
+#line {
+  width: 100%;
+  border-top: 2px solid #be5599;
+}
+
+#cart {
+  display: flex;
+  align-items: center;
+}
+
+#cartNumber {
+  margin-right: 2%;
+  color: #4d9ecc;
+  font-weight: 600;
+  font-size: 0.8em;
+}

@@ -13,6 +13,9 @@ routes.get("/users", UsuarioController.index);
 routes.get("/", (req, res) => {
   res.render("index");
 });
+routes.get("/product", (req, res) => {
+  res.render("product");
+});
 
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);
