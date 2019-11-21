@@ -11,6 +11,9 @@ routes.get("/users", UsuarioController.index);
 routes.get("/", (req, res) => {
   res.render("index");
 });
+routes.get("/product", (req, res) => {
+  res.render("product");
+});
 
 routes.post("/users", UsuarioController.store);
 routes.get("/users/:userid", UsuarioController.findById);

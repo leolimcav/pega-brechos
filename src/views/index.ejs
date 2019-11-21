@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <link rel="stylesheet" type="text/css" href="./css/header.css" />
     <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/newsletter.css" />
 
     <title>Pega!</title>
   </head>
   <body>
     <%- include('./partials/header.ejs'); -%>
     <main>
-      <div id="line"></div>
       <div id="banner">
         <img src="./assets/banner.png" alt="Anúncio Pega!" />
       </div>
@@ -33,11 +33,9 @@
       <section>
         <div class="ad">
           <div class="content">
-            Ofertas selecionadas para <strong>você!</strong>
+            Ofertas selecionadas <strong>para você!</strong>
           </div>
-          <div class="content2">
-            <a href=""><strong>Ver mais ></strong></a>
-          </div>
+          <div class="content2">ver mais ></div>
         </div>
 
         <div class="items">
@@ -45,7 +43,9 @@
             <a href="">
               <img src="./assets/item.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 20,00</div>
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
                 <div class="name">Camiseta Laranja básica</div>
                 <div class="user">Brechó do Nathan</div>
               </div>
@@ -56,7 +56,9 @@
             <a href="">
               <img src="./assets/alice.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 14,00</div>
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
                 <div class="name">Regata branca</div>
                 <div class="user">Brechó da Alice</div>
               </div>
@@ -67,7 +69,9 @@
             <a href="">
               <img src="./assets/rodrigues.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 20,00</div>
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
                 <div class="name">Camisa florida com botão</div>
                 <div class="user">Brechó do Rodrigues</div>
               </div>
@@ -75,10 +79,14 @@
           </div>
 
           <div class="item">
+            <div class="inPromo"><p class="percent">20% off</p></div>
             <a href="">
               <img src="./assets/livia.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 20,00</div>
+                <div class="row">
+                  <div class="was">R$ 20,00</div>
+                  <div class="price">R$ 15,00</div>
+                </div>
                 <div class="name">Ciganinha tomara que caia</div>
                 <div class="user">Fuá Coletivo</div>
               </div>
@@ -107,7 +115,7 @@
       <section>
         <div class="ad">
           <div class="content">
-            <strong>Quem pegou, pega:</strong>
+            <strong>Quem pegou, pega: </strong>
           </div>
         </div>
 
@@ -116,7 +124,9 @@
             <a href="">
               <img src="./assets/item.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 20,00</div>
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
                 <div class="name">Camiseta Laranja básica</div>
                 <div class="user">Brechó do Nathan</div>
               </div>
@@ -127,7 +137,9 @@
             <a href="">
               <img src="./assets/alice.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 14,00</div>
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
                 <div class="name">Regata branca</div>
                 <div class="user">Brechó da Alice</div>
               </div>
@@ -138,7 +150,9 @@
             <a href="">
               <img src="./assets/rodrigues.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 20,00</div>
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
                 <div class="name">Camisa florida com botão</div>
                 <div class="user">Brechó do Rodrigues</div>
               </div>
@@ -146,10 +160,14 @@
           </div>
 
           <div class="item">
+            <div class="inPromo"><p class="percent">20% off</p></div>
             <a href="">
               <img src="./assets/livia.png" alt="foto do anuncio" />
               <div class="info">
-                <div class="price">R$ 20,00</div>
+                <div class="row">
+                  <div class="was">R$ 20,00</div>
+                  <div class="price">R$ 15,00</div>
+                </div>
                 <div class="name">Ciganinha tomara que caia</div>
                 <div class="user">Fuá Coletivo</div>
               </div>
@@ -157,35 +175,8 @@
           </div>
         </div>
       </section>
-
       <section>
-        <div class="newsletter">
-          <div class="texts">
-            <div>
-              Fique por dentro de tudo <br />que tá <strong>pegando!</strong>
-            </div>
-            <div><strong>Assine nossa newsletter!</strong></div>
-          </div>
-          <form action="" method="post">
-            <input
-              type="text"
-              name="name"
-              id="idName"
-              placeholder="Seu nome"
-              class="newsForm"
-            />
-            <div class="wrap">
-              <input
-                type="email"
-                name="email"
-                id="idEmail"
-                placeholder="Seu e-mail"
-                class="newsForm"
-              />
-              <button id="idBtn">Enviar</button>
-            </div>
-          </form>
-        </div>
+        <%- include('./partials/newsletter.ejs'); -%>
       </section>
     </main>
 

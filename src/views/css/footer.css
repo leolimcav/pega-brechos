@@ -75,7 +75,8 @@ footer li a {
 .links li {
   padding-bottom: 7%;
 }
-.paymentlist {
+.paymentlist,
+.midia {
   flex-direction: row;
   width: 100%;
 }
@@ -87,6 +88,12 @@ footer li a {
 .paymentlist li img {
   width: 100%;
   height: auto;
+}
+.midia {
+  justify-content: flex-start;
+}
+.midia li img {
+  margin-right: 15px;
 }
 .lastbar {
   width: 100%;

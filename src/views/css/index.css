@@ -11,10 +11,7 @@ main {
   min-height: 100%;
   position: relative;
 }
-#line {
-  width: 100%;
-  border-top: 2px solid #be5599;
-}
+
 #banner {
   width: 100%;
 }
@@ -69,6 +66,10 @@ main {
   section {
     height: 40%;
   }
+  .items {
+    flex-flow: column wrap;
+    align-items: center;
+  }
   .ad .content {
     font-size: 1em;
   }
@@ -76,18 +77,37 @@ main {
     font-size: 1em;
   }
   .price {
-    font-size: 1em;
+    font-size: 1.3em;
   }
   .name {
-    font-size: 0.8em;
+    font-size: 1em;
   }
   .user {
-    font-size: 0.6em;
+    font-size: 0.8em;
+  }
+  .inPromo {
+    width: 10%;
+    margin-left: 25%;
   }
 }
 @media screen and (min-width: 600px) {
   section {
     height: 40%;
+  }
+  .ad .content {
+    font-size: 135%;
+  }
+  .ad .content2 {
+    font-size: 110%;
+  }
+  .items {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  .inPromo {
+    width: 10%;
+    margin-left: 15%;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -100,19 +120,41 @@ main {
   .ad .content2 {
     font-size: 110%;
   }
+  .items {
+    flex-flow: row wrap;
+  }
+  .item {
+    width: 20%;
+  }
+
+  .inPromo {
+    width: 10%;
+    margin-left: 2%;
+  }
 }
 @media only screen and (min-width: 1200px) {
   section {
     height: 70%;
   }
   .price {
-    font-size: 1.5em;
+    font-size: 1em;
   }
   .name {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .user {
-    font-size: 1em;
+    font-size: 0.7em;
+  }
+  .items {
+    direction: row;
+  }
+  .item {
+    width: 20%;
+  }
+
+  .inPromo {
+    width: 4%;
+    margin-left: 9%;
   }
 }
 section {
@@ -141,12 +183,10 @@ section {
   display: flex;
   justify-content: space-between;
   width: 80%;
-  direction: row;
 }
 
 .item {
   display: flex;
-  width: 20%;
   height: 75%;
   flex-wrap: wrap;
   direction: column;
@@ -154,7 +194,17 @@ section {
 .item img {
   width: 100%;
 }
-
+.inPromo {
+  position: absolute;
+  margin-top: 1%;
+  padding: 9px;
+  border-radius: 5px;
+  background-color: #f16364;
+  font-size: 0.8em;
+  text-align: center;
+  color: white;
+  justify-self: end;
+}
 .info {
   margin-top: 9%;
   font-size: 85%;
@@ -240,108 +290,12 @@ section {
 #img4 {
   width: 40%;
 }
-@media only screen and (max-width: 600px) {
-  .newsletter {
-    font-size: 70%;
-  }
-  .newsForm {
-    font-size: 80%;
-  }
-  #idBtn {
-    font-size: 70%;
-    height: 20px;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .newsletter {
-    font-size: 80%;
-  }
-  .newsForm {
-    font-size: 80%;
-  }
-  #idBtn {
-    font-size: 70%;
-    height: 22px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .newsletter {
-    font-size: 100%;
-  }
-  .newsForm {
-    font-size: 80%;
-  }
-  #idBtn {
-    font-size: 70%;
-    height: 30px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .newsletter {
-    font-size: 140%;
-  }
-  .newsForm {
-    font-size: 80%;
-  }
-  #idBtn {
-    font-size: 70%;
-    height: 40px;
-  }
-}
-
-.newsletter {
-  background-color: #a34590;
-  width: 70%;
-  height: 20%;
-  border-radius: 5px;
-  padding: 5%;
+.was {
+  color: #666666;
   font-weight: 400;
-  color: #ffffff;
+  text-decoration: line-through;
+  margin-right: 5%;
+}
+.row {
   display: flex;
-  justify-content: space-around;
-  margin-top: 3%;
-  margin-bottom: 5%;
-}
-
-.texts div:first-child {
-  margin-bottom: 10%;
-}
-.newsletter strong {
-  font-weight: bold;
-}
-
-form {
-  display: flex;
-  flex-flow: column;
-  width: 45%;
-}
-.newsForm {
-  width: 100%;
-  border-radius: 5px;
-  border-color: white;
-  color: white;
-  border-style: solid;
-  background-color: transparent;
-  padding: 2%;
-  font-weight: 500;
-  margin-bottom: 3%;
-}
-#idEmail {
-  width: 70%;
-}
-#idBtn {
-  width: 22%;
-  border-radius: 5px;
-  background-color: white;
-  color: #a34590;
-  border-style: none;
-  font-weight: 700;
-}
-.newsForm::placeholder {
-  color: rgba(255, 255, 255, 0.541);
-}
-.wrap {
-  display: flex;
-  width: 105%;
-  justify-content: space-between;
 }
