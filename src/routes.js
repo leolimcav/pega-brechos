@@ -16,6 +16,9 @@ routes.get("/", (req, res) => {
 routes.get("/product", (req, res) => {
   res.render("product");
 });
+routes.get("/cart", (req, res) => {
+  res.render("cart");
+});
 
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);
