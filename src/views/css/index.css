@@ -251,7 +251,6 @@ section {
   }
   #adpega {
     margin-top: 5%;
-
     margin-bottom: 6%;
   }
 }
@@ -278,7 +277,7 @@ section {
   justify-content: space-between;
 }
 #img1 {
-  width: 42%;
+  width: 50%;
 }
 #img2 {
   align-self: flex-end;
