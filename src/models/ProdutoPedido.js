@@ -14,25 +14,18 @@ class ProdutoPedido {
     return pedidoProduto;
   }
 
-  static async findAll() {
+  static async find(data) {
     const client = await pool.connect();
-    const { rows: produtosPedidos } = await client.query(
-      "SELECT * FROM produto_pedido"
-    );
-    await client.release();
-    return produtosPedidos;
-  }
-
-  static async findById(pedidoId) {
-    const client = await pool.connect();
+    const { usuario_id, pedido_id } = data;
     const {
-      rows: pedido
+      rows: carrinho
     } = await client.query(
-      "SELECT * FROM produto_pedido WHERE pedido_id = $1",
-      [pedidoId]
+      "SELECT * FROM produto_pedido pp INNER JOIN pedido pd ON pp.pedido_id = pd.pedido_id AND pd.usuario_id = $1 AND pp.pedido_id = $2" +
+        "INNER JOIN produto p ON pp.produto_id = p.produto_id",
+      [usuario_id, pedido_id]
     );
     await client.release();
-    return pedido;
+    return carrinho;
   }
 
   static async findByIdAndUpdate(pedidoId, data) {
@@ -57,21 +50,15 @@ class ProdutoPedido {
     return pedido;
   }
 
-  static async findByIdAndDelete(pedidoId) {
+  static async Delete(data) {
     const client = await pool.connect();
+    const { pedido_id, produto_id } = data;
     const {
       rows: pedido
     } = await client.query(
-      "SELECT * FROM produto_pedido WHERE pedido_id = $1",
-      [pedidoId]
+      "DELETE from produto_pedido pd WHERE pd.pedido_id = $1 AND pd.produto_id = $2",
+      [pedido_id, produto_id]
     );
-    if (pedido) {
-      await client.query("DELETE FROM produto_pedido WHERE pedido_id = $1", [
-        pedidoId
-      ]);
-      await client.release();
-      return pedido;
-    }
     return pedido;
   }
 }

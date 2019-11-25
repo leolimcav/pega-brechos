@@ -4,6 +4,7 @@ const PessoaFisicaController = require("./controllers/PessoaFisicaController");
 const PessoaJuridicaController = require("./controllers/PessoaJuridicaController");
 const ProdutoController = require("./controllers/ProdutoController");
 const PedidoController = require("./controllers/PedidoController");
+const CarrinhoController = require("./controllers/CarrinhoController");
 
 const routes = express.Router();
 
@@ -40,4 +41,8 @@ routes.get("/products/:product_id", ProdutoController.destroy);
 routes.get("/orders/:order_id/:user_id", PedidoController.index);
 routes.post("/orders/:user_id", PedidoController.store);
 
+// Rotas do Carrinho
+routes.get("/cart/:user_id/:order_id", CarrinhoController.index);
+routes.post("/cart/:order_id/:product_id", CarrinhoController.store);
+routes.delete("/cart/:order_id/:product_id", CarrinhoController.destroy);
 module.exports = routes;
