@@ -7,78 +7,6 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
-  #first {
-    font-size: 0.9em;
-  }
-  .circle {
-    width: 15px;
-    height: 15px;
-  }
-}
-@media only screen and (min-width: 600px) {
-  #first {
-    font-size: 1em;
-  }
-  .circle {
-    width: 15px;
-    height: 15px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  #first {
-    font-size: 1em;
-  }
-  .circle {
-    width: 15px;
-    height: 15px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  #first {
-    font-size: 1.3em;
-  }
-  .circle {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-.timeline {
-  display: flex;
-  flex-flow: column wrap;
-  width: 80%;
-  margin-top: 3%;
-}
-
-#first {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  justify-content: space-between;
-  font-weight: 600;
-  color: #a2cce4;
-}
-#first p:first-child {
-  color: #4d9ecc;
-}
-
-#second {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 2%;
-}
-
-.circle {
-  border-radius: 100%;
-  background-color: #a2cce4;
-}
-#second div:first-child {
-  background-color: #4d9ecc;
-}
-
-@media only screen and (max-width: 600px) {
   .cartItems {
     width: 100%;
   }
@@ -325,12 +253,6 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
-  #columnResume {
-    width: 100%;
-  }
-  .resume h1 {
-    font-size: 1.5em;
-  }
   #calcFrete {
     margin-top: 5%;
   }
@@ -350,12 +272,6 @@ main {
   }
 }
 @media only screen and (min-width: 600px) {
-  #columnResume {
-    width: 100%;
-  }
-  .resume h1 {
-    font-size: 1.5em;
-  }
   #calcFrete {
     margin-top: 5%;
   }
@@ -375,12 +291,6 @@ main {
   }
 }
 @media only screen and (min-width: 768px) {
-  #columnResume {
-    width: 100%;
-  }
-  .resume h1 {
-    font-size: 1.5em;
-  }
   #calcFrete {
     margin-top: 5%;
   }
@@ -400,15 +310,6 @@ main {
   }
 }
 @media only screen and (min-width: 1200px) {
-  .resume {
-    margin-bottom: 50%;
-  }
-  #columnResume {
-    width: 23%;
-  }
-  .resume h1 {
-    font-size: 1.5em;
-  }
   #calcFrete {
     margin-top: 15%;
   }
@@ -423,70 +324,6 @@ main {
   #calculate a {
     font-size: 0.8em;
   }
-}
-
-#columnResume {
-  display: flex;
-  flex-flow: column wrap;
-}
-
-.resume {
-  display: flex;
-  flex-flow: column wrap;
-  width: 100%;
-  justify-self: end;
-}
-
-.resume h1 {
-  font-weight: 600;
-  color: #414041;
-}
-
-#lineResume {
-  width: 100%;
-  height: 1px;
-  background-color: #707070;
-  margin: 4% 0 4% 0;
-}
-
-#subtotal,
-#frete,
-#total {
-  display: flex;
-  flex-flow: row wrap;
-  margin-bottom: 4%;
-  width: 100%;
-}
-
-#subtotal p,
-#frete p,
-#total p {
-  margin-right: 3%;
-  color: #414041;
-}
-
-#total {
-  font-weight: 600;
-  margin-bottom: 10%;
-}
-
-button {
-  height: 27px;
-  border-radius: 7px;
-  border: 1px solid #f16364;
-  font-weight: 700;
-  margin-bottom: 5%;
-}
-#closeShop {
-  background-color: #f16364;
-  color: white;
-  font-weight: 700;
-  margin-bottom: 5%;
-}
-
-#continueShop {
-  background-color: #fff;
-  color: #f16364;
 }
 
 #calcFrete {

@@ -1,0 +1,185 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+#first p:nth-child(2n) {
+  color: #4d9ecc;
+}
+
+#second div circle:nth-child(2n),
+.atv {
+  background-color: #4d9ecc;
+}
+
+#lineTime {
+  position: absolute;
+  background: #4d9ecc;
+  width: 40%;
+  height: 5px;
+  align-self: center;
+}
+
+.paymentDetails {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 3%;
+}
+
+.detailsItems {
+  display: flex;
+  flex-flow: column wrap;
+  width: 65%;
+}
+
+.addressItems,
+.paymentsItems,
+.typePayments {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.addressItems h2,
+.paymentsItems h2,
+.typePayments h2 {
+  font-size: 1.2em;
+  color: #414041;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+.rowAddress,
+.rowFrete,
+.rowType {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rowAddress button {
+  background-color: #fff;
+  border: 1px solid #414041;
+  color: #414041;
+  width: 23%;
+  cursor: pointer;
+}
+
+.address,
+.payment,
+.typeP {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  color: #414041;
+  border: 3px solid #c5c5c5;
+  border-radius: 14px;
+  margin-bottom: 3%;
+  background: url(../assets/icons/select.png) no-repeat;
+  background-position: 3% 50%;
+  cursor: pointer;
+}
+
+.payment {
+  height: 70px;
+}
+
+.infoAddress {
+  display: flex;
+  flex-flow: column;
+  margin-left: 10%;
+}
+
+.infoAddress strong {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 5%;
+}
+
+main input {
+  display: none;
+  background-position: 3% 50%;
+}
+
+.input:checked + .address,
+.inputPayment:checked + .payment {
+  border: 3px solid #4d9ecc;
+  background: url(../assets/icons/selected.png) no-repeat;
+  background-position: 3% 50%;
+}
+
+.infoPayment {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 1.2em;
+  text-align: end;
+}
+
+.type {
+  width: 30%;
+  text-align: left;
+  margin-left: 5%;
+}
+
+.priceSend {
+  font-weight: 600;
+  color: #414041;
+  width: 35%;
+}
+
+.inputTypeP:checked + .typeP {
+  border: 3px solid #4d9ecc;
+}
+
+.typeP {
+  background: url(../assets/icons/cartao.svg) no-repeat;
+  background-size: 5%;
+  background-position: 3% 50%;
+  height: 70px;
+}
+
+.infoPayment {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 1.2em;
+  text-align: end;
+}
+
+.infoType {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 1.2em;
+  text-align: end;
+}
+
+.infoType p {
+  margin-left: 5%;
+}
+
+.img-cards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.img-cards img {
+  margin-right: 10%;
+  width: 50%;
+  height: 8 0%;
+}
+
+#textPayment {
+  margin-top: 3%;
+  color: #707070;
+  font-size: 0.8em;
+  width: 45%;
+}
