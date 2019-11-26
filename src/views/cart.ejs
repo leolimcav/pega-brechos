@@ -10,6 +10,10 @@
     <link rel="stylesheet" type="text/css" href="./css/header.css" />
     <link rel="stylesheet" type="text/css" href="./css/footer.css" />
     <link rel="stylesheet" type="text/css" href="./css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="./css/timeline.css" />
+
+    <link rel="stylesheet" type="text/css" href="./css/resume.css" />
+
     <title>Pega!</title>
   </head>
   <body>
@@ -116,8 +120,15 @@
               <p>Total:</p>
               <p id="vTotal">R$ 50</p>
             </div>
-            <button id="closeShop">fechar compra</button>
-            <button id="continueShop">continuar comprando</button>
+            <button
+              id="closeShop"
+              onclick="javascript:location.href='/payment'"
+            >
+              fechar compra
+            </button>
+            <button id="continueShop" onclick="javascript:location.href='/'">
+              continuar comprando
+            </button>
           </div>
           <div id="calcFrete">
             <h2>Calcular frete</h2>

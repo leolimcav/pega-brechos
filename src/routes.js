@@ -20,6 +20,9 @@ routes.get("/product", (req, res) => {
 routes.get("/cart", (req, res) => {
   res.render("cart");
 });
+routes.get("/payment", (req, res) => {
+  res.render("payment");
+});
 
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);
