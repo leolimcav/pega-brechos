@@ -1,0 +1,88 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+
+#first p {
+  color: #4d9ecc;
+}
+
+#second div circle,
+.atv {
+  background-color: #4d9ecc;
+}
+
+#lineTime {
+  position: absolute;
+  background: #4d9ecc;
+  width: 79%;
+  height: 5px;
+  align-self: center;
+}
+
+.confirmPayment {
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+  margin-top: 3%;
+  color: #414041;
+}
+
+.confirmPayment h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+
+.infoPegue {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border: 2px solid #41404133;
+  border-radius: 14px;
+  padding: 30px 30px 0 30px;
+  margin-top: 3%;
+  text-align: right;
+  font-weight: 600;
+}
+
+.collumnPegue {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  height: 85px;
+}
+
+.collumnPegue p {
+  margin-bottom: 10%;
+}
+
+.rowButton {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+.rowButton button {
+  width: 20%;
+  margin-left: 2%;
+  margin-top: 3%;
+  cursor: pointer;
+}
+
+.bRed {
+  border: 1px solid #f16364;
+  background-color: #f16364;
+  color: white;
+  font-weight: 600;
+}
+
+.bWhite {
+  border: 1px solid #f16364;
+  background-color: white;
+  color: #f16364;
+  font-weight: 600;
+}

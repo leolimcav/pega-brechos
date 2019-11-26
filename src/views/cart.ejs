@@ -121,12 +121,17 @@
               <p id="vTotal">R$ 50</p>
             </div>
             <button
+              style="cursor: pointer;"
               id="closeShop"
               onclick="javascript:location.href='/payment'"
             >
               fechar compra
             </button>
-            <button id="continueShop" onclick="javascript:location.href='/'">
+            <button
+              style="cursor: pointer;"
+              id="continueShop"
+              onclick="javascript:location.href='/'"
+            >
               continuar comprando
             </button>
           </div>
@@ -134,7 +139,7 @@
             <h2>Calcular frete</h2>
             <div id="calculate">
               <input type="text" id="cep" name="cep" />
-              <button id="calc">calcular</button>
+              <button id="calc" style="cursor: pointer;">calcular</button>
               <a
                 href="http://www.buscacep.correios.com.br/sistemas/buscacep/"
                 target="_blank"

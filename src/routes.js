@@ -23,6 +23,9 @@ routes.get("/cart", (req, res) => {
 routes.get("/payment", (req, res) => {
   res.render("payment");
 });
+routes.get("/pegue", (req, res) => {
+  res.render("pegue");
+});
 
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);
