@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/timeline.css" />
+    <link rel="stylesheet" type="text/css" href="./css/pegue.css" />
+    <link rel="stylesheet" type="text/css" href="./css/resume.css" />
+
+    <title>Pega!</title>
+  </head>
+
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+    <main>
+      <div class="timeline">
+        <div id="first">
+          <p
+            onclick="javascript:location.href='/cart'"
+            style="cursor: pointer;"
+          >
+            Carrinho
+          </p>
+          <p
+            onclick="javascript:location.href='/payment'"
+            style="cursor: pointer;"
+          >
+            Pagamento e entrega
+          </p>
+          <p>Pegue!</p>
+        </div>
+        <div id="second">
+          <div class="circle atv"></div>
+          <div id="lineTime"></div>
+          <div class="circle atv"></div>
+          <div class="circle atv"></div>
+        </div>
+      </div>
+
+      <div class="confirmPayment">
+        <h1>Pedido confirmado!</h1>
+        <p>
+          Obrigado por comprar! Você receberá todas as informações via e-mail.
+        </p>
+
+        <div class="infoPegue">
+          <div class="collumnPegue">
+            <p>Pedido <span id="pedido">#324345</span></p>
+            <p>Valor total: <span id="valor">R$ 76</span></p>
+          </div>
+          <div class="collumnPegue">
+            <p>Entrega: <span id="pedido">Sedex (5 dias)</span></p>
+            <p>Forma de pagamento: <span id="valor">Paypal</span></p>
+          </div>
+        </div>
+        <div class="rowButton">
+          <button class="bRed" onclick="javascript:location.href='/myList'">
+            acompanhar pedido
+          </button>
+          <button class="bWhite" onclick="javascript:location.href='/'">
+            continuar pegando
+          </button>
+        </div>
+      </div>
+    </main>
+    <%- include('./partials/footer.ejs'); -%>
+  </body>
+</html>
