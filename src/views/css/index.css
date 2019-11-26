@@ -1,0 +1,300 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Gilroy";
+}
+main {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+#banner {
+  width: 100%;
+}
+#banner img {
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  #notice {
+    font-size: 0.8em;
+    padding: 2%;
+  }
+}
+@media screen and (min-width: 600px) {
+  #notice {
+    font-size: 1em;
+    padding: 2%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  #notice {
+    font-size: 150%;
+    padding: 2%;
+  }
+}
+
+#textbody {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+#notice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 70%;
+  background-color: #efea4e;
+  text-align: center;
+  color: #be5599;
+  font-weight: 500;
+}
+
+#notice strong {
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    height: 40%;
+  }
+  .items {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  .ad .content {
+    font-size: 1em;
+  }
+  .ad .content2 {
+    font-size: 1em;
+  }
+  .price {
+    font-size: 1.3em;
+  }
+  .name {
+    font-size: 1em;
+  }
+  .user {
+    font-size: 0.8em;
+  }
+  .inPromo {
+    width: 10%;
+    margin-left: 25%;
+  }
+}
+@media screen and (min-width: 600px) {
+  section {
+    height: 40%;
+  }
+  .ad .content {
+    font-size: 135%;
+  }
+  .ad .content2 {
+    font-size: 110%;
+  }
+  .items {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  .inPromo {
+    width: 10%;
+    margin-left: 15%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  section {
+    height: 50%;
+  }
+  .ad .content {
+    font-size: 135%;
+  }
+  .ad .content2 {
+    font-size: 110%;
+  }
+  .items {
+    flex-flow: row wrap;
+  }
+  .item {
+    width: 20%;
+  }
+
+  .inPromo {
+    width: 10%;
+    margin-left: 2%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  section {
+    height: 70%;
+  }
+  .price {
+    font-size: 1em;
+  }
+  .name {
+    font-size: 1em;
+  }
+  .user {
+    font-size: 0.7em;
+  }
+  .items {
+    direction: row;
+  }
+  .item {
+    width: 20%;
+  }
+
+  .inPromo {
+    width: 4%;
+    margin-left: 9%;
+  }
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.ad {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  color: #be5599;
+  font-weight: 400;
+  margin-bottom: 2%;
+}
+.ad strong {
+  font-weight: bold;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.item {
+  display: flex;
+  height: 75%;
+  flex-wrap: wrap;
+  direction: column;
+}
+.item img {
+  width: 100%;
+}
+.inPromo {
+  position: absolute;
+  margin-top: 1%;
+  padding: 9px;
+  border-radius: 5px;
+  background-color: #f16364;
+  font-size: 0.8em;
+  text-align: center;
+  color: white;
+  justify-self: end;
+}
+.info {
+  margin-top: 9%;
+  font-size: 85%;
+  font-weight: 500;
+}
+.info div {
+  padding-bottom: 6%;
+}
+.price {
+  color: #f16364;
+  font-weight: 400;
+}
+.name,
+.user {
+  color: #414041;
+  font-weight: bolder;
+}
+.user {
+  font-style: italic;
+}
+
+@media only screen and (max-width: 600px) {
+  #adpega {
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  #adpega {
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  #adpega {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .photogrid {
+    height: 85vh;
+  }
+  #adpega {
+    margin-top: 5%;
+    margin-bottom: 6%;
+  }
+}
+.pega {
+  display: flex;
+  flex-flow: column wrap;
+}
+.photogrid {
+  margin-top: 4%;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#breakpoint {
+  display: flex;
+  flex-flow: column wrap;
+  width: 70%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#breakpoint2 {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+#img1 {
+  width: 50%;
+}
+#img2 {
+  align-self: flex-end;
+  width: 90%;
+}
+#img3 {
+  width: 40%;
+}
+#img4 {
+  width: 40%;
+}
+.was {
+  color: #666666;
+  font-weight: 400;
+  text-decoration: line-through;
+  margin-right: 5%;
+}
+.row {
+  display: flex;
+}

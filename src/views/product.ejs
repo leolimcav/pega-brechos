@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/newsletter.css" />
+    <link rel="stylesheet" type="text/css" href="./css/product.css" />
+
+    <title>Pega!</title>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+    <main>
+      <div class="categories">
+        <ul id="path">
+          <li>página inicial</li>
+          <li>></li>
+          <li>categorias</li>
+          <li>></li>
+          <li>roupas</li>
+          <li>></li>
+          <li>regatas</li>
+        </ul>
+      </div>
+
+      <div id="aboutProduct">
+        <div id="product">
+          <div id="photoColumn">
+            <div class="photosProduct">
+              <div class="mySlide">
+                <img src="./assets/1.png" alt="" style="width:100%" />
+              </div>
+              <div class="mySlide">
+                <img src="./assets/3.png" alt="" style="width:100%" />
+              </div>
+              <div class="mySlide">
+                <img src="./assets/3.png" alt="" style="width:100%" />
+              </div>
+            </div>
+            <div class="rowSlide">
+              <div class="columnSlide">
+                <img
+                  src="./assets/1.png"
+                  alt=""
+                  class="demo cursor"
+                  onclick="currentSlide(1)"
+                  style="width:80%"
+                />
+              </div>
+              <div class="columnSlide">
+                <img
+                  src="./assets/3.png"
+                  alt=""
+                  class="demo cursor"
+                  onclick="currentSlide(2)"
+                  style="width:80%"
+                />
+              </div>
+              <div class="columnSlide">
+                <img
+                  src="./assets/3.png"
+                  alt=""
+                  class="demo cursor"
+                  onclick="currentSlide(3)"
+                  style="width:80%"
+                />
+              </div>
+            </div>
+          </div>
+          <div id="productInfo">
+            <h2>Informações do produto</h2>
+            <div id="description">
+              <p>
+                Regata básica em tecido poliéster<br />
+                tamanho M<br /><br />
+                Usada apenas 3 vezes
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="detailsProduct">
+          <h1 id="name">Regata feminina</h1>
+          <p id="status">Usada</p>
+          <div id="price">
+            <p id="was">R$ 40</p>
+            <p>R$ 30</p>
+            <img src="./assets/icons/etiqueta.svg" alt="" />
+            <p id="promo">20% off</p>
+          </div>
+          <div id="payments">
+            <img src="./assets/icons/cartao.svg" alt="" id="card" />
+            <img src="./assets/logopag/picpay.png" alt="" />
+            <img src="./assets/logopag/Paypal.png" alt="" />
+            <img src="./assets/logopag/visa.png" alt="" />
+            <img src="./assets/logopag/master.png" alt="" />
+            <p>em até 2x</p>
+          </div>
+          <div id="delivery">
+            <img src="./assets/icons/camisa.svg" alt="" id="clothe" />
+            <p>Retire pessoalmente<br />com o vendedor</p>
+          </div>
+          <div id="tryOn">
+            <img src="./assets/icons/cruzeta.svg" alt="" id="try" />
+            <p>Experimenteantes de<br />fechar a compra</p>
+          </div>
+          <button class="btn fullRed">pegar</button>
+          <button class="btn fullWhite">adicionar ao carrinho</button>
+          <div id="detailsInfo">
+            <div id="tam">
+              <p>tamanho:</p>
+              <div class="details fig tam">
+                M
+              </div>
+            </div>
+            <div id="marca">
+              <p>marca:</p>
+              <div class="details">
+                Genérica
+              </div>
+            </div>
+            <div id="color">
+              <p>cor:</p>
+              <div class="details">
+                Branca
+              </div>
+            </div>
+          </div>
+          <div id="owner">
+            <div id="ownerInfo">
+              <div id="ownerAbout">
+                <div id="ownerPhoto">
+                  <img src="./assets/1.png" alt="" />
+                </div>
+                <div id="ownerMore">
+                  <p id="nameOwner">Fuá Coletivo</p>
+                  <p id="location">Quixadá/CE</p>
+                </div>
+              </div>
+              <button class="follow">
+                <a href=""> ver vendedor</a>
+              </button>
+            </div>
+            <div id="ownerDetails">
+              <div id="rate">
+                <p>avaliação</p>
+                <div id="stars">
+                  <img src="./assets/icons/estrelaamarela.png" alt="" />
+                  <img src="./assets/icons/estrelaamarela.png" alt="" />
+                  <img src="./assets/icons/estrelaamarela.png" alt="" />
+                  <img src="./assets/icons/estrelaamarela.png" alt="" />
+                  <img src="./assets/icons/estrelaamarela.png" alt="" />
+                </div>
+              </div>
+              <div id="lastD">
+                <p>últimas entregas</p>
+                <div id="lastStatus">
+                  <img src="./assets/icons/circlegreen.png" alt="" />
+                  <img src="./assets/icons/circlegreen.png" alt="" />
+                  <img src="./assets/icons/circlegreen.png" alt="" />
+                </div>
+              </div>
+              <div id="since">
+                <p>vende no pega desde</p>
+                <div id="sinceDate">
+                  Setembro/2019
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faqProduct">
+        <h2>O que você deseja saber?</h2>
+        <div class="btnFaq">
+          <button>como recebo?</button>
+          <button>qual o tecido?</button>
+          <button>quanto tempo de uso?</button>
+        </div>
+        <h2>ou... faça uma pergunta!</h2>
+        <div class="btnFaq">
+          <input type="text" id="ask" />
+          <button id="askBtn">perguntar</button>
+        </div>
+        <div class="asks">
+          <div class="question">
+            <h3>Possui alguma rasura?</h3>
+            <p>A blusa está em perfeitas condições!</p>
+          </div>
+          <div class="question">
+            <h3>Como recebo a encomenda em mãos?</h3>
+            <p>
+              Basta finalizar a compra e entrar em contato com a gente pela
+              própria plataforma. Aguardamos sua compra!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <div class="ad">
+          <div class="content">
+            <strong>Quem pegou, pega: </strong>
+          </div>
+        </div>
+
+        <div class="items">
+          <div class="item">
+            <a href="">
+              <img src="./assets/item.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camiseta Laranja básica</div>
+                <div class="user">Brechó do Nathan</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/alice.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Regata branca</div>
+                <div class="user">Brechó da Alice</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camisa florida com botão</div>
+                <div class="user">Brechó do Rodrigues</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="inPromo"><p class="percent">20% off</p></div>
+            <a href="">
+              <img src="./assets/livia.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="was">R$ 20,00</div>
+                  <div class="price">R$ 15,00</div>
+                </div>
+                <div class="name">Ciganinha tomara que caia</div>
+                <div class="user">Fuá Coletivo</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include('./partials/footer.ejs'); -%>
+    <script src="./js/carousel.js"></script>
+  </body>
+</html>

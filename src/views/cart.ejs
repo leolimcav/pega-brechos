@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="./css/timeline.css" />
+
+    <link rel="stylesheet" type="text/css" href="./css/resume.css" />
+
+    <title>Pega!</title>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+    <main>
+      <div class="timeline">
+        <div id="first">
+          <p>Carrinho</p>
+          <p>Pagamento e entrega</p>
+          <p>Pegue!</p>
+        </div>
+        <div id="second">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="cart">
+        <div class="cartItems">
+          <div class="itemAd">
+            <h2 class="store">Vendido por Brexadas</h2>
+            <div class="productAd">
+              <div class="imageAnuncio">
+                <img src="assets/b_festa.png" alt="" />
+              </div>
+              <div class="productInfo">
+                <p class="titleAd">Regata feminina branca</p>
+
+                <div class="size">
+                  <p>tamanho:</p>
+                  <div class="circleAnuncio">
+                    <p id="size">M</p>
+                  </div>
+                </div>
+              </div>
+              <div class="rowAnuncio">
+                <p class="priceAd">R$ 10</p>
+                <div class="cancel" onclick="">
+                  <img src="assets/icons/cancel.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="productAd">
+              <div class="imageAnuncio">
+                <img src="assets/b_festa.png" alt="" />
+              </div>
+              <div class="productInfo">
+                <p class="titleAd">Regata feminina branca</p>
+
+                <div class="size">
+                  <p>tamanho:</p>
+                  <div class="circleAnuncio">
+                    <p id="size">M</p>
+                  </div>
+                </div>
+              </div>
+              <div class="rowAnuncio">
+                <p class="priceAd">R$ 10</p>
+                <div class="cancel" onclick="">
+                  <img src="assets/icons/cancel.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="itemAd">
+            <h2 class="store">Vendido por Fuá Coletivo</h2>
+            <div class="productAd">
+              <div class="imageAnuncio">
+                <img src="assets/b_festa.png" alt="" />
+              </div>
+              <div class="productInfo">
+                <p class="titleAd">Regata feminina branca</p>
+
+                <div class="size">
+                  <p>tamanho:</p>
+                  <div class="circleAnuncio">
+                    <p id="size">M</p>
+                  </div>
+                </div>
+              </div>
+              <div class="rowAnuncio">
+                <p class="priceAd">R$ 10</p>
+                <div class="cancel" onclick="">
+                  <img src="assets/icons/cancel.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="columnResume">
+          <div class="resume">
+            <h1>Resumo</h1>
+            <div id="lineResume"></div>
+            <div id="subtotal">
+              <p>Subtotal:</p>
+              <p id="vSub">R$ 30</p>
+            </div>
+            <div id="frete">
+              <p>Frete:</p>
+              <p id="vFrete">R$ 20</p>
+            </div>
+            <div id="total">
+              <p>Total:</p>
+              <p id="vTotal">R$ 50</p>
+            </div>
+            <button
+              id="closeShop"
+              onclick="javascript:location.href='/payment'"
+            >
+              fechar compra
+            </button>
+            <button id="continueShop" onclick="javascript:location.href='/'">
+              continuar comprando
+            </button>
+          </div>
+          <div id="calcFrete">
+            <h2>Calcular frete</h2>
+            <div id="calculate">
+              <input type="text" id="cep" name="cep" />
+              <button id="calc">calcular</button>
+              <a
+                href="http://www.buscacep.correios.com.br/sistemas/buscacep/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >não sei meu CEP</a
+              >
+            </div>
+            <div id="result">
+              <p>RÁPIDO - SEDEX - R$ 50</p>
+              <p>NORMAL - PAC - R$ 15</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section>
+        <div class="ad">
+          <div class="content">
+            <strong>Você pode querer também</strong>
+          </div>
+        </div>
+
+        <div class="items">
+          <div class="item">
+            <a href="">
+              <img src="./assets/item.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camiseta Laranja básica</div>
+                <div class="user">Brechó do Nathan</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/alice.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Regata branca</div>
+                <div class="user">Brechó da Alice</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camisa florida com botão</div>
+                <div class="user">Brechó do Rodrigues</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="inPromo"><p class="percent">20% off</p></div>
+            <a href="">
+              <img src="./assets/livia.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="was">R$ 20,00</div>
+                  <div class="price">R$ 15,00</div>
+                </div>
+                <div class="name">Ciganinha tomara que caia</div>
+                <div class="user">Fuá Coletivo</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include('./partials/footer.ejs'); -%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
+    <script src="./js/cep.js"></script>
+  </body>
+</html>

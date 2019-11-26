@@ -1,0 +1,105 @@
+@media only screen and (max-width: 600px) {
+  .newsletter {
+    font-size: 70%;
+  }
+  .newsForm {
+    font-size: 80%;
+  }
+  #idBtn {
+    font-size: 70%;
+    height: 20px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .newsletter {
+    font-size: 80%;
+  }
+  .newsForm {
+    font-size: 80%;
+  }
+  #idBtn {
+    font-size: 70%;
+    height: 22px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .newsletter {
+    font-size: 100%;
+  }
+  .newsForm {
+    font-size: 80%;
+  }
+  #idBtn {
+    font-size: 70%;
+    height: 30px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .newsletter {
+    font-size: 140%;
+  }
+  .newsForm {
+    font-size: 80%;
+  }
+  #idBtn {
+    font-size: 70%;
+    height: 40px;
+  }
+}
+
+.newsletter {
+  background-color: #a34590;
+  width: 70%;
+  height: 20%;
+  border-radius: 5px;
+  padding: 5%;
+  font-weight: 400;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+
+.texts div:first-child {
+  margin-bottom: 10%;
+}
+.newsletter strong {
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  width: 45%;
+}
+.newsForm {
+  width: 100%;
+  border-radius: 5px;
+  border-color: white;
+  color: white;
+  border-style: solid;
+  background-color: transparent;
+  padding: 2%;
+  font-weight: 500;
+  margin-bottom: 3%;
+}
+#idEmail {
+  width: 70%;
+}
+#idBtn {
+  width: 22%;
+  border-radius: 5px;
+  background-color: white;
+  color: #a34590;
+  border-style: none;
+  font-weight: 700;
+}
+.newsForm::placeholder {
+  color: rgba(255, 255, 255, 0.541);
+}
+.wrap {
+  display: flex;
+  width: 105%;
+  justify-content: space-between;
+}

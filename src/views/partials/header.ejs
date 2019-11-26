@@ -1,0 +1,73 @@
+    <nav class="mySideNav" id="mySideNav">
+        <div class="content"></div>
+        <ul>
+          <li>
+            <strong id="allcategories">
+
+              Todas
+              as categorias
+              </strong>
+          </li>
+          <li><a href="">Homens</a></li>
+          <li><a href="">Mulheres</a></li>
+          <li><a href="">Roupas</a></li>
+          <li><a href="">Acessórios</a></li>
+          <li><a href="">Calçados</a></li>
+          <li id="content-separated"><a href=""><strong>Ofertas do dia</strong></a></li>
+          <li><strong><a href="">Anuncie</strong></a></li>
+        </ul>
+        <span class="closeBtn" id="close" style="color: white; font-size: 50px;" onclick=closeNav()>&times;</span></strong>
+      </nav> 
+    <header>
+        
+        <img src="./assets/icons/menu.svg" alt="Menu todas as categorias"  id="hamburguer" onclick="openNav()"/> 
+        
+      <a href="/"><img src="./assets/logo/logoazul.svg" alt="Logo do Pega!" id="logo" /></a>
+      <div id="search">
+        <input
+          type="text"
+          name="idSearch"
+          id="idSearch"
+          placeholder="Procure aqui :)"
+        />
+
+        <button id="btnSearch" style="cursor: pointer;">
+          <img src="./assets/icons/search.svg" alt="Pesquisar" />
+        </button>
+      </div>
+      <div id="user">
+        Seja bem-vindo!
+        <br />
+        <a href=""><strong>Cadastre-se agora.</strong></a>
+      </div>
+      <div id="cart">
+        <p id="cartNumber">3</p>
+        <a href="/cart"><img src="./assets/icons/cart.svg" alt="Carrinho de compras" id="carrinho"/></a>
+      </div>
+      
+    <nav class="myNav" id="myNav">
+      <div class="content"></div>
+      <ul>
+        <li>
+          <strong id="allcategories">
+            <img src="./assets/icons/menu.svg" alt="Menu todas as categorias" /> 
+            Todas
+            as categorias
+            <img
+              src="./assets/icons/seta-down.svg"
+              alt="Abrir menu todas as categorias"
+               id="arrow"/></strong>
+        </li>
+        <li><a href="">Feminino</a></li>
+        <li><a href="">Masculino</a></li>
+        <li><a href="">Roupas</a></li>
+        <li><a href="">Acessórios</a></li>
+        <li><a href="">Calçados</a></li>
+        <li id="content-separated"><a href=""><strong>Ofertas do dia</strong></a></li>
+        <li><strong><a href="">Anuncie</strong></a></li>
+      </ul>
+    </nav>
+</header>
+<div id="line"></div>
+
+    <script src="./js/openMenu.js"></script>
