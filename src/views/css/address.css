@@ -1,0 +1,45 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+
+.addressList {
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+}
+
+.address {
+  border: 3px solid #4d9ecc;
+  border-radius: 14px;
+  padding: 25px 20px 0 20px;
+  margin-top: 5%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  color: #414041;
+}
+
+.columnAddress {
+  display: flex;
+  flex-flow: column;
+}
+.columnAddress p {
+  margin-bottom: 10%;
+}
+
+.columnAddress strong {
+  font-weight: 600;
+}
+
+#rowAddress {
+  width: 10%;
+}
+#rowAddress img {
+  margin-top: 15%;
+  margin-right: 10%;
+  cursor: pointer;
+}
