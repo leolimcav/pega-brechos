@@ -26,6 +26,9 @@ routes.get("/payment", (req, res) => {
 routes.get("/pegue", (req, res) => {
   res.render("pegue");
 });
+routes.get("/login", (req, res) => {
+  res.render("login");
+});
 
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);
