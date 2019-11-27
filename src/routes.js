@@ -33,6 +33,15 @@ routes.get("/login", (req, res) => {
 routes.get("/search", (req, res) => {
   res.render("search");
 });
+routes.get("/address", (req, res) => {
+  res.render("address");
+});
+routes.get("/addAddress", (req, res) => {
+  res.render("addAddress");
+});
+routes.get("/myOrders", (req, res) => {
+  res.render("myOrders");
+});
 
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);

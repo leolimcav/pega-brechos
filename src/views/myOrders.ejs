@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/titlePage.css" />
+
+    <link rel="stylesheet" type="text/css" href="./css/myOrders.css" />
+
+    <title>Pega!</title>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+
+    <main>
+      <div class="titlePage">
+        <h1>Meus pedidos</h1>
+      </div>
+
+      <div class="loja">
+        <h2>Vendidor por Fuá Coletivo</h2>
+
+        <div class="product">
+          <div class="imgProduct">
+            <img src="./assets/alice.png" alt="" />
+          </div>
+          <div class="columnDetails">
+            <p class="itemName">Regata feminina branca</p>
+            <p class="itemPrice">R$ 10</p>
+            <p>status da encomenda: entregue</p>
+          </div>
+          <div class="columnRater">
+            <p>avalie a venda</p>
+            <div class="rowRater">
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="imgProduct">
+            <img src="./assets/alice.png" alt="" />
+          </div>
+          <div class="columnDetails">
+            <p class="itemName">Regata feminina branca</p>
+            <p class="itemPrice">R$ 10</p>
+            <p>status da encomenda: entregue</p>
+          </div>
+          <div class="columnRater">
+            <p>avalie a venda</p>
+            <div class="rowRater">
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+              <img src="./assets/icons/estrelaamarela.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loja">
+        <h2>Vendidor por Fuá Coletivo</h2>
+
+        <div class="product">
+          <div class="imgProduct">
+            <img src="./assets/alice.png" alt="" />
+          </div>
+          <div class="columnDetails">
+            <p class="itemName">Regata feminina branca</p>
+            <p class="itemPrice">R$ 10</p>
+            <p>status da encomenda: entregue</p>
+          </div>
+          <div class="columnRater">
+            <p>
+              avalie a venda<br />
+              quando for <br />entregue
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs'); -%>
+  </body>
+</html>
