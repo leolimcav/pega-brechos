@@ -30,6 +30,10 @@ routes.get("/login", (req, res) => {
   res.render("login");
 });
 
+routes.get("/search", (req, res) => {
+  res.render("search");
+});
+
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);
 routes.get("/users/:userid", UsuarioController.findById);

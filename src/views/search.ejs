@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <link rel="stylesheet" type="text/css" href="./css/header.css" />
     <link rel="stylesheet" type="text/css" href="./css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="./css/newsletter.css" />
+    <link rel="stylesheet" type="text/css" href="./css/search.css" />
 
     <title>Pega!</title>
   </head>
@@ -21,23 +21,128 @@
         <img src="./assets/banner.png" alt="Anúncio Pega!" />
       </div>
 
-      <div id="textbody">
-        <div id="notice">
-          <p>
-            <strong>Pegue</strong> no site, receba em <strong>casa</strong> ou
-            <strong>pegue em mãos =)</strong>
-          </p>
+      <div class="filtro">
+        <div id="rowFiltro">
+          <div id="lineFilter"></div>
+          <p>Filtro(s) (<span id="filterNumber">0</span>)</p>
+          <div id="lineFilter2"></div>
+        </div>
+        <div id="filter">
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('condicao')"
+            onmouseout="fecharSubMenu('condicao')"
+          >
+            <li>
+              Condição
+              <img src="assets/icons/seta-down.svg" alt="" />
+              <ul
+                class="menudropdown"
+                onmouseover="abrirSubMenu('condicao')"
+                onmouseout="fecharSubMenu('condicao')"
+                id="condicao"
+              >
+                <li>Novo</li>
+                <li>Usado</li>
+              </ul>
+            </li>
+          </ul>
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('local')"
+            onmouseout="fecharSubMenu('local')"
+          >
+            <li>
+              Localidade
+              <img src="assets/icons/seta-down.svg" alt="" />
+              <ul
+                class="menudropdown"
+                id="local"
+                onmouseover="abrirSubMenu('local')"
+                onmouseout="fecharSubMenu('local')"
+              >
+                <li>Quixadá</li>
+                <li>Quixeramobim</li>
+                <li>Banabuiú</li>
+                <li>Morada Nova</li>
+                <li>Solonópole</li>
+              </ul>
+            </li>
+          </ul>
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('preco')"
+            onmouseout="fecharSubMenu('preco')"
+          >
+            <li>
+              Preço
+              <img src="assets/icons/seta-down.svg" alt="" />
+              <ul
+                class="menudropdown"
+                onmouseover="abrirSubMenu('preco')"
+                onmouseout="fecharSubMenu('preco')"
+                id="preco"
+              >
+                <li>R$ 1 ~ R$ 5</li>
+                <li>R$ 5 ~ R$ 15</li>
+                <li>R$ 15 ~ R$ 25</li>
+                <li>R$ 25 ~ R$ 35</li>
+                <li>R$ 35 ~ R$ 45</li>
+                <li>R$ 45 ~ R$ 55</li>
+                <li>R$ 55+</li>
+              </ul>
+            </li>
+          </ul>
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('tam')"
+            onmouseout="fecharSubMenu('tam')"
+          >
+            <li>
+              Tamanho
+              <img src="assets/icons/seta-down.svg" alt="" />
+              <ul
+                class="menudropdown"
+                onmouseover="abrirSubMenu('tam')"
+                onmouseout="fecharSubMenu('tam')"
+                id="tam"
+              >
+                <li>PP</li>
+                <li>P</li>
+                <li>M</li>
+                <li>G</li>
+                <li>GG</li>
+                <li>XG</li>
+                <li>XGG</li>
+              </ul>
+            </li>
+          </ul>
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('cat')"
+            onmouseout="fecharSubMenu('cat')"
+          >
+            <li>
+              Categoria
+              <img src="assets/icons/seta-down.svg" alt="" />
+              <ul
+                class="menudropdown"
+                onmouseover="abrirSubMenu('cat')"
+                onmouseout="fecharSubMenu('cat')"
+                id="cat"
+              >
+                <li>Feminino</li>
+                <li>Masculino</li>
+                <li>Roupas</li>
+                <li>Acessórios</li>
+                <li>Calçados</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
 
       <section>
-        <div class="ad">
-          <div class="content">
-            Ofertas selecionadas <strong>para você!</strong>
-          </div>
-          <div class="content2">ver mais ></div>
-        </div>
-
         <div class="items">
           <div class="item">
             <a href="">
@@ -95,95 +200,7 @@
         </div>
       </section>
 
-      <section id="adpega">
-        <div class="ad pega">
-          <div class="content">Encontre seu <strong>estilo</strong></div>
-
-          <div class="photogrid">
-            <img src="./assets/b_modafeminina.png" alt="" id="img1" />
-            <div id="breakpoint">
-              <img src="./assets/b_parahomens.png" alt="" id="img2" />
-              <div id="breakpoint2">
-                <img src="./assets/b_casual.png" alt="" id="img3" />
-                <img src="./assets/b_festa.png" alt="" id="img4" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section>
-        <div class="ad">
-          <div class="content">
-            <strong>Quem pegou, pega: </strong>
-          </div>
-        </div>
-
-        <div class="items">
-          <div class="item">
-            <a href="">
-              <img src="./assets/item.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camiseta Laranja básica</div>
-                <div class="user">Brechó do Nathan</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <a href="">
-              <img src="./assets/alice.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Regata branca</div>
-                <div class="user">Brechó da Alice</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <a href="">
-              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camisa florida com botão</div>
-                <div class="user">Brechó do Rodrigues</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="inPromo"><p class="percent">20% off</p></div>
-            <a href="">
-              <img src="./assets/livia.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="was">R$ 20,00</div>
-                  <div class="price">R$ 15,00</div>
-                </div>
-                <div class="name">Ciganinha tomara que caia</div>
-                <div class="user">Fuá Coletivo</div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-      <section>
-        <%- include('./partials/newsletter.ejs'); -%>
-      </section>
-
-      <section>
-        <div class="ad">
-          <div class="content">O que tá <strong>pegando!</strong></div>
-        </div>
-
         <div class="items">
           <div class="item">
             <a href="">
@@ -241,74 +258,124 @@
         </div>
       </section>
 
-      <div id="textbody">
-        <div id="notice">
-          <p><strong>Seu</strong> estilo <strong>meu</strong> estilo. ;)</p>
+      <section>
+        <div class="items">
+          <div class="item">
+            <a href="">
+              <img src="./assets/item.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camiseta Laranja básica</div>
+                <div class="user">Brechó do Nathan</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/alice.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Regata branca</div>
+                <div class="user">Brechó da Alice</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camisa florida com botão</div>
+                <div class="user">Brechó do Rodrigues</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="inPromo"><p class="percent">20% off</p></div>
+            <a href="">
+              <img src="./assets/livia.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="was">R$ 20,00</div>
+                  <div class="price">R$ 15,00</div>
+                </div>
+                <div class="name">Ciganinha tomara que caia</div>
+                <div class="user">Fuá Coletivo</div>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <div class="items">
+          <div class="item">
+            <a href="">
+              <img src="./assets/item.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camiseta Laranja básica</div>
+                <div class="user">Brechó do Nathan</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/alice.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Regata branca</div>
+                <div class="user">Brechó da Alice</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camisa florida com botão</div>
+                <div class="user">Brechó do Rodrigues</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="inPromo"><p class="percent">20% off</p></div>
+            <a href="">
+              <img src="./assets/livia.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="was">R$ 20,00</div>
+                  <div class="price">R$ 15,00</div>
+                </div>
+                <div class="name">Ciganinha tomara que caia</div>
+                <div class="user">Fuá Coletivo</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <%- include('./partials/footer.ejs'); -%>
     </main>
-
-    <section>
-      <div class="ad">
-        <div class="content"><strong>Pega</strong>qui!</div>
-      </div>
-
-      <div class="items">
-        <div class="item">
-          <a href="">
-            <img src="./assets/item.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="price">R$ 20,00</div>
-              </div>
-              <div class="name">Camiseta Laranja básica</div>
-              <div class="user">Brechó do Nathan</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="item">
-          <a href="">
-            <img src="./assets/alice.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="price">R$ 20,00</div>
-              </div>
-              <div class="name">Regata branca</div>
-              <div class="user">Brechó da Alice</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="item">
-          <a href="">
-            <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="price">R$ 20,00</div>
-              </div>
-              <div class="name">Camisa florida com botão</div>
-              <div class="user">Brechó do Rodrigues</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="item">
-          <div class="inPromo"><p class="percent">20% off</p></div>
-          <a href="">
-            <img src="./assets/livia.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="was">R$ 20,00</div>
-                <div class="price">R$ 15,00</div>
-              </div>
-              <div class="name">Ciganinha tomara que caia</div>
-              <div class="user">Fuá Coletivo</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-    <%- include('./partials/footer.ejs'); -%>
+    <script src="./js/openMenu.js"></script>
   </body>
 </html>

@@ -23,3 +23,12 @@ function openSubmenu() {
 function closeSubmenu() {
   document.getElementById("submenuUser").style.display = "none";
 }
+
+function abrirSubMenu(id) {
+  document.getElementById(id).style.display = "block";
+  document.getElementById(id).style.display = "flex";
+}
+
+function fecharSubMenu(id) {
+  document.getElementById(id).style.display = "none";
+}
