@@ -130,6 +130,7 @@ form input::-webkit-input-placeholder {
 
 #pswd {
   display: flex;
+  width: 80%;
 }
 
 #row {

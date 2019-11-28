@@ -1,42 +1,91 @@
-function addUser() {
-  // const nome = document.getElementById("nome").value;
-  // const email = document.getElementById("email").value;
-  // const senha = document.getElementById("pwd").value;
-  // const cpf = document.getElementById("cpf").value;
-  // const rg = document.getElementById("rg").value;
-  // const data_nascimento = document.getElementById("date").value;
-  // const sexo = document.getElementsByName("sex");
-  // const telefone = document.getElementById("telefone");
-  // if (sexo.value === "") {
-  //   sexo.value = "null";
-  // }
-  // if (telefone.value === "") {
-  //   telefone.value = "null";
-  // }
-  $.ajax("/users/1", {
-    method: "GET",
-    async: true
-  }).then(res => {
+$("#cadastrar").submit(function(event) {
+  // Stop form from submitting normally
+  event.preventDefault();
+
+  // Get some values from elements on the page:
+  const $form = $(this);
+  const nome = $form.find("input[id='nome']");
+  const email = $form.find("input[id='email']");
+  const senha = $form.find("input[id='senha']");
+  const cpf = $form.find("input[id='cpf']");
+  const rg = $form.find("input[id='rg']");
+  const date = $form.find("input[id='date']");
+  const sex = $form.find("input[name='sex']");
+  const telefone = $form.find("input[id='telefone']");
+
+  console.log(
+    nome.value,
+    email.value,
+    senha.value,
+    cpf.value,
+    rg.value,
+    date.value,
+    sex.value,
+    telefone.value
+  );
+
+  // Send the data using post
+  const posting = $.post("/users", {
+    nome: nome.value,
+    email: email.value,
+    senha: senha.value,
+    telefone: telefone.value,
+    rg: rg.value,
+    cpf: cpf.value,
+    date: date.value,
+    sex: sex.value
+  });
+
+  // Put the results in a div
+  posting.done(function(res) {
     console.log(res);
   });
-  // $.ajax({
-  //   method: "POST",
-  //   url: "/users",
-  //   data: {
-  //     nome,
-  //     email,
-  //     senha,
-  //     telefone,
-  //     rg,
-  //     cpf,
-  //     data_nascimento,
-  //     sexo
-  //   },
-  //   async: true
-  // }).then(res => {
-  //   console.log(res);
-  // });
-}
+});
+
+// function addUser() {
+//   const nome = document.getElementById("nome");
+//   const email = document.getElementById("email");
+//   const senha = document.getElementById("pwd");
+//   const cpf = document.getElementById("cpf");
+//   const rg = document.getElementById("rg");
+//   const data_nascimento = document.getElementById("date");
+//   const sexo = document.getElementsByName("sex");
+//   const telefone = document.getElementById("telefone");
+//   if (sexo.value === "") {
+//     sexo.value = "null";
+//   }
+//   if (telefone.value === "") {
+//     telefone.value = "null";
+//   }
+
+//   $.ajax({
+//     method: "POST",
+//     url: "/users",
+//     async: true,
+//     data: {
+//       nome: nome.value,
+//       email: email.value,
+//       senha: senha.value,
+//       telefone: telefone.value,
+//       rg: rg.value,
+//       cpf: cpf.value,
+//       data_nascimento: data_nascimento.value,
+//       sexo: sexo.value
+//     }
+//   }).then(res => {
+//     console.log(res);
+//   });
+//   // console.log(
+//   //   nome.value,
+//   //   email.value,
+//   //   senha.value,
+//   //   telefone.value,
+//   //   rg.value,
+//   //   cpf.value,
+//   //   data_nascimento.value,
+//   //   sexo.value
+//   // );
+// }
 
 // class Usuario {
 //   constructor(
