@@ -15,6 +15,24 @@ module.exports = {
     return res.json(endereco);
   },
 
+  async findOne(req, res) {
+    const { address_id, user_id } = req.params;
+    const usuario = await Usuario.findById(user_id);
+    const end = await Endereco.findById(user_id, address_id);
+
+    if (usuario.length === 0) {
+      return res.json({ msg: "Usuário não encontrado!" });
+    }
+
+    if (end.length === 0) {
+      return res.json({ msg: "Endereço não encontrado!" });
+    }
+
+    const endereco = await Endereco.findById(user_id, address_id);
+
+    return res.json(endereco);
+  },
+
   async store(req, res) {
     const { user_id } = req.params;
     const { cep, rua, bairro, cidade, uf, numero, complemento } = req.body;
