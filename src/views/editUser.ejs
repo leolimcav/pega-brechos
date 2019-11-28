@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/editUser.css" />
+
+    <title>Pega!</title>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+
+    <main>
+      <div id="rowFiltro">
+        <div id="lineFilter"></div>
+        <p>Editar</p>
+        <div id="lineFilter2"></div>
+      </div>
+
+      <div class="sign">
+        <h1>Dados pessoais</h1>
+        <p>
+          Campos obrigatórios são marcados com ( <span class="red">*</span> )
+        </p>
+        <form action="POST">
+          <div class="columnForm">
+            <div>
+              <label>Nome:</label>
+              <input
+                type="text"
+                name="nome"
+                id="nome"
+                placeholder="Prazer, qual seu nome?"
+              />
+            </div>
+            <div>
+              <label>CPF:</label>
+              <input
+                type="text"
+                name="cpf"
+                id="cpf"
+                placeholder="xxx.xxx.xxx-xx"
+                maxlength="15"
+              />
+            </div>
+            <div>
+              <label>RG:</label>
+              <input
+                type="text"
+                name="rg"
+                id="rg"
+                placeholder="xxxxxxxxxx-x"
+                maxlength="12"
+              />
+            </div>
+
+            <div>
+              <label>Data de <br />nascimento:</label>
+              <input
+                type="date"
+                name="date"
+                id="date"
+                style="text-transform: uppercase; font-weight: 600; color:#c8c8c8"
+              />
+            </div>
+
+            <div>
+              <label>Telefone: </label>
+              <input type="text" name="telefone" id="telefone" maxlength="13" />
+            </div>
+
+            <div>
+              <label for="sex">Sexo:</label>
+              <input type="radio" name="sex" id="fem" value="f" />
+              Feminino
+              <input type="radio" name="sex" id="masc" value="m" />
+              Masculino
+              <input type="radio" name="sex" id="outro" value="o" />
+              Outro
+            </div>
+          </div>
+          <div id="divise"></div>
+
+          <div class="columnForm">
+            <div>
+              <label>Trocar email: </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="pega@exemplo.com"
+              />
+            </div>
+
+            <div id="row">
+              <label>Nova senha: </label>
+              <div class="pswd">
+                <input type="password" name="newPwd" id="newPwd" />
+                <img
+                  src="./assets/icons/olhoaberto.svg"
+                  id="newOlho"
+                  alt=""
+                  onclick="showPwd('newPwd','newOlho')"
+                />
+              </div>
+            </div>
+            <div id="row">
+              <label>Senha atual: <span class="red">*</span></label>
+              <div class="pswd">
+                <input type="password" name="pwd" id="pwd" />
+                <img
+                  src="./assets/icons/olhoaberto.svg"
+                  id="olho"
+                  alt=""
+                  onclick="showPwd('pwd','olho')"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <button onclick="javascript:location.href='/'">Atualizar</button>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs'); -%>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
+    <script src="./js/cpf.js"></script>
+    <script src="./js/pwd.js"></script>
+  </body>
+</html>

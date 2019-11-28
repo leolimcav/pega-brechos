@@ -45,7 +45,12 @@ routes.get("/editAddress", (req, res) => {
 routes.get("/myOrders", (req, res) => {
   res.render("myOrders");
 });
-
+routes.get("/signup", (req, res) => {
+  res.render("signup");
+});
+routes.get("/editUser", (req, res) => {
+  res.render("editUser");
+});
 // Rotas de Usuario
 routes.post("/users", UsuarioController.store);
 routes.get("/users/:userid", UsuarioController.findById);
