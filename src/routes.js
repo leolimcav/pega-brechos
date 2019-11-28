@@ -1,5 +1,6 @@
 const express = require("express");
 const UsuarioController = require("./controllers/UsuarioController");
+const EnderecoController = require("./controllers/EnderecoController");
 const ProdutoController = require("./controllers/ProdutoController");
 const PedidoController = require("./controllers/PedidoController");
 const CarrinhoController = require("./controllers/CarrinhoController");
@@ -49,6 +50,15 @@ routes.get("/users/:user_id", UsuarioController.index);
 routes.post("/users", UsuarioController.store);
 routes.put("/users/:user_id", UsuarioController.update);
 routes.delete("/users/:user_id", UsuarioController.destroy);
+
+// Rotas de Endereço
+routes.get("/address/users/:user_id", EnderecoController.index);
+routes.post("/address/users/:user_id", EnderecoController.store);
+routes.put("/address/:address_id/users/:user_id", EnderecoController.update);
+routes.delete(
+  "/address/:address_id/users/:user_id",
+  EnderecoController.destroy
+);
 
 // Rotas de Produto
 routes.get("/products/:product_id", ProdutoController.index);

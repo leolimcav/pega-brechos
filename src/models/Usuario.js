@@ -2,6 +2,7 @@ const pool = require("../config/database");
 
 class Usuario {
   static async create(data) {
+    let msg;
     try {
       const {
         nome,
@@ -24,9 +25,12 @@ class Usuario {
       return usuario;
     } catch (err) {
       console.log(err);
+      if (err.code === "23505" || err.code === "23502") {
+        msg = "Email/Senha inválidos!";
+      }
     }
 
-    return null;
+    return msg;
   }
 
   static async findAll() {
