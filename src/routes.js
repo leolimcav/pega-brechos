@@ -5,6 +5,7 @@ const ProdutoController = require("./controllers/ProdutoController");
 const PedidoController = require("./controllers/PedidoController");
 const CarrinhoController = require("./controllers/CarrinhoController");
 const SearchController = require("./controllers/SearchController");
+const AnuncioController = require("./controllers/AnuncioController");
 
 const routes = express.Router();
 
@@ -97,4 +98,16 @@ routes.delete("/cart/:order_id/:product_id", CarrinhoController.destroy);
 // Rotas de Busca
 routes.get("/search/users", SearchController.findUser);
 routes.get("/search/products", SearchController.findProduct);
+
+// Rotas de Anuncio
+routes.get("/announcements/users/:user_id", AnuncioController.index);
+routes.get(
+  "/announcements/:poster_id/users/:user_id",
+  AnuncioController.findOne
+);
+routes.post(
+  "/announcements/products/:product_id/users/:user_id",
+  AnuncioController.store
+);
+routes.put("/announcements/:poster_id/users", AnuncioController.update);
 module.exports = routes;

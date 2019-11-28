@@ -26,7 +26,7 @@ module.exports = {
 
   async store(req, res) {
     const { user_id } = req.params;
-    const { nome, descricao, valor, categoria, tamanho, estado } = req.body;
+    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
     const usuario = await Usuario.findById(user_id);
 
     if (usuario.length === 0) {
@@ -34,7 +34,7 @@ module.exports = {
     }
 
     const produto = await Produto.create(
-      { nome, descricao, valor, categoria, tamanho, estado },
+      { titulo, descricao, valor, categoria, tamanho, estado },
       user_id
     );
 
@@ -43,9 +43,9 @@ module.exports = {
 
   async update(req, res) {
     const { product_id } = req.params;
-    const { nome, descricao, valor, categoria, tamanho, estado } = req.body;
+    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
     const produto = await Produto.findByIdAndUpdate(product_id, {
-      nome,
+      titulo,
       descricao,
       valor,
       categoria,
