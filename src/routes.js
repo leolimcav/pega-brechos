@@ -60,6 +60,7 @@ routes.delete("/users/:user_id", UsuarioController.destroy);
 
 // Rotas de Endereço
 routes.get("/address/users/:user_id", EnderecoController.index);
+routes.get("/address/:address_id/users/:user_id", EnderecoController.findOne);
 routes.post("/address/users/:user_id", EnderecoController.store);
 routes.put("/address/:address_id/users/:user_id", EnderecoController.update);
 routes.delete(
