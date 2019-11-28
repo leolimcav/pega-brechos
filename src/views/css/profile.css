@@ -1,0 +1,82 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+  margin-top: 3%;
+}
+#barra {
+  display: flex;
+  flex-flow: column;
+}
+
+#roxo {
+  width: 100%;
+  height: 120px;
+  background-color: #be5599;
+}
+
+#foto {
+  width: 10%;
+  position: absolute;
+  margin-top: 3%;
+  margin-left: 3%;
+}
+#foto img {
+  width: 100%;
+  border-radius: 100%;
+  border: 4px solid #fff;
+  box-shadow: 1px 2px 5px hsl(0, 0%, 54%);
+}
+
+#rowUser {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 8%;
+  border-bottom: 2px solid #c8c8c8;
+}
+#rowUser div {
+  margin-bottom: 1%;
+}
+#rowUser div:first-child {
+  display: flex;
+  flex-flow: row;
+  width: 80%;
+  align-self: flex-start;
+}
+
+#rowUser h2 {
+  color: #be5599;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#rowUser p {
+  font-size: 1.1em;
+  margin-left: 10%;
+  font-weight: 600;
+}
+
+#rowUser p:last-child {
+  color: #c8c8c8;
+  cursor: default;
+}
+
+#rowInfo {
+  margin-top: 1%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  width: 22%;
+  color: #707070;
+  font-weight: 600;
+}

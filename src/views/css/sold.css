@@ -1,0 +1,11 @@
+.item img {
+  opacity: 0.5;
+}
+
+#rowUser p {
+  color: #c8c8c8;
+}
+
+#rowUser p:last-child {
+  color: black;
+}

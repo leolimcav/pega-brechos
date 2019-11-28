@@ -49,6 +49,15 @@ routes.get("/signup", (req, res) => {
 routes.get("/editUser", (req, res) => {
   res.render("editUser");
 });
+routes.get("/profile", (req, res) => {
+  res.render("profile");
+});
+routes.get("/myprofile", (req, res) => {
+  res.render("myprofile");
+});
+routes.get("/sold", (req, res) => {
+  res.render(`sold`);
+});
 
 // ----- Rotas do Backend -----
 
