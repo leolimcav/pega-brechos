@@ -10,7 +10,7 @@ module.exports = {
       return res.json({ msg: "Usuário não encontrado!" });
     }
 
-    return res.json(usuario);
+    return res.json(usuario[0]);
   },
 
   async store(req, res) {
@@ -35,7 +35,7 @@ module.exports = {
       data_nascimento,
       sexo
     });
-    return res.json(usuario);
+    return res.json(usuario[0]);
   },
 
   async update(req, res) {
@@ -76,7 +76,7 @@ module.exports = {
     if (usuario === null) {
       return res.json(user);
     }
-    return res.json(usuario);
+    return res.json(usuario[0]);
   },
 
   async destroy(req, res) {
@@ -94,9 +94,9 @@ module.exports = {
     }
 
     if (usuario !== null) {
-      return res.json(usuario);
+      return res.json(usuario[0]);
     }
 
-    return user;
+    return user[0];
   }
 };
