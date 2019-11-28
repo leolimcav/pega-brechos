@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+
+    <title>Pega!</title>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+    <main>
+      <div class="identific">
+        <h1>Identificação</h1>
+        <div id="lineId"></div>
+
+        <div class="rowId">
+          <div class="columnId">
+            <h3>Crie uma conta</h3>
+
+            <div id="rowEmail">
+              <label for="email">Email:</label>
+              <div id="columnEmail">
+                <input type="email" id="emailCreate" />
+                <button
+                  class="roxo"
+                  onclick="javascript:location.href='/signup'"
+                >
+                  continuar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="divise"></div>
+
+          <div class="columnId">
+            <h3>Já tem cadastro? Entra aí</h3>
+
+            <div class="rowLogin">
+              <label for="email">Email:</label>
+              <input type="email" id="emailLogin" />
+            </div>
+            <div class="rowLogin">
+              <label for="password" id="password">Senha: </label>
+              <div id="columnLogin">
+                <input type="password" id="pwd" />
+                <button class="roxo">entrar</button>
+                <p><a href="">esqueci a senha</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs'); -%>
+  </body>
+</html>

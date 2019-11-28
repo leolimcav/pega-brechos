@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/addAddress.css" />
+
+    <title>Pega!</title>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+
+    <main>
+      <div id="rowFiltro">
+        <div id="lineFilter"></div>
+        <p>Editar</p>
+        <div id="lineFilter2"></div>
+      </div>
+
+      <div class="addAddress">
+        <h1>Endereço</h1>
+        <p>
+          Campos obrigatórios são marcados com ( <span class="red">*</span> )
+        </p>
+        <form action="POST">
+          <label>CEP: <span class="red">*</span></label>
+          <input
+            type="text"
+            name="cep"
+            id="cep"
+            maxlength="9"
+            size="10"
+            placeholder="XXXXX-XXX"
+          />
+
+          <label>Cidade: <span class="red">*</span></label>
+          <input
+            type="text"
+            name="cidade"
+            id="cidade"
+            placeholder="Ex.: Quixadá"
+          />
+
+          <label>UF: <span class="red">*</span></label>
+          <input type="text" name="uf" id="uf" maxlength="2" size="2" />
+          <label>Rua: <span class="red">*</span></label>
+          <input
+            type="text"
+            name="rua"
+            id="rua"
+            placeholder="nome da sua rua"
+          />
+          <label> Número: <span class="red">*</span></label>
+          <input type="text" name="number" id="number" />
+
+          <label>Bairro: <span class="red">*</span></label>
+          <input type="text" name="bairro" id="bairro" />
+
+          <label>Complemento: </label>
+          <input
+            type="text"
+            name="comp"
+            id="comp"
+            placeholder="Ex.: Apto 12, em cima da ótica quixadá"
+          />
+        </form>
+        <button onclick="javascript:location.href='/address'">Finalizar</button>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs'); -%>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
+    <script src="./js/cep.js"></script>
+  </body>
+</html>

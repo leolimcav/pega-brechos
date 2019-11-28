@@ -10,31 +10,42 @@ module.exports = {
       return res.json({ msg: "Produto não encontrado!" });
     }
 
+    return res.json(produto[0]);
+  },
+
+  async findAll(req, res) {
+    const { user_id } = req.params;
+    const produto = await Produto.findAll(user_id);
+
+    if (produto.length === 0) {
+      return res.json({ msg: "Produto não encontrado!" });
+    }
+
     return res.json(produto);
   },
 
   async store(req, res) {
     const { user_id } = req.params;
-    const { nome, descricao, valor, categoria, tamanho, estado } = req.body;
+    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
     const usuario = await Usuario.findById(user_id);
 
-    if (!usuario) {
+    if (usuario.length === 0) {
       return res.json({ msg: "Usuario não encontrado!" });
     }
 
     const produto = await Produto.create(
-      { nome, descricao, valor, categoria, tamanho, estado },
+      { titulo, descricao, valor, categoria, tamanho, estado },
       user_id
     );
 
-    return res.json(produto);
+    return res.json(produto[0]);
   },
 
   async update(req, res) {
     const { product_id } = req.params;
-    const { nome, descricao, valor, categoria, tamanho, estado } = req.body;
+    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
     const produto = await Produto.findByIdAndUpdate(product_id, {
-      nome,
+      titulo,
       descricao,
       valor,
       categoria,
@@ -42,12 +53,12 @@ module.exports = {
       estado
     });
 
-    return res.json(produto);
+    return res.json(produto[0]);
   },
 
   async destroy(req, res) {
     const { product_id } = req.params;
     const produto = await Produto.findByIdAndDelete(product_id);
-    return res.json(produto);
+    return res.json(produto[0]);
   }
 };

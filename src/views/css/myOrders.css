@@ -1,0 +1,84 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+
+.loja {
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+  margin: 5% 0 0 0;
+  color: #414041;
+}
+
+.loja h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.product {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #c0c0c0;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 3%;
+}
+
+.imgProduct {
+  width: 12%;
+}
+
+.imgProduct img {
+  width: 100%;
+}
+.columnDetails {
+  align-self: flex-start;
+  width: 68%;
+  display: flex;
+  flex-flow: column;
+}
+
+.columnDetails p {
+  margin-bottom: 6%;
+}
+
+.columnDetails p:last-child {
+  margin-bottom: 0;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.columnDetails .itemName {
+  font-size: 1.2em;
+}
+
+.columnDetails .itemPrice {
+  font-weight: 600;
+  margin-top: -2%;
+  margin-bottom: 8%;
+}
+
+.columnRater {
+  display: flex;
+  flex-flow: column;
+  margin-right: 3%;
+}
+
+.columnRater p {
+  font-size: 0.8em;
+  text-align: center;
+}
+.rowRater {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 120%;
+  margin-left: -5%;
+  margin-top: 10%;
+}

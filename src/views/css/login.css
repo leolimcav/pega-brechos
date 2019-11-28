@@ -1,0 +1,130 @@
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+}
+
+.identific {
+  width: 80%;
+  display: flex;
+  flex-flow: column;
+}
+
+.identific h1 {
+  font-size: 1.5em;
+  color: #a34590;
+  font-weight: 600;
+  margin-top: 4%;
+}
+
+.identific #lineId {
+  width: 100%;
+  height: 4px;
+  border-radius: 6px;
+  background-color: #a34590;
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+.identific input {
+  color: #414041;
+}
+.identific input:hover {
+  border: 1px solid #a34590;
+}
+.rowId {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.columnId {
+  display: flex;
+  flex-flow: column;
+  width: 40%;
+  color: #414041;
+}
+.columnId h3 {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 10%;
+}
+
+.columnId label {
+  font-size: 1em;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+.columnId input {
+  width: 120%;
+  height: 30px;
+  border-radius: 7px;
+  background-color: #fff;
+  border: 1px solid #707070;
+}
+
+.columnId button {
+  width: 120%;
+  height: 30px;
+  border-radius: 7px;
+  margin-top: 10%;
+}
+
+.roxo {
+  border: 1px solid #a34590;
+  background-color: #a34590;
+  color: white;
+  font-weight: 600;
+}
+
+#rowEmail {
+  display: flex;
+  height: 100px;
+}
+#columnEmail {
+  display: flex;
+  flex-flow: column;
+}
+
+#divise {
+  height: 300px;
+  width: 2px;
+  background-color: #7070707c;
+}
+
+.rowLogin {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin-bottom: 5%;
+}
+
+.rowLogin input {
+  width: 80%;
+  height: 30px;
+}
+
+#columnLogin input {
+  width: 159%;
+}
+
+#columnLogin {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  width: 50%;
+  margin-right: 30%;
+}
+
+#columnLogin button {
+  width: 159%;
+}
+
+#columnLogin p {
+  margin-top: 10%;
+  font-size: 0.8em;
+}
