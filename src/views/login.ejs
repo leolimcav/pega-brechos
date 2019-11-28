@@ -28,11 +28,12 @@
             <div id="rowEmail">
               <label for="email">Email:</label>
               <div id="columnEmail">
-                <input type="email" id="emailCreate" />
-                <button
-                  class="roxo"
-                  onclick="javascript:location.href='/signup'"
-                >
+                <input
+                  type="email"
+                  id="emailCreate"
+                  placeholder="pega@exemplo.com"
+                />
+                <button class="roxo" onclick="createstorage()">
                   continuar
                 </button>
               </div>
@@ -62,5 +63,6 @@
     </main>
 
     <%- include('./partials/footer.ejs'); -%>
+    <script src="./js/localstorage.js"></script>
   </body>
 </html>
