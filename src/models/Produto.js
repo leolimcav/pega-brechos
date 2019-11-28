@@ -3,12 +3,12 @@ const pool = require("../config/database");
 class Produto {
   static async create(data, usuario_id) {
     const client = await pool.connect();
-    const { nome, descricao, valor, categoria, tamanho, estado } = data;
+    const { titulo, descricao, valor, categoria, tamanho, estado } = data;
     const {
       rows: produto
     } = await client.query(
-      "INSERT INTO produto (nome, descricao, valor, categoria, tamanho, estado, usuario_id) values ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [nome, descricao, valor, categoria, tamanho, estado, usuario_id]
+      "INSERT INTO produto (titulo, descricao, valor, categoria, tamanho, estado, usuario_id) values ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [titulo, descricao, valor, categoria, tamanho, estado, usuario_id]
     );
     await client.release();
     return produto;
@@ -36,14 +36,14 @@ class Produto {
     return produto;
   }
 
-  static async findByName(nome) {
+  static async findByName(titulo) {
     try {
       const client = await pool.connect();
       const {
         rows: produto
       } = await client.query(
-        "SELECT * FROM produto p WHERE LOWER(p.nome) LIKE LOWER($1) AND UPPER(p.status) LIKE UPPER('ATIVO')",
-        [`%${nome}%`]
+        "SELECT * FROM produto p WHERE LOWER(p.titulo) LIKE LOWER($1) AND UPPER(p.status) LIKE UPPER('ATIVO')",
+        [`%${titulo}%`]
       );
 
       return produto;
@@ -61,12 +61,12 @@ class Produto {
       produtoId
     ]);
     if (produto) {
-      const { nome, descricao, valor, categoria, tamanho, estado } = data;
+      const { titulo, descricao, valor, categoria, tamanho, estado } = data;
       const {
         rows: produtoNovo
       } = await client.query(
-        "UPDATE produto SET nome = $1, descricao = $2, valor = $3, categoria = $4, tamanho = $5, estado = $6 RETURNING *",
-        [nome, descricao, valor, categoria, tamanho, estado]
+        "UPDATE produto SET titulo = $1, descricao = $2, valor = $3, categoria = $4, tamanho = $5, estado = $6 RETURNING *",
+        [titulo, descricao, valor, categoria, tamanho, estado]
       );
       await client.release();
       return produtoNovo;
