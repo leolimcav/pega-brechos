@@ -59,6 +59,14 @@ routes.get("/sold", (req, res) => {
   res.render(`sold`);
 });
 
+routes.get("/createad", (req, res) => {
+  res.render(`createad`);
+});
+
+routes.get("/editad", (req, res) => {
+  res.render(`editad`);
+});
+
 // ----- Rotas do Backend -----
 
 // Rotas de Usuario

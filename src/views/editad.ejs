@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/addad.css" />
+
+    <title>Pega!</title>
+  </head>
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+
+    <main>
+      <div id="rowFiltro">
+        <div id="lineFilter"></div>
+        <p>Edite seu anúncio</p>
+        <div id="lineFilter2"></div>
+      </div>
+      <p style="font-size: 0.9em; color: #707070;">
+        Campos obrigatórios são marcados com ( <span class="red">*</span> )
+      </p>
+      <form action="POST">
+        <input type="text" id="title" placeholder="Digite o título aqui" /><span
+          class="red"
+          >*</span
+        >
+        <textarea
+          name="desc"
+          id="desc"
+          cols="30"
+          rows="10"
+          placeholder="Descreva seu produto aqui"
+        ></textarea
+        ><span class="red">*</span>
+        <div id="rowAd">
+          <div id="rowrow">
+            <input type="text" id="valor" placeholder="R$ 00,00" />
+            <span class="red">*</span>
+          </div>
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('categoria')"
+            onmouseout="fecharSubMenu('categoria')"
+          >
+            <li>
+              Categoria
+              <img src="assets/icons/seta-down.svg" alt="" />
+
+              <ul
+                class="menudropdown"
+                id="categoria"
+                onmouseover="abrirSubMenu('categoria')"
+                onmouseout="fecharSubMenu('categoria')"
+              >
+                <li>
+                  <select name="categoria" id="categoria">
+                    <option value="feminino">Feminino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="roupa">Roupas</option>
+                    <option value="acessorio">Acessórios</option>
+                    <option value="calcado">Calçados</option>
+                  </select>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <span class="red">*</span>
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('tam')"
+            onmouseout="fecharSubMenu('tam')"
+          >
+            <li>
+              Tamanho
+              <img src="assets/icons/seta-down.svg" alt="" />
+
+              <ul
+                id="tam"
+                class="menudropdown"
+                onmouseover="abrirSubMenu('tam')"
+                onmouseout="fecharSubMenu('tam')"
+              >
+                <li>
+                  <input type="text" placeholder="número da roupa" />
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <span class="red">*</span>
+
+          <ul
+            class="filterOpt"
+            onmouseover="abrirSubMenu('cond')"
+            onmouseout="fecharSubMenu('cond')"
+          >
+            <li>
+              Condição
+              <img src="assets/icons/seta-down.svg" alt="" />
+
+              <ul
+                id="cond"
+                class="menudropdown"
+                onmouseover="abrirSubMenu('cond')"
+                onmouseout="fecharSubMenu('cond')"
+              >
+                <li>
+                  <select name="categoria" id="categoria">
+                    <option value="novo">Novo</option>
+                    <option value="usado">Usado</option>
+                  </select>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <span class="red">*</span>
+        </div>
+        <input value="ATIVO" style="display: none;" />
+        <input
+          type="button"
+          value="Editar"
+          id="btn"
+          onclick="javascript:location.href='/product'"
+        />
+      </form>
+    </main>
+
+    <%- include('./partials/footer.ejs'); -%>
+    <script src="./js/openMenu.js"></script>
+  </body>
+</html>
