@@ -13,12 +13,23 @@ module.exports = {
     return res.json(produto);
   },
 
+  async findAll(req, res) {
+    const { user_id } = req.params;
+    const produto = await Produto.findAll(user_id);
+
+    if (produto.length === 0) {
+      return res.json({ msg: "Produto não encontrado!" });
+    }
+
+    return res.json(produto);
+  },
+
   async store(req, res) {
     const { user_id } = req.params;
     const { nome, descricao, valor, categoria, tamanho, estado } = req.body;
     const usuario = await Usuario.findById(user_id);
 
-    if (!usuario) {
+    if (usuario.length === 0) {
       return res.json({ msg: "Usuario não encontrado!" });
     }
 

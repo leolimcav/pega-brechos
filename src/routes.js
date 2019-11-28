@@ -70,6 +70,7 @@ routes.delete(
 
 // Rotas de Produto
 routes.get("/products/:product_id", ProdutoController.index);
+routes.get("/products/users/:user_id", ProdutoController.findAll);
 routes.post("/products/:user_id", ProdutoController.store);
 routes.put("/products/:product_id", ProdutoController.update);
 routes.delete("/products/:product_id", ProdutoController.destroy);
