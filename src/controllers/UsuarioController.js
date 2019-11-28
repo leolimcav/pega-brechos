@@ -52,15 +52,13 @@ module.exports = {
     } = req.body;
     const user = await Usuario.findById(user_id);
 
-    console.log(user);
-
     if (user.length === 0) {
       return res.json({ msg: "Usuário não encontrado!" });
     }
 
     let hash_senha;
     if (await bcrypt.compare(senha, user[0].hash_senha)) {
-      hash_senha = user.hash_senha;
+      hash_senha = user[0].hash_senha;
     } else {
       hash_senha = await bcrypt.hash(senha, 8);
     }
