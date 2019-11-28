@@ -74,6 +74,21 @@ class Usuario {
     return null;
   }
 
+  static async auth(email) {
+    try {
+      const client = await pool.connect();
+      const {
+        rows: usuario
+      } = await client.query("SELECT * FROM usuario u WHERE u.email LIKE $1", [
+        email
+      ]);
+      return usuario;
+    } catch (err) {
+      console.log(err);
+    }
+    return null;
+  }
+
   static async Update(usuarioId, data) {
     try {
       const client = await pool.connect();

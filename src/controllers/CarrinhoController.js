@@ -1,5 +1,5 @@
-const Pedido = require("../models/Pedido");
-const Produto = require("../models/Produto");
+// const Pedido = require("../models/Pedido");
+// const Produto = require("../models/Produto");
 const Carrinho = require("../models/ProdutoPedido");
 
 module.exports = {

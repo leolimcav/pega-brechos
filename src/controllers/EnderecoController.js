@@ -30,7 +30,7 @@ module.exports = {
 
     const endereco = await Endereco.findById(user_id, address_id);
 
-    return res.json(endereco);
+    return res.json(endereco[0]);
   },
 
   async store(req, res) {
@@ -54,7 +54,7 @@ module.exports = {
       usuario_id: user_id
     });
 
-    return res.json(endereco);
+    return res.json(endereco[0]);
   },
 
   async update(req, res) {
@@ -81,7 +81,7 @@ module.exports = {
       address_id
     );
 
-    return res.json(endereco);
+    return res.json(endereco[0]);
   },
 
   async destroy(req, res) {
@@ -100,6 +100,6 @@ module.exports = {
 
     const endereco = await Endereco.Delete(address_id, user_id);
 
-    return res.json(endereco);
+    return res.json(endereco[0]);
   }
 };

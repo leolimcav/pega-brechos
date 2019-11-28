@@ -20,7 +20,7 @@ module.exports = {
 
     const anuncio = await Anuncio.findById(poster_id);
 
-    return res.json(anuncio);
+    return res.json(anuncio[0]);
   },
 
   async store(req, res) {
@@ -30,7 +30,7 @@ module.exports = {
       usuario_id: user_id
     });
 
-    return res.json(anuncio);
+    return res.json(anuncio[0]);
   },
 
   async update(req, res) {
@@ -45,6 +45,6 @@ module.exports = {
 
     const anuncio = await Anuncio.Update({ anuncio_id: poster_id, status });
 
-    return res.json(anuncio);
+    return res.json(anuncio[0]);
   }
 };

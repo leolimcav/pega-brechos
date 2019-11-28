@@ -10,7 +10,7 @@ module.exports = {
       return res.json({ msg: "Produto não encontrado!" });
     }
 
-    return res.json(produto);
+    return res.json(produto[0]);
   },
 
   async findAll(req, res) {
@@ -38,7 +38,7 @@ module.exports = {
       user_id
     );
 
-    return res.json(produto);
+    return res.json(produto[0]);
   },
 
   async update(req, res) {
@@ -53,12 +53,12 @@ module.exports = {
       estado
     });
 
-    return res.json(produto);
+    return res.json(produto[0]);
   },
 
   async destroy(req, res) {
     const { product_id } = req.params;
     const produto = await Produto.findByIdAndDelete(product_id);
-    return res.json(produto);
+    return res.json(produto[0]);
   }
 };
