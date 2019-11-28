@@ -112,7 +112,7 @@ main {
     width: 95%;
   }
   .rowSlide {
-    width: 95%;
+    width: 100%;
   }
 
   #productInfo {
@@ -140,7 +140,7 @@ main {
     width: 95%;
   }
   .rowSlide {
-    width: 95%;
+    width: 100%;
   }
 
   #productInfo {
@@ -162,7 +162,7 @@ main {
   }
   #product {
     flex-flow: column;
-
+    width: 130%;
     margin-right: -35%;
   }
 
@@ -170,7 +170,7 @@ main {
     width: 50%;
   }
   .rowSlide {
-    width: 45%;
+    width: 100%;
   }
 
   #productInfo {
@@ -200,9 +200,13 @@ main {
 }
 .photosProduct img {
   vertical-align: middle;
+  width: 100%;
 }
 .mySlide {
   display: none;
+}
+.mySlide img {
+  width: 100%;
 }
 .cursor {
   cursor: pointer;
@@ -453,7 +457,7 @@ demo {
     flex-flow: row;
   }
   #detailsProduct {
-    width: 50%;
+    width: 70%;
     align-items: flex-start;
     margin-top: 0;
   }
