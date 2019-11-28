@@ -1,177 +1,58 @@
-$("#cadastrar").submit(function(event) {
-  // Stop form from submitting normally
-  event.preventDefault();
+$(function() {
+  $("#submit").click(function(e) {
+    e.preventDefault();
 
-  // Get some values from elements on the page:
-  const $form = $(this);
-  const nome = document.getElementById("nome");
-  const email = document.getElementById("email");
-  const senha = document.getElementById("pwd");
-  const cpf = document.getElementById("cpf");
-  const rg = document.getElementById("rg");
-  const date = document.getElementById("date");
-  const sex = document.getElementsByName("sex");
-  const telefone = document.getElementById("telefone");
+    const nome = document.getElementById("nome");
+    const email = document.getElementById("email");
+    const email2 = document.getElementById("email2");
 
-  if (sex.value === undefined) {
-    sex.value = "null";
-  }
-  if (telefone.value === "") {
-    telefone.value = "null";
-  }
+    const senha = document.getElementById("pwd");
+    const rg = document.getElementById("rg");
+    const cpf = document.getElementById("cpf");
+    const date = document.getElementById("date");
+    const sexo = document.getElementsByName("sex");
+    const telefone = document.getElementById("telefone");
 
-  console.log(
-    nome.value,
-    email.value,
-    senha.value,
-    cpf.value,
-    rg.value,
-    date.value,
-    sex.value,
-    telefone.value
-  );
+    if (
+      nome.value === "" ||
+      email.value === "" ||
+      senha.value === "" ||
+      rg.value === "" ||
+      cpf.value === "" ||
+      date.value === ""
+    ) {
+      alert("Preencha os campos obrigatórios para poder efetuar o cadastro");
+    } else if (email.value !== email2.value) {
+      alert("Os emails devem ser  o mesmo! :)");
+    } else {
+      if (sexo === undefined) {
+        // let newDate = new Date(date);
+        sexo.value = "null";
+      }
+      if (telefone === undefined) {
+        telefone.value = "null";
+      }
 
-  // Send the data using post
-  const posting = $.post("/users", {
-    nome: `${nome.value}`,
-    email: `${email.value}`,
-    senha: `${senha.value}`,
-    telefone: `${telefone.value}`,
-    rg: `${rg.value}`,
-    cpf: `${cpf.value}`,
-    date: `${date.value}`,
-    sex: `${sex.value}`
-  });
+      const data = {};
+      data.nome = nome.value;
+      data.email = email.value;
+      data.senha = senha.value;
+      data.rg = rg.value;
+      data.cpf = cpf.value;
+      data.data_nascimento = date.value;
+      data.sexo = sexo.value;
+      data.telefone = telefone.value;
 
-  // Put the results in a div
-  posting.done(function(res) {
-    console.log(res);
+      $.ajax({
+        type: "POST",
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        url: "/users",
+        success(data) {
+          console.log("success");
+          location.href = "/login";
+        }
+      });
+    }
   });
 });
-
-// function addUser() {
-//   const nome = document.getElementById("nome");
-//   const email = document.getElementById("email");
-//   const senha = document.getElementById("pwd");
-//   const cpf = document.getElementById("cpf");
-//   const rg = document.getElementById("rg");
-//   const data_nascimento = document.getElementById("date");
-//   const sexo = document.getElementsByName("sex");
-//   const telefone = document.getElementById("telefone");
-//   if (sexo.value === "") {
-//     sexo.value = "null";
-//   }
-//   if (telefone.value === "") {
-//     telefone.value = "null";
-//   }
-
-//   $.ajax({
-//     method: "POST",
-//     url: "/users",
-//     async: true,
-//     data: {
-//       nome: nome.value,
-//       email: email.value,
-//       senha: senha.value,
-//       telefone: telefone.value,
-//       rg: rg.value,
-//       cpf: cpf.value,
-//       data_nascimento: data_nascimento.value,
-//       sexo: sexo.value
-//     }
-//   }).then(res => {
-//     console.log(res);
-//   });
-//   // console.log(
-//   //   nome.value,
-//   //   email.value,
-//   //   senha.value,
-//   //   telefone.value,
-//   //   rg.value,
-//   //   cpf.value,
-//   //   data_nascimento.value,
-//   //   sexo.value
-//   // );
-// }
-
-// class Usuario {
-//   constructor(
-//     nome,
-//     email,
-//     cpf,
-//     rg,
-//     data_nascimento,
-//     hash_senha,
-//     sexo,
-//     telefone
-//   ) {
-//     this.nome = nome;
-//     this.email = email;
-//     this.hash_senha = hash_senha;
-//     this.cpf = cpf;
-//     this.rg = rg;
-//     this.data_nascimento = data_nascimento;
-//     this.sexo = sexo;
-//     this.telefone = telefone;
-//     this.nota = "null";
-//   }
-// }
-// // [nome, email, hash_senha, telefone, rg, cpf, data_nascimento, sexo]
-// function salvar() {
-//   const nome = document.getElementById("nome").value;
-//   const email = document.getElementById("email").value;
-//   const hash_senha = document.getElementById("pwd").value;
-//   const cpf = document.getElementById("cpf").value;
-//   const rg = document.getElementById("rg").value;
-//   const data_nascimento = document.getElementById("date").value;
-//   const sexo = document.getElementsByName("sex");
-//   const telefone = document.getElementById("telefone");
-//   if (sexo === "") {
-//     sexo.value = "null";
-//   }
-//   if (telefone === "") {
-//     telefone.value = "null";
-//   }
-
-//   const usuario = new Usuario(
-//     nome,
-//     email,
-//     cpf,
-//     rg,
-//     data_nascimento,
-//     hash_senha,
-//     sexo,
-//     telefone
-//   );
-//   const usuarioJSON = JSON.stringify(usuario);
-//   enviar(usuarioJSON);
-// }
-
-// function enviar(usuarioJSON) {
-//   const xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4) {
-//       if (this.status >= 200 && this.status < 300) {
-//         location.href = "/index";
-//         createstorage(usuarioJSON);
-//       } else {
-//         alert("erro");
-//       }
-//     }
-//   };
-
-//   xhttp.open("POST", "/user");
-//   xhttp.setRequestHeader("Content-type", "application/json");
-//   xhttp.send(usuarioJSON);
-// }
-
-// function createstorage(usuarioJSON) {
-//   if (typeof Storage !== "undefined") {
-//     // Store
-//     localStorage.setItem("usuario", usuarioJSON);
-
-//     // Retrieve
-//   } else {
-//     console.log("Sorry, your browser does not support Web Storage...");
-//   }
-// }
