@@ -14,9 +14,13 @@ class Produto {
     return produto;
   }
 
-  static async findAll() {
+  static async findAll(usuario_id) {
     const client = await pool.connect();
-    const { rows: produtos } = await client.query("SELECT * FROM produto");
+    const {
+      rows: produtos
+    } = await client.query("SELECT * FROM produto p WHERE p.usuario_id = $1", [
+      usuario_id
+    ]);
     await client.release();
     return produtos;
   }
@@ -41,7 +45,9 @@ class Produto {
     ]);
     if (produto) {
       const { nome, descricao, valor, categoria, tamanho, estado } = data;
-      const produtoNovo = await client.query(
+      const {
+        rows: produtoNovo
+      } = await client.query(
         "UPDATE produto SET nome = $1, descricao = $2, valor = $3, categoria = $4, tamanho = $5, estado = $6 RETURNING *",
         [nome, descricao, valor, categoria, tamanho, estado]
       );
