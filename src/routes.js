@@ -1,16 +1,13 @@
 const express = require("express");
 const UsuarioController = require("./controllers/UsuarioController");
-const PessoaFisicaController = require("./controllers/PessoaFisicaController");
-const PessoaJuridicaController = require("./controllers/PessoaJuridicaController");
+const EnderecoController = require("./controllers/EnderecoController");
 const ProdutoController = require("./controllers/ProdutoController");
 const PedidoController = require("./controllers/PedidoController");
 const CarrinhoController = require("./controllers/CarrinhoController");
 
 const routes = express.Router();
 
-routes.get("/users/:userid", UsuarioController.findById);
-routes.get("/users", UsuarioController.index);
-// routes.get('/', UsuarioController.index);
+// Rotas do FRONTEND
 routes.get("/", (req, res) => {
   res.render("index");
 });
@@ -45,33 +42,36 @@ routes.get("/editAddress", (req, res) => {
 routes.get("/myOrders", (req, res) => {
   res.render("myOrders");
 });
+
 routes.get("/signup", (req, res) => {
   res.render("signup");
 });
 routes.get("/editUser", (req, res) => {
   res.render("editUser");
 });
+
+// ----- Rotas do Backend -----
+
 // Rotas de Usuario
+routes.get("/users/:user_id", UsuarioController.index);
 routes.post("/users", UsuarioController.store);
-routes.get("/users/:userid", UsuarioController.findById);
-routes.get("/users", UsuarioController.index);
+routes.put("/users/:user_id", UsuarioController.update);
+routes.delete("/users/:user_id", UsuarioController.destroy);
 
-// Rotas de Usuario PF
-routes.get("/pf/:pfid", PessoaFisicaController.index);
-routes.post("/pf/:userid", PessoaFisicaController.store);
-routes.put("/pf/:pfid", PessoaFisicaController.update);
-routes.delete("/pf/:pfid", PessoaFisicaController.destroy);
-
-// Rotas de Usuario PJ
-routes.get("/pj/:pjid", PessoaJuridicaController.index);
-routes.post("/pj/:userid", PessoaJuridicaController.store);
-routes.put("/pj/:pjid", PessoaJuridicaController.update);
+// Rotas de Endereço
+routes.get("/address/users/:user_id", EnderecoController.index);
+routes.post("/address/users/:user_id", EnderecoController.store);
+routes.put("/address/:address_id/users/:user_id", EnderecoController.update);
+routes.delete(
+  "/address/:address_id/users/:user_id",
+  EnderecoController.destroy
+);
 
 // Rotas de Produto
 routes.get("/products/:product_id", ProdutoController.index);
 routes.post("/products/:user_id", ProdutoController.store);
-routes.get("/products/:product_id", ProdutoController.update);
-routes.get("/products/:product_id", ProdutoController.destroy);
+routes.put("/products/:product_id", ProdutoController.update);
+routes.delete("/products/:product_id", ProdutoController.destroy);
 
 // Rotas de Pedido
 routes.get("/orders/:order_id/:user_id", PedidoController.index);

@@ -2,16 +2,35 @@ const pool = require("../config/database");
 
 class Usuario {
   static async create(data) {
-    const { nome, email, senha } = data;
-    const client = await pool.connect();
-    const {
-      rows: usuario
-    } = await client.query(
-      "INSERT INTO usuario (nome, email, senha) VALUES ($1, $2, $3) RETURNING *",
-      [nome, email, senha]
-    );
-    await client.release();
-    return usuario;
+    let msg;
+    try {
+      const {
+        nome,
+        email,
+        hash_senha,
+        telefone,
+        rg,
+        cpf,
+        data_nascimento,
+        sexo
+      } = data;
+      const client = await pool.connect();
+      const {
+        rows: usuario
+      } = await client.query(
+        "INSERT INTO usuario (nome, email, hash_senha, telefone, rg, cpf, data_nascimento, sexo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+        [nome, email, hash_senha, telefone, rg, cpf, data_nascimento, sexo]
+      );
+      await client.release();
+      return usuario;
+    } catch (err) {
+      console.log(err);
+      if (err.code === "23505" || err.code === "23502") {
+        msg = "Email/Senha inválidos!";
+      }
+    }
+
+    return msg;
   }
 
   static async findAll() {
@@ -22,51 +41,87 @@ class Usuario {
   }
 
   static async findById(usuarioId) {
-    const client = await pool.connect();
-    const {
-      rows: usuario
-    } = await client.query("SELECT * FROM users WHERE users.usuario_id = $1", [
-      usuarioId
-    ]);
-    await client.release();
-    return usuario;
-  }
-
-  static async findByIdAndUpdate(usuarioId, data) {
-    const client = await pool.connect();
-    const {
-      rows: usuario
-    } = await client.query("SELECT * FROM users WHERE usuario_id = $1", [
-      usuarioId
-    ]);
-    if (usuario) {
-      const { nome, endereco, email, senha, telefone } = data;
+    try {
+      const client = await pool.connect();
       const {
-        rows: updatedUser
+        rows: usuario
       } = await client.query(
-        "UPDATE users set nome = $1, endereco = $2, email = $3, senha = $4, telefone = $5",
-        [nome, endereco, email, senha, telefone]
+        "SELECT * FROM usuario WHERE usuario.usuario_id = $1",
+        [usuarioId]
       );
       await client.release();
-      return updatedUser;
+      return usuario;
+    } catch (err) {
+      console.log(err);
     }
-    return usuario;
+    return null;
   }
 
-  static async findByIdAndDelete(usuarioId) {
-    const client = await pool.connect();
-    const {
-      rows: usuario
-    } = await client.query("SELECT * FROM users WHERE usuario_id = $1", [
-      usuarioId
-    ]);
-    if (usuario) {
-      await client.query("DELETE FROM users WHERE usuario_id = $1", [
-        usuarioId
-      ]);
-      return usuario;
+  static async Update(usuarioId, data) {
+    try {
+      const client = await pool.connect();
+      const {
+        rows: usuario
+      } = await client.query(
+        "SELECT * FROM usuario WHERE usuario.usuario_id = $1",
+        [usuarioId]
+      );
+      if (usuario) {
+        const {
+          nome,
+          email,
+          hash_senha,
+          telefone,
+          rg,
+          cpf,
+          data_nascimento,
+          sexo
+        } = data;
+        const {
+          rows: updatedUser
+        } = await client.query(
+          "UPDATE usuario SET nome = $1, email = $2, hash_senha = $3, telefone = $4, rg = $5, cpf = $6, data_nascimento = $7, sexo = $8 WHERE usuario.usuario_id = $9 RETURNING *",
+          [
+            nome,
+            email,
+            hash_senha,
+            telefone,
+            rg,
+            cpf,
+            data_nascimento,
+            sexo,
+            usuarioId
+          ]
+        );
+        await client.release();
+        return updatedUser;
+      }
+    } catch (err) {
+      console.log(err);
     }
-    return usuario;
+    return null;
+  }
+
+  static async Delete(usuarioId) {
+    try {
+      const client = await pool.connect();
+      const {
+        rows: usuario
+      } = await client.query(
+        "SELECT * FROM usuario WHERE usuario.usuario_id = $1",
+        [usuarioId]
+      );
+      if (usuario) {
+        await client.query(
+          "DELETE FROM usuario WHERE usuario.usuario_id = $1",
+          [usuarioId]
+        );
+        return usuario;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    return null;
   }
 }
 
