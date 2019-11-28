@@ -39,6 +39,9 @@ routes.get("/address", (req, res) => {
 routes.get("/addAddress", (req, res) => {
   res.render("addAddress");
 });
+routes.get("/editAddress", (req, res) => {
+  res.render("editAddress");
+});
 routes.get("/myOrders", (req, res) => {
   res.render("myOrders");
 });
