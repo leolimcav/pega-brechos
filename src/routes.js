@@ -29,7 +29,6 @@ routes.get("/pegue", (req, res) => {
 routes.get("/login", (req, res) => {
   res.render("login");
 });
-
 routes.get("/search", (req, res) => {
   res.render("search");
 });
@@ -45,7 +44,6 @@ routes.get("/editAddress", (req, res) => {
 routes.get("/myOrders", (req, res) => {
   res.render("myOrders");
 });
-
 routes.get("/signup", (req, res) => {
   res.render("signup");
 });
@@ -61,11 +59,9 @@ routes.get("/myprofile", (req, res) => {
 routes.get("/sold", (req, res) => {
   res.render(`sold`);
 });
-
 routes.get("/createad", (req, res) => {
   res.render(`createad`);
 });
-
 routes.get("/editad", (req, res) => {
   res.render(`editad`);
 });
