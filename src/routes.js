@@ -4,6 +4,7 @@ const EnderecoController = require("./controllers/EnderecoController");
 const ProdutoController = require("./controllers/ProdutoController");
 const PedidoController = require("./controllers/PedidoController");
 const CarrinhoController = require("./controllers/CarrinhoController");
+const SearchController = require("./controllers/SearchController");
 
 const routes = express.Router();
 
@@ -92,4 +93,8 @@ routes.post("/orders/:user_id", PedidoController.store);
 routes.get("/cart/:user_id/:order_id", CarrinhoController.index);
 routes.post("/cart/:order_id/:product_id", CarrinhoController.store);
 routes.delete("/cart/:order_id/:product_id", CarrinhoController.destroy);
+
+// Rotas de Busca
+routes.get("/search/users", SearchController.findUser);
+routes.get("/search/products", SearchController.findProduct);
 module.exports = routes;

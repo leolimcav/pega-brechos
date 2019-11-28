@@ -57,6 +57,23 @@ class Usuario {
     return null;
   }
 
+  static async findByName(nome) {
+    try {
+      const client = await pool.connect();
+      const {
+        rows: usuario
+      } = await client.query(
+        "SELECT * FROM usuario u WHERE LOWER(u.nome) LIKE LOWER($1)",
+        [`%${nome}%`]
+      );
+
+      return usuario;
+    } catch (err) {
+      console.log(err);
+    }
+    return null;
+  }
+
   static async Update(usuarioId, data) {
     try {
       const client = await pool.connect();

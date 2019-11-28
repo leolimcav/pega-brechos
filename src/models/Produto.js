@@ -36,6 +36,23 @@ class Produto {
     return produto;
   }
 
+  static async findByName(nome) {
+    try {
+      const client = await pool.connect();
+      const {
+        rows: produto
+      } = await client.query(
+        "SELECT * FROM produto p WHERE LOWER(p.nome) LIKE LOWER($1) AND UPPER(p.status) LIKE UPPER('ATIVO')",
+        [`%${nome}%`]
+      );
+
+      return produto;
+    } catch (err) {
+      console.log(err);
+    }
+    return null;
+  }
+
   static async findByIdAndUpdate(produtoId, data) {
     const client = await pool.connect();
     const {
