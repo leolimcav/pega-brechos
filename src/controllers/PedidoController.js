@@ -1,7 +1,7 @@
 const Pedido = require("../models/Pedido");
 const Usuario = require("../models/Usuario");
-const Produto = require("../models/Produto");
-const ProdutoPedido = require("../models/ProdutoPedido");
+// const Produto = require("../models/Produto");
+// const ProdutoPedido = require("../models/ProdutoPedido");
 
 module.exports = {
   async index(req, res) {
@@ -20,6 +20,19 @@ module.exports = {
     return res.json(pedido);
   },
 
+  async findAll(req, res) {
+    const { user_id } = req.params;
+    const usuario = await Usuario.findById(user_id);
+
+    if (usuario.length === 0) {
+      return res.json({ msg: "Usuário não encontrado!" });
+    }
+
+    const pedidos = await Pedido.findAll(user_id);
+
+    return res.json(pedidos);
+  },
+
   async store(req, res) {
     const { user_id } = req.params;
     const { data_pedido } = req.body;
@@ -29,18 +42,10 @@ module.exports = {
       return res.json({ msg: "Usuario não encontrado!" });
     }
 
-    let pedido = await Pedido.create(data_pedido);
+    const pedido = await Pedido.create({ usuario_id: user_id, data_pedido });
 
-    const carrinho = await ProdutoPedido.findById(pedido.pedido_id);
+    return res.json(pedido[0]);
+  },
 
-    let total = 0;
-    carrinho.map(async item => {
-      const produto = await Produto.findById(item.produto_id);
-      total += produto.valor;
-    });
-
-    pedido = await Pedido.updateTotal(pedido.pedido_id, total);
-
-    return res.json(pedido);
-  }
+  async checkout(req, res) {}
 };
