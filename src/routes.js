@@ -33,15 +33,19 @@ routes.get("/login", (req, res) => {
 routes.get("/search", (req, res) => {
   res.render("search");
 });
+
 routes.get("/address", (req, res) => {
   res.render("address");
 });
+
 routes.get("/addAddress", (req, res) => {
   res.render("addAddress");
 });
+
 routes.get("/editAddress", (req, res) => {
   res.render("editAddress");
 });
+
 routes.get("/myOrders", (req, res) => {
   res.render("myOrders");
 });
@@ -49,15 +53,19 @@ routes.get("/myOrders", (req, res) => {
 routes.get("/signup", (req, res) => {
   res.render("signup");
 });
+
 routes.get("/editUser", (req, res) => {
   res.render("editUser");
 });
+
 routes.get("/profile", (req, res) => {
   res.render("profile");
 });
+
 routes.get("/myprofile", (req, res) => {
   res.render("myprofile");
 });
+
 routes.get("/sold", (req, res) => {
   res.render(`sold`);
 });
