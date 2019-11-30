@@ -28,11 +28,12 @@
             <div id="rowEmail">
               <label for="email">Email:</label>
               <div id="columnEmail">
-                <input type="email" id="emailCreate" />
-                <button
-                  class="roxo"
-                  onclick="javascript:location.href='/signup'"
-                >
+                <input
+                  type="email"
+                  id="emailCreate"
+                  placeholder="pega@exemplo.com"
+                />
+                <button class="roxo" onclick="createstorage()">
                   continuar
                 </button>
               </div>
@@ -52,8 +53,8 @@
               <label for="password" id="password">Senha: </label>
               <div id="columnLogin">
                 <input type="password" id="pwd" />
-                <button class="roxo">entrar</button>
-                <p><a href="">esqueci a senha</a></p>
+                <button class="roxo" id="logarBtn">entrar</button>
+                <!--<p><a href="">esqueci a senha</a></p>-->
               </div>
             </div>
           </div>
@@ -62,5 +63,13 @@
     </main>
 
     <%- include('./partials/footer.ejs'); -%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
+    <script src="./js/login.js"></script>
+
+    <script src="./js/localstorage.js"></script>
   </body>
 </html>

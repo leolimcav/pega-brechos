@@ -1,148 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/header.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./css/timeline.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-  <link rel="stylesheet" type="text/css" href="./css/index.css" />
-  <link rel="stylesheet" type="text/css" href="./css/header.css" />
-  <link rel="stylesheet" type="text/css" href="./css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="./css/timeline.css" />
+    <link rel="stylesheet" type="text/css" href="./css/payment.css" />
 
-  <link rel="stylesheet" type="text/css" href="./css/payment.css" />
+    <link rel="stylesheet" type="text/css" href="./css/resume.css" />
 
-  <link rel="stylesheet" type="text/css" href="./css/resume.css" />
+    <title>Pega!</title>
+  </head>
 
-  <title>Pega!</title>
-</head>
-
-<body>
-  <%- include('./partials/header.ejs'); -%>
-  <main>
-    <div class="timeline">
-      <div id="first">
-        <p onclick="javascript:location.href='/cart'" style="cursor: pointer;">
-          Carrinho
-        </p>
-        <p>Pagamento e entrega</p>
-        <p>Pegue!</p>
-      </div>
-      <div id="second">
-        <div class="circle"></div>
-        <div id="lineTime"></div>
-        <div class="circle atv"></div>
-        <div class="circle"></div>
-      </div>
-    </div>
-
-    <div class="paymentDetails">
-      <div class="detailsItems">
-        <div class="addressItems">
-          <div class="rowAddress">
-            <h2>Endereço</h2>
-            <button>adicionar novo</button>
-          </div>
-          <input type="radio" checked="checked" name="endereco" class="input" id="address-one" />
-          <label class="address" for="address-one">
-            <div class="infoAddress">
-              <strong>
-                <p class="nameAd">Quem recebe: Yan Vancelis</p>
-              </strong>
-              <p class="addressUser">
-                Rua Valdivino Santiago, 221 - Russas, Ceará
-              </p>
-            </div>
-          </label>
-
-          <input type="radio" name="endereco" class="input" id="address-two" />
-          <label class="address" for="address-two">
-            <div class="infoAddress">
-              <strong>
-                <p class="nameAd">Quem recebe: Yan Vancelis</p>
-              </strong>
-              <p class="addressUser">
-                Rua Valdivino Santiago, 221 - Russas, Ceará
-              </p>
-            </div>
-          </label>
-        </div>
-
-        <div class="paymentsItems">
-          <div class="rowFrete">
-            <h2>Frete</h2>
-          </div>
-          <input type="radio" checked="checked" name="frete" class="inputPayment" id="payment-one" />
-          <label class="payment" for="payment-one">
-            <div class="infoPayment">
-              <p class="type">Normal - PAC Correios</p>
-              <p class="priceSend">R$ 15</p>
-            </div>
-          </label>
-
-          <input type="radio" name="frete" class="inputPayment" id="payment-two" />
-          <label class="payment" for="payment-two">
-            <div class="infoPayment">
-              <p class="type">Rápido - PAC Correios</p>
-              <p class="priceSend">R$ 30</p>
-            </div>
-          </label>
-        </div>
-
-        <div class="typePayments">
-          <div class="rowType">
-            <h2>Pagamento</h2>
-          </div>
-          <input type="radio" checked="checked" name="type" class="inputTypeP" id="type-one" />
-          <label class="typeP" for="type-one">
-            <div class="infoType">
-              <p>Cartão de crédito via PayPal</p>
-              <div class="img-cards">
-                <img src="./assets/logopag/pequena/Mastercard-logo.png" alt="" />
-                <img src="./assets/logopag/pequena/hipercard.png" alt="" />
-
-                <img src="./assets/logopag/pequena/visa.png" alt="" />
-                <img src="./assets/logopag/pequena/picpay.png" alt="" />
-
-                <img src="./assets/logopag/pequena/paypal.png" alt="" />
-              </div>
-            </div>
-          </label>
-          <p id="textPayment">
-            Você será redirecionado para o Paypal para realização do
-            pagamento.
+  <body>
+    <%- include('./partials/header.ejs'); -%>
+    <main>
+      <div class="timeline">
+        <div id="first">
+          <p
+            onclick="javascript:location.href='/cart'"
+            style="cursor: pointer;"
+          >
+            Carrinho
           </p>
+          <p>Pagamento e entrega</p>
+          <p>Pegue!</p>
+        </div>
+        <div id="second">
+          <div class="circle"></div>
+          <div id="lineTime"></div>
+          <div class="circle atv"></div>
+          <div class="circle"></div>
         </div>
       </div>
 
-      <div id="columnResume">
-        <div class="resume">
-          <h1>Resumo</h1>
-          <div id="lineResume"></div>
-          <div id="subtotal">
-            <p>Subtotal:</p>
-            <p id="vSub">R$ 30</p>
+      <div class="paymentDetails">
+        <div class="detailsItems">
+          <div class="addressItems">
+            <div class="rowAddress">
+              <h2>Endereço</h2>
+              <button>adicionar novo</button>
+            </div>
+            <input
+              type="radio"
+              checked="checked"
+              name="endereco"
+              class="input"
+              id="address-one"
+            />
+            <label class="address" for="address-one">
+              <div class="infoAddress">
+                <strong>
+                  <p class="nameAd">Quem recebe: Yan Vancelis</p>
+                </strong>
+                <p class="addressUser">
+                  Rua Valdivino Santiago, 221 - Russas, Ceará
+                </p>
+              </div>
+            </label>
+
+            <input
+              type="radio"
+              name="endereco"
+              class="input"
+              id="address-two"
+            />
+            <label class="address" for="address-two">
+              <div class="infoAddress">
+                <strong>
+                  <p class="nameAd">Quem recebe: Yan Vancelis</p>
+                </strong>
+                <p class="addressUser">
+                  Rua Valdivino Santiago, 221 - Russas, Ceará
+                </p>
+              </div>
+            </label>
           </div>
-          <div id="frete">
-            <p>Frete:</p>
-            <p id="vFrete">R$ 20</p>
+
+          <div class="paymentsItems">
+            <div class="rowFrete">
+              <h2>Frete</h2>
+            </div>
+            <input
+              type="radio"
+              checked="checked"
+              name="frete"
+              class="inputPayment"
+              id="payment-one"
+            />
+            <label class="payment" for="payment-one">
+              <div class="infoPayment">
+                <p class="type">Normal - PAC Correios</p>
+                <p class="priceSend">R$ 15</p>
+              </div>
+            </label>
+
+            <input
+              type="radio"
+              name="frete"
+              class="inputPayment"
+              id="payment-two"
+            />
+            <label class="payment" for="payment-two">
+              <div class="infoPayment">
+                <p class="type">Rápido - PAC Correios</p>
+                <p class="priceSend">R$ 30</p>
+              </div>
+            </label>
           </div>
-          <div id="total">
-            <p>Total:</p>
-            <p id="vTotal">R$ 50</p>
+
+          <div class="typePayments">
+            <div class="rowType">
+              <h2>Pagamento</h2>
+            </div>
+            <input
+              type="radio"
+              checked="checked"
+              name="type"
+              class="inputTypeP"
+              id="type-one"
+            />
+            <label class="typeP" for="type-one">
+              <div class="infoType">
+                <p>Cartão de crédito via PayPal</p>
+                <div class="img-cards">
+                  <img
+                    src="./assets/logopag/pequena/Mastercard-logo.png"
+                    alt=""
+                  />
+                  <img src="./assets/logopag/pequena/hipercard.png" alt="" />
+
+                  <img src="./assets/logopag/pequena/visa.png" alt="" />
+                  <img src="./assets/logopag/pequena/picpay.png" alt="" />
+
+                  <img src="./assets/logopag/pequena/paypal.png" alt="" />
+                </div>
+              </div>
+            </label>
+            <p id="textPayment">
+              Você será redirecionado para o Paypal para realização do
+              pagamento.
+            </p>
           </div>
-          <button id="closeShop" onclick="javascript:location.href='/pegue'">fechar compra</button>
-          <button id="continueShop" onclick="javascript:location.href='/'">
-            continuar comprando
-          </button>
+        </div>
+
+        <div id="columnResume">
+          <div class="resume">
+            <h1>Resumo</h1>
+            <div id="lineResume"></div>
+            <div id="subtotal">
+              <p>Subtotal:</p>
+              <p id="vSub">R$ 30</p>
+            </div>
+            <div id="frete">
+              <p>Frete:</p>
+              <p id="vFrete">R$ 20</p>
+            </div>
+            <div id="total">
+              <p>Total:</p>
+              <p id="vTotal">R$ 50</p>
+            </div>
+            <button id="closeShop" onclick="javascript:location.href='/pegue'">
+              fechar compra
+            </button>
+            <button id="continueShop" onclick="javascript:location.href='/'">
+              continuar comprando
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  <%- include('./partials/footer.ejs'); -%>
-
-</body>
-
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
+    <%- include('./partials/footer.ejs'); -%>
+  </body>
 </html>

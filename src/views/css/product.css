@@ -858,6 +858,31 @@ demo {
   }
 }
 
+#dropdownInfo {
+  margin: 4% 0 0 1%;
+  width: 10%;
+  padding: 10px;
+  border-radius: 7px;
+  border: 2px solid #be5599a2;
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  align-items: flex-start;
+  display: none;
+}
+#dropdownInfo div {
+  display: flex;
+  width: 100%;
+  margin: 5% 0 5% 0;
+}
+
+#dropdownInfo div p {
+  margin: 5% 0 0 5%;
+  color: #707070;
+}
+
 .faqProduct {
   display: flex;
   flex-flow: column wrap;
