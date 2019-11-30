@@ -53,8 +53,8 @@
               <label for="password" id="password">Senha: </label>
               <div id="columnLogin">
                 <input type="password" id="pwd" />
-                <button class="roxo" id="entrar">entrar</button>
-                <p><a href="">esqueci a senha</a></p>
+                <button class="roxo" id="logarBtn">entrar</button>
+                <!--<p><a href="">esqueci a senha</a></p>-->
               </div>
             </div>
           </div>
@@ -63,7 +63,13 @@
     </main>
 
     <%- include('./partials/footer.ejs'); -%>
-    <script src="./js/localstorage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
     <script src="./js/login.js"></script>
+
+    <script src="./js/localstorage.js"></script>
   </body>
 </html>

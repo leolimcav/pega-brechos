@@ -12,13 +12,6 @@ function createstorage() {
   }
 }
 
-const emailCreate = document.getElementById("email");
-
-if (typeof Storage !== "undefined") {
-  // Store
-
-  emailCreate.value = localStorage.getItem("email");
-  // Retrieve
-} else {
-  console.log("Sorry, your browser does not support Web Storage...");
-}
+const email = document.getElementById("email");
+const lS = localStorage.getItem("email");
+email.value = lS;

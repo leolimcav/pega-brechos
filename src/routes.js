@@ -69,7 +69,9 @@ routes.get("/createad", (req, res) => {
 routes.get("/editad", (req, res) => {
   res.render(`editad`);
 });
-
+routes.get("/myquestions", (req, res) => {
+  res.render(`myquestions`);
+});
 // ----- Rotas do Backend -----
 
 // Rotas de Usuario
