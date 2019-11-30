@@ -93,6 +93,7 @@ routes.delete("/products/:product_id", ProdutoController.destroy);
 
 // Rotas de Pedido
 routes.get("/orders/:order_id/:user_id", PedidoController.index);
+routes.get("/orders/:user_id", PedidoController.findAll);
 routes.post("/orders/:user_id", PedidoController.store);
 
 // Rotas do Carrinho
@@ -118,4 +119,5 @@ routes.put("/announcements/:poster_id/users", AnuncioController.update);
 
 // Rotas de Sessão
 routes.post("/session", SessionController.store);
+
 module.exports = routes;
