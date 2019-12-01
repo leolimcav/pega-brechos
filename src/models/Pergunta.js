@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Pergunta extends Model {
+class Question extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -12,16 +12,16 @@ class Pergunta extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Anuncio, {
+    this.belongsTo(models.Announcement, {
       foreignKey: "anuncio_id",
       as: "anuncio"
     });
 
-    this.hasMany(models.Resposta, {
+    this.hasMany(models.Answer, {
       foreignKey: "pergunta_id",
       as: "respostas"
     });
   }
 }
 
-module.exports = Pergunta;
+module.exports = Question;

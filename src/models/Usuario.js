@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcryptjs");
 
-class Usuario extends Model {
+class User extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -13,13 +13,14 @@ class Usuario extends Model {
         rg: DataTypes.STRING(11),
         cpf: DataTypes.STRING(11),
         data_nascimento: DataTypes.DATEONLY,
-        sexo: DataTypes.STRING(1)
+        sexo: DataTypes.STRING(1),
+        is_brecho: DataTypes.STRING(1)
       },
       {
         hooks: {
-          beforeSave: async usuario => {
-            if (usuario.senha) {
-              usuario.hash_senha = await bcrypt.hash(usuario.senha, 8);
+          beforeSave: async user => {
+            if (user.senha) {
+              user.hash_senha = await bcrypt.hash(user.senha, 8);
             }
           }
         },
@@ -29,30 +30,30 @@ class Usuario extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Endereco, {
+    this.hasMany(models.Address, {
       foreignKey: "usuario_id",
       as: "enderecos"
     });
 
-    this.hasMany(models.Produto, {
+    this.hasMany(models.Product, {
       foreignKey: "usuario_id",
       as: "usuario_produtos"
     });
 
-    this.hasMany(models.Pedido, {
+    this.hasMany(models.Order, {
       foreignKey: "usuario_id",
       as: "usuario_pedidos"
     });
 
-    this.hasMany(models.Anuncio, {
+    this.hasMany(models.Announcement, {
       foreignKey: "usuario_id",
       as: "usuario_anuncios"
     });
   }
 }
 
-Usuario.prototype.checkPassword = function(password) {
+User.prototype.checkPassword = function(password) {
   return bcrypt.compare(password, this.hash_senha);
 };
 
-module.exports = Usuario;
+module.exports = User;
