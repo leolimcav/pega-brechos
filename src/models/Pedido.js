@@ -15,7 +15,7 @@ class Order extends Model {
     this.belongsToMany(models.Product, {
       foreignKey: "pedido_id",
       through: "order_products",
-      as: "ped_produto"
+      as: "products"
     });
 
     this.belongsTo(models.User, {
