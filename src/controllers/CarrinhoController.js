@@ -1,40 +1,128 @@
-// const Carrinho = require("../models/ProdutoPedido");
-// const Pedido = require("../models/Pedido");
+const Pedido = require("../models/Pedido");
+const Produto = require("../models/Produto");
 
-// module.exports = {
-//   async index(req, res) {
-//     const { order_id, user_id } = req.params;
+module.exports = {
+  async index(req, res) {
+    const { order_id } = req.params;
+    try {
+      const pedido = await Pedido.findByPk(order_id, {
+        include: {
+          association: "products",
+          through: {
+            attributes: []
+          }
+        }
+      });
 
-//     const carrinho = await Carrinho.find({
-//       usuario_id: user_id,
-//       pedido_id: order_id
-//     });
-//     if (carrinho.length === 0) {
-//       return res.json({ msg: "Carrinho vazio!" });
-//     }
-//     let total = 0;
-//     carrinho.map(async item => {
-//       console.log(item.valor);
-//       total += item.valor;
-//     });
-//     await Pedido.updateTotal(order_id, total);
+      const { products } = await pedido.toJSON();
+      let total = products.map(item => {
+        return item.valor;
+      });
 
-//     return res.json(carrinho);
-//   },
-//   async store(req, res) {
-//     const { order_id, product_id } = req.params;
-//     const carrinho = await Carrinho.create({
-//       pedido_id: order_id,
-//       produto_id: product_id
-//     });
-//     return res.json(carrinho);
-//   },
-//   async destroy(req, res) {
-//     const { order_id, product_id } = req.params;
-//     const carrinho = await Carrinho.Delete({
-//       pedido_id: order_id,
-//       produto_id: product_id
-//     });
-//     return res.json(carrinho);
-//   }
-// };
+      total = total.reduce((acc, index) => acc + index);
+
+      pedido.update({ total });
+
+      console.log(total);
+
+      return res.json(pedido);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
+  async store(req, res) {
+    try {
+      const { order_id, product_id } = req.params;
+      const pedido = await Pedido.findByPk(order_id);
+      const produto = await Produto.findByPk(product_id);
+
+      await pedido.addProducts(product_id);
+      await produto.addOrders(order_id);
+
+      const carrinho = await Pedido.findByPk(order_id, {
+        include: {
+          association: "products",
+          through: {
+            attributes: []
+          }
+        }
+      });
+
+      const { products } = await carrinho.toJSON();
+      let total = products.map(item => {
+        return item.valor;
+      });
+
+      total = total.reduce((acc, index) => acc + index);
+
+      pedido.update({ total });
+
+      console.log(total);
+
+      return res.json(carrinho);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
+  async destroy(req, res) {
+    const { order_id, product_id } = req.params;
+    try {
+      const pedido = await Pedido.findByPk(order_id, {
+        include: {
+          association: "products",
+          through: {
+            attributes: []
+          }
+        }
+      });
+
+      await pedido.removeProducts(product_id);
+
+      const { products } = await pedido.toJSON();
+      let total = products.map(item => {
+        return item.valor;
+      });
+
+      total = total.reduce((acc, index) => acc + index);
+
+      pedido.update({ total });
+
+      console.log(total);
+
+      return res.json(pedido);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
+  async checkout(req, res) {
+    const { order_id } = req.params;
+    try {
+      const pedido = await Pedido.findByPk(order_id, {
+        include: {
+          association: "products",
+          through: {
+            attributes: []
+          }
+        }
+      });
+      const { products } = await pedido.toJSON();
+      let total = products.map(item => {
+        return item.valor;
+      });
+
+      total = total.reduce((acc, index) => acc + index);
+
+      pedido.update({ total });
+
+      console.log(total);
+
+      return res.json(pedido);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  }
+};
