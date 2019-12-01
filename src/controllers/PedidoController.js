@@ -1,51 +1,61 @@
-// const Pedido = require("../models/Pedido");
-// const Usuario = require("../models/Usuario");
-// // const Produto = require("../models/Produto");
-// // const ProdutoPedido = require("../models/ProdutoPedido");
+const Pedido = require("../models/Pedido");
+const Usuario = require("../models/Usuario");
 
-// module.exports = {
-//   async index(req, res) {
-//     const { order_id, user_id } = req.params;
-//     const usuario = await Usuario.findById(user_id);
+module.exports = {
+  async index(req, res) {
+    const { order_id, user_id } = req.params;
+    try {
+      const usuario = await Usuario.findByPk(user_id, {
+        include: { association: "usuario_pedidos", where: { id: order_id } }
+      });
 
-//     if (!usuario) {
-//       return res.json({ msg: "Usuario não encontrado!" });
-//     }
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
 
-//     const pedido = await Pedido.findById(order_id, user_id);
-//     if (!pedido) {
-//       return res.json({ msg: "Pedido não encontrado!" });
-//     }
+      return res.json(usuario);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     return res.json(pedido);
-//   },
+  async findAll(req, res) {
+    const { user_id } = req.params;
+    try {
+      const usuario = await Usuario.findByPk(user_id, {
+        include: { association: "usuario_pedidos" }
+      });
 
-//   async findAll(req, res) {
-//     const { user_id } = req.params;
-//     const usuario = await Usuario.findById(user_id);
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
 
-//     if (usuario.length === 0) {
-//       return res.json({ msg: "Usuário não encontrado!" });
-//     }
+      return res.json(usuario);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     const pedidos = await Pedido.findAll(user_id);
+  async store(req, res) {
+    const { user_id } = req.params;
+    const { data_pedido } = req.body;
+    try {
+      const usuario = await Usuario.findByPk(user_id);
 
-//     return res.json(pedidos);
-//   },
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
 
-//   async store(req, res) {
-//     const { user_id } = req.params;
-//     const { data_pedido } = req.body;
-//     const usuario = await Usuario.findById(user_id);
+      const pedido = await Pedido.create({ data_pedido, usuario_id: user_id });
 
-//     if (!usuario) {
-//       return res.json({ msg: "Usuario não encontrado!" });
-//     }
+      return res.json(pedido);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  }
 
-//     const pedido = await Pedido.create({ usuario_id: user_id, data_pedido });
-
-//     return res.json(pedido[0]);
-//   },
-
-//   async checkout(req, res) {}
-// };
+  // async checkout(req, res) {}
+};

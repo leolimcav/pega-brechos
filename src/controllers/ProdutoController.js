@@ -1,64 +1,108 @@
-// const Produto = require("../models/Produto");
-// const Usuario = require("../models/Usuario");
+const Produto = require("../models/Produto");
+const Usuario = require("../models/Usuario");
 
-// module.exports = {
-//   async index(req, res) {
-//     const { product_id } = req.params;
-//     const produto = await Produto.findById(product_id);
+module.exports = {
+  async index(req, res) {
+    const { product_id } = req.params;
+    try {
+      const produto = await Produto.findByPk(product_id, {
+        include: {
+          association: "categories",
+          through: {
+            attributes: []
+          }
+        }
+      });
 
-//     if (!produto) {
-//       return res.json({ msg: "Produto não encontrado!" });
-//     }
+      return res.json(produto);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     return res.json(produto[0]);
-//   },
+  async findAll(req, res) {
+    const { user_id } = req.params;
+    try {
+      const produtos = await Produto.findAll({
+        where: { usuario_id: user_id },
+        include: [{ association: "categories", through: { attributes: [] } }]
+      });
 
-//   async findAll(req, res) {
-//     const { user_id } = req.params;
-//     const produto = await Produto.findAll(user_id);
+      return res.json(produtos);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     if (produto.length === 0) {
-//       return res.json({ msg: "Produto não encontrado!" });
-//     }
+  async store(req, res) {
+    const { user_id } = req.params;
+    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
+    try {
+      const usuario = await Usuario.findByPk(user_id);
 
-//     return res.json(produto);
-//   },
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
 
-//   async store(req, res) {
-//     const { user_id } = req.params;
-//     const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
-//     const usuario = await Usuario.findById(user_id);
+      const produto = await Produto.create({
+        titulo,
+        descricao,
+        valor,
+        tamanho,
+        estado,
+        usuario_id: user_id
+      });
 
-//     if (usuario.length === 0) {
-//       return res.json({ msg: "Usuario não encontrado!" });
-//     }
+      await produto.addCategories(categoria);
 
-//     const produto = await Produto.create(
-//       { titulo, descricao, valor, categoria, tamanho, estado },
-//       user_id
-//     );
+      return res.json(produto);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     return res.json(produto[0]);
-//   },
+  async update(req, res) {
+    const { product_id } = req.params;
+    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
+    try {
+      const produto = await Produto.findByPk(product_id, {
+        include: {
+          association: "categories",
+          attributes: ["id", "nome_categoria"],
+          through: { attributes: [] }
+        }
+      });
+      await produto.removeCategories(produto.categories);
+      await produto.addCategories(categoria);
+      await produto.update({
+        titulo,
+        descricao,
+        valor,
+        tamanho,
+        estado
+      });
 
-//   async update(req, res) {
-//     const { product_id } = req.params;
-//     const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
-//     const produto = await Produto.findByIdAndUpdate(product_id, {
-//       titulo,
-//       descricao,
-//       valor,
-//       categoria,
-//       tamanho,
-//       estado
-//     });
+      return res.json(produto);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     return res.json(produto[0]);
-//   },
+  async destroy(req, res) {
+    const { product_id } = req.params;
+    try {
+      const produto = await Produto.findByPk(product_id);
 
-//   async destroy(req, res) {
-//     const { product_id } = req.params;
-//     const produto = await Produto.findByIdAndDelete(product_id);
-//     return res.json(produto[0]);
-//   }
-// };
+      await produto.destroy();
+
+      return res.json(produto);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  }
+};

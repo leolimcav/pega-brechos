@@ -1,5 +1,5 @@
-const Endereco = require("../models/Enderecos");
-const Usuario = require("../models/Usuarios");
+const Endereco = require("../models/Endereco");
+const Usuario = require("../models/Usuario");
 
 module.exports = {
   async index(req, res) {

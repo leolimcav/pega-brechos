@@ -1,8 +1,8 @@
 const express = require("express");
 const UsuarioController = require("./controllers/UsuarioController");
 const EnderecoController = require("./controllers/EnderecoController");
-// const ProdutoController = require("./controllers/ProdutoController");
-// const PedidoController = require("./controllers/PedidoController");
+const ProdutoController = require("./controllers/ProdutoController");
+const PedidoController = require("./controllers/PedidoController");
 // const CarrinhoController = require("./controllers/CarrinhoController");
 // const SearchController = require("./controllers/SearchController");
 // const AnuncioController = require("./controllers/AnuncioController");
@@ -92,16 +92,16 @@ routes.put("/users/addresses/:address_id", EnderecoController.update);
 routes.delete("/users/addresses/:address_id", EnderecoController.destroy);
 
 // Rotas de Produto
-// routes.get("/products/:product_id", ProdutoController.index);
-// routes.get("/products/users/:user_id", ProdutoController.findAll);
-// routes.post("/products/:user_id", ProdutoController.store);
-// routes.put("/products/:product_id", ProdutoController.update);
-// routes.delete("/products/:product_id", ProdutoController.destroy);
+routes.get("/products/:product_id", ProdutoController.index);
+routes.get("/products/users/:user_id", ProdutoController.findAll);
+routes.post("/products/:user_id", ProdutoController.store);
+routes.put("/products/:product_id", ProdutoController.update);
+routes.delete("/products/:product_id", ProdutoController.destroy);
 
 // Rotas de Pedido
-// routes.get("/orders/:order_id/:user_id", PedidoController.index);
-// routes.get("/orders/:user_id", PedidoController.findAll);
-// routes.post("/orders/:user_id", PedidoController.store);
+routes.get("/orders/:order_id/:user_id", PedidoController.index);
+routes.get("/orders/:user_id", PedidoController.findAll);
+routes.post("/orders/:user_id", PedidoController.store);
 
 // Rotas do Carrinho
 // routes.get("/cart/:user_id/:order_id", CarrinhoController.index);

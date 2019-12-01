@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Produto extends Model {
+class Product extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -15,28 +15,28 @@ class Produto extends Model {
   }
 
   static associate(models) {
-    this.belongsToMany(models.Pedido, {
+    this.belongsToMany(models.Order, {
       foreignKey: "produto_id",
-      through: "pedido_produtos",
-      as: "produto_pedido"
+      through: "order_products",
+      as: "prod_pedido"
     });
 
-    this.belongsToMany(models.Categoria, {
+    this.belongsToMany(models.Category, {
       foreignKey: "produto_id",
-      through: "produto_categorias",
-      as: "categorias"
+      through: "product_categories",
+      as: "categories"
     });
 
-    this.belongsTo(models.Usuario, {
+    this.belongsTo(models.User, {
       foreignKey: "usuario_id",
       as: "produto_usuario"
     });
 
-    this.hasOne(models.Anuncio, {
+    this.hasOne(models.Announcement, {
       foreignKey: "produto_id",
       as: "produto_anuncio"
     });
   }
 }
 
-module.exports = Produto;
+module.exports = Product;

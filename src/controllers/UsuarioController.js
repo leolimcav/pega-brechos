@@ -1,4 +1,4 @@
-const Usuario = require("../models/Usuarios");
+const Usuario = require("../models/Usuario");
 
 module.exports = {
   async index(req, res) {
@@ -26,7 +26,8 @@ module.exports = {
       rg,
       cpf,
       data_nascimento,
-      sexo
+      sexo,
+      is_brecho
     } = req.body;
     try {
       const usuario = await Usuario.create({
@@ -37,7 +38,8 @@ module.exports = {
         rg,
         cpf,
         data_nascimento,
-        sexo
+        sexo,
+        is_brecho
       });
       return res.json(usuario);
     } catch (err) {
@@ -56,7 +58,8 @@ module.exports = {
       rg,
       cpf,
       data_nascimento,
-      sexo
+      sexo,
+      is_brecho
     } = req.body;
 
     try {
@@ -74,7 +77,8 @@ module.exports = {
         rg,
         cpf,
         data_nascimento,
-        sexo
+        sexo,
+        is_brecho
       });
 
       return res.json(usuario);
