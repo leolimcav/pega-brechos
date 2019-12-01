@@ -144,3 +144,24 @@ form input::-webkit-input-placeholder {
   margin-left: -16%;
   margin-top: -5.5%;
 }
+
+#imgThumbnail {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#thumbnail {
+  width: 30%;
+  background-color: #f8f8f8;
+  border: 2px solid #be5599;
+  border-radius: 100%;
+  display: flex;
+}
+#thumbnail #picture {
+  display: none;
+}
+#thumbnail img {
+  width: 100%;
+  border-radius: 100%;
+}
