@@ -6,16 +6,14 @@
         Todas as categorias
       </strong>
     </li>
-    <li><a href="">Homens</a></li>
-    <li><a href="">Mulheres</a></li>
-    <li><a href="">Roupas</a></li>
-    <li><a href="">Acessórios</a></li>
-    <li><a href="">Calçados</a></li>
-    <li id="content-separated">
-      <a href=""><strong>Ofertas do dia</strong></a>
-    </li>
+    <li><a href="/search">Homens</a></li>
+    <li><a href="/search">Mulheres</a></li>
+    <li><a href="/search">Roupas</a></li>
+    <li><a href="/search">Acessórios</a></li>
+    <li><a href="/search">Calçados</a></li>
+    <li id="content-separated"></li>
     <li>
-      <a href="">
+      <a href="/createad">
         <button class="btnAnunciar">
           <strong>Anuncie</strong>
         </button></a
@@ -50,7 +48,7 @@
     />
 
     <button id="btnSearch" style="cursor: pointer;">
-      <img src="./assets/icons/search.svg" alt="Pesquisar" />
+      <img src="./assets/icons/search.svg" alt="Pesquisar" onclick="search()" />
     </button>
   </div>
   <div id="user" onmouseover="openSubmenu()" onmouseout="closeSubmenu()">
@@ -63,12 +61,15 @@
       onmouseover="openSubmenu()"
       onmouseout="closeSubmenu()"
     >
-      <li><a href=""> Minha conta</a></li>
+      <li><a href="">Meu perfil</a></li>
+
+      <li><a href="">Minha conta</a></li>
+      <li><a href="">Meus pedidos</a></li>
       <li><a href=""> Meus anúncios</a></li>
 
-      <li><a href="">Meus pedidos</a></li>
-      <li><a href="">Lojas favoritas</a></li>
-      <li><a href="">Preferências</a></li>
+      <li><a href="">Meus endereços</a></li>
+      <li><a href="">Minhas perguntas</a></li>
+
       <li><a href="">Sair</a></li>
     </ul>
   </div>
@@ -91,16 +92,14 @@
           Todas as categorias
         </strong>
       </li>
-      <li><a href="">Feminino</a></li>
-      <li><a href="">Masculino</a></li>
-      <li><a href="">Roupas</a></li>
-      <li><a href="">Acessórios</a></li>
-      <li><a href="">Calçados</a></li>
-      <li id="content-separated">
-        <a href=""><strong>Ofertas do dia</strong></a>
-      </li>
+      <li><a href="/search">Feminino</a></li>
+      <li><a href="/search">Masculino</a></li>
+      <li><a href="/search">Roupas</a></li>
+      <li><a href="/search">Acessórios</a></li>
+      <li><a href="/search">Calçados</a></li>
+      <li id="content-separated"></li>
       <li>
-        <a href="">
+        <a href="/createAd">
           <button class="btnAnunciar">
             <strong>Anuncie</strong>
           </button></a
@@ -112,7 +111,7 @@
 <div id="line"></div>
 
 <script src="../js/openMenu.js"></script>
-<script src="./js/localStorageIndex.js"></script>
+<script src="../js/search.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script
   type="text/javascript"

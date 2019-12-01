@@ -64,3 +64,24 @@ $(document).ready(function() {
     }
   });
 });
+
+function calcular() {
+  const frete = require("frete");
+
+  frete()
+    .cepOrigem("60866450")
+    .peso(1)
+    .formato(1)
+    .comprimento(16)
+    .altura(2)
+    .largura(11)
+    .diametro(1)
+    .maoPropria("N")
+    .valorDeclarado(50)
+    .avisoRecebimento("S")
+    .servico(frete.codigos.sedex)
+    .precoPrazo("60866450", function(err, results) {
+      console.log(err);
+      console.log(results);
+    });
+}

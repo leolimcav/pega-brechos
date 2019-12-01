@@ -278,16 +278,20 @@ section {
 }
 #img1 {
   width: 50%;
+  cursor: pointer;
 }
 #img2 {
   align-self: flex-end;
   width: 90%;
+  cursor: pointer;
 }
 #img3 {
   width: 40%;
+  cursor: pointer;
 }
 #img4 {
   width: 40%;
+  cursor: pointer;
 }
 .was {
   color: #666666;

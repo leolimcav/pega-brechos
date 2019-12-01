@@ -7,11 +7,13 @@
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
+    "argument-validator": "^0.1.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "soap": "^0.30.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
