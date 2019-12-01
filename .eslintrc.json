@@ -19,6 +19,9 @@
   "rules": {
     "no-console": "off",
     "no-undef": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "no-unused-vars": "off",
+    "func-names": "off",
+    "strict": "off"
   }
 }

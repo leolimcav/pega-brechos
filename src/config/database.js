@@ -1,6 +1,13 @@
-const { Pool } = require('pg');
-const dbconfig = require('./config');
-
-const pool = new Pool(dbconfig);
-
-module.exports = pool;
+module.exports = {
+  dialect: "postgres",
+  host: "localhost",
+  username: "postgres",
+  password: "root",
+  database: "pegadb",
+  operatorAliases: false,
+  define: {
+    timestamps: true,
+    underscored: true,
+    underscoredAll: true
+  }
+};
