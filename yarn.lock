@@ -489,6 +489,11 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
+argument-validator@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/argument-validator/-/argument-validator-0.1.0.tgz#fcfcaad8a6f15b861cc881ba8b27ccb4c4126809"
+  integrity sha1-/Pyq2KbxW4YcyIG6iyfMtMQSaAk=
+
 arr-diff@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-4.0.0.tgz#d6461074febfec71e7e15235761a329a5dc7c520"

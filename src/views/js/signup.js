@@ -5,7 +5,6 @@ $(function() {
     const nome = document.getElementById("nome");
     const email = document.getElementById("email");
     const email2 = document.getElementById("email2");
-
     const senha = document.getElementById("pwd");
     const rg = document.getElementById("rg");
     const cpf = document.getElementById("cpf");
