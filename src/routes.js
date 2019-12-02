@@ -4,7 +4,7 @@ const EnderecoController = require("./controllers/EnderecoController");
 const ProdutoController = require("./controllers/ProdutoController");
 const PedidoController = require("./controllers/PedidoController");
 const CarrinhoController = require("./controllers/CarrinhoController");
-// const SearchController = require("./controllers/SearchController");
+const SearchController = require("./controllers/SearchController");
 const AnuncioController = require("./controllers/AnuncioController");
 const SessionController = require("./controllers/SessionController");
 
@@ -110,8 +110,9 @@ routes.delete("/cart/:order_id/:product_id", CarrinhoController.destroy);
 routes.post("/cart/orders/:order_id/checkout", CarrinhoController.checkout);
 
 // Rotas de Busca
-// routes.get("/search/users", SearchController.findUser);
-// routes.get("/search/products", SearchController.findProduct);
+routes.get("/search/users", SearchController.findUser);
+routes.get("/search/products", SearchController.findProduct);
+routes.get("/search/categories", SearchController.findCategory);
 
 // Rotas de Anuncio
 routes.get("/announcements/users/:user_id", AnuncioController.index);
