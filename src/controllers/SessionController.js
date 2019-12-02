@@ -1,19 +1,29 @@
-// const bcrypt = require("bcryptjs");
-// const Usuario = require("../models/Usuario");
+const Usuario = require("../models/Usuario");
 
-// module.exports = {
-//   async store(req, res) {
-//     const { email, senha } = req.body;
-//     const usuario = await Usuario.auth(email);
+module.exports = {
+  async store(req, res) {
+    const { email, senha } = req.body;
+    try {
+      const usuario = await Usuario.findOne({
+        where: {
+          email
+        }
+      });
 
-//     if (usuario.length === 0) {
-//       return res.json({ msg: "Usuário não existente!" });
-//     }
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
 
-//     if (await bcrypt.compare(senha, usuario[0].hash_senha)) {
-//       return res.json(usuario[0]);
-//     }
+      const check = await usuario.checkPassword(senha);
 
-//     return res.json({ msg: "Email e/ou Senha incorretos!" });
-//   }
-// };
+      if (check) {
+        return res.json(usuario);
+      }
+
+      return res.json({ msg: "Email e/ou Senha incorretos!" });
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  }
+};
