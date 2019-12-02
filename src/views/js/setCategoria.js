@@ -7,7 +7,6 @@ $(function() {
     "Calçado",
     "Camisa",
     "Calça",
-    "Chinelo",
     "Regata",
     "Vestido",
     "Short",
@@ -18,7 +17,6 @@ $(function() {
     "Brinco",
     "Colar",
     "Pulseira",
-    "Short saia",
     "Jaqueta",
     "Cropped"
   ];
