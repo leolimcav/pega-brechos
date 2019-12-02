@@ -41,7 +41,7 @@
               />
             </div>
             <div>
-                <label>Sou: <span class="red">*</span></label>
+                <label for="brecho">Sou: <span class="red">*</span></label>
                 <input
                   type="radio"
                   name="brecho"
@@ -62,7 +62,7 @@
                 name="cpf"
                 id="cpf"
                 placeholder="xxx.xxx.xxx-xx"
-                maxlength="15"
+                maxlength="11"
               />
             </div>
             <div>
@@ -72,7 +72,7 @@
                 name="rg"
                 id="rg"
                 placeholder="xxxxxxxxxx-x"
-                maxlength="12"
+                maxlength="11"
               />
             </div>
 
@@ -101,6 +101,7 @@
               Masculino
               <input type="radio" name="sex" id="outro" value="O" />
               Outro
+              <input type="radio" name="sex" id="null" value=" " checked hidden/>
             </div>
           </div>
           <div id="divise"></div>

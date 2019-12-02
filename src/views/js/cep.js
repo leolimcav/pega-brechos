@@ -1,20 +1,12 @@
 $(document).ready(function() {
-  const $campo = $("#cep");
-  $campo.mask("00000-000", { reverse: true });
-});
-
-$(document).ready(function() {
   function limpa_formulário_cep() {
-    // Limpa valores do formulário de cep.
     $("#rua").val("");
     $("#bairro").val("");
     $("#cidade").val("");
     $("#uf").val("");
   }
 
-  // Quando o campo cep perde o foco.
   $("#cep").blur(function() {
-    // Nova variável "cep" somente com dígitos.
     const cep = $(this)
       .val()
       .replace(/\D/g, "");
@@ -64,24 +56,3 @@ $(document).ready(function() {
     }
   });
 });
-
-function calcular() {
-  const frete = require("frete");
-
-  frete()
-    .cepOrigem("60866450")
-    .peso(1)
-    .formato(1)
-    .comprimento(16)
-    .altura(2)
-    .largura(11)
-    .diametro(1)
-    .maoPropria("N")
-    .valorDeclarado(50)
-    .avisoRecebimento("S")
-    .servico(frete.codigos.sedex)
-    .precoPrazo("60866450", function(err, results) {
-      console.log(err);
-      console.log(results);
-    });
-}
