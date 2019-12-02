@@ -5,7 +5,7 @@ const ProdutoController = require("./controllers/ProdutoController");
 const PedidoController = require("./controllers/PedidoController");
 const CarrinhoController = require("./controllers/CarrinhoController");
 // const SearchController = require("./controllers/SearchController");
-// const AnuncioController = require("./controllers/AnuncioController");
+const AnuncioController = require("./controllers/AnuncioController");
 // const SessionController = require("./controllers/SessionController");
 
 const routes = express.Router();
@@ -114,16 +114,16 @@ routes.post("/cart/orders/:order_id/checkout", CarrinhoController.checkout);
 // routes.get("/search/products", SearchController.findProduct);
 
 // Rotas de Anuncio
-// routes.get("/announcements/users/:user_id", AnuncioController.index);
-// routes.get(
-//   "/announcements/:poster_id/users/:user_id",
-//   AnuncioController.findOne
-// );
-// routes.post(
-//   "/announcements/products/:product_id/users/:user_id",
-//   AnuncioController.store
-// );
-// routes.put("/announcements/:poster_id/users", AnuncioController.update);
+routes.get("/announcements/users/:user_id", AnuncioController.index);
+routes.get(
+  "/announcements/:poster_id/users/:user_id",
+  AnuncioController.findOne
+);
+routes.post(
+  "/announcements/products/:product_id/users/:user_id",
+  AnuncioController.store
+);
+routes.put("/announcements/:poster_id/users", AnuncioController.update);
 
 // Rotas de Sessão
 // routes.post("/session", SessionController.store);
