@@ -52,25 +52,24 @@
     </button>
   </div>
   <div id="user" onmouseover="openSubmenu()" onmouseout="closeSubmenu()">
-    <span id="usuario"> Seja bem-vindo!</span>
-    <br />
-    <a href="/login"><strong>Cadastre-se agora.</strong></a>
-
+    <span id="usuario">
+      Seja bem-vindo!
+      <br />
+      <a href="/login"><strong>Cadastre-se agora.</strong></a>
+    </span>
     <ul
       id="submenuUser"
       onmouseover="openSubmenu()"
       onmouseout="closeSubmenu()"
     >
-      <li><a href="">Meu perfil</a></li>
+      <li><a href="/myprofile">Meu perfil</a></li>
 
-      <li><a href="">Minha conta</a></li>
-      <li><a href="">Meus pedidos</a></li>
-      <li><a href=""> Meus anúncios</a></li>
+      <li><a href="/editUser">Meus dados</a></li>
+      <li><a href="/myOrders">Meus pedidos</a></li>
+      <li><a href="/address">Meus endereços</a></li>
+      <li><a href="/myquestions">Minhas perguntas</a></li>
 
-      <li><a href="">Meus endereços</a></li>
-      <li><a href="">Minhas perguntas</a></li>
-
-      <li><a href="">Sair</a></li>
+      <li><a href="/" onclick="localStorage.clear()">Sair</a></li>
     </ul>
   </div>
   <div id="cart">
