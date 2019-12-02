@@ -1,50 +1,96 @@
-// const Anuncio = require("../models/Anuncio");
-// const Usuario = require("../models/Usuario");
+const Anuncio = require("../models/Anuncio");
+const Usuario = require("../models/Usuario");
 
-// module.exports = {
-//   async index(req, res) {
-//     const { user_id } = req.params;
-//     const usuario = await Usuario.findById(user_id);
+module.exports = {
+  async index(req, res) {
+    const { user_id } = req.params;
+    try {
+      const anuncios = await Anuncio.findAll({
+        where: {
+          usuario_id: user_id
+        },
+        include: [
+          {
+            association: "anuncio_produto"
+          },
+          {
+            association: "anuncio_usuario",
+            attributes: []
+          }
+        ]
+      });
 
-//     if (usuario.length === 0) {
-//       return res.json({ msg: "Usuário não encontrado!" });
-//     }
+      return res.json(anuncios);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     const anuncios = await Anuncio.findAll(user_id);
+  async findOne(req, res) {
+    const { poster_id, user_id } = req.params;
+    try {
+      const anuncio = await Anuncio.findByPk(poster_id, {
+        where: {
+          usuario_id: user_id
+        },
+        include: [
+          {
+            association: "anuncio_produto"
+          },
+          {
+            association: "anuncio_usuario",
+            attributes: []
+          }
+        ]
+      });
 
-//     return res.json(anuncios);
-//   },
+      return res.json(anuncio);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//   async findOne(req, res) {
-//     const { poster_id } = req.params;
+  async store(req, res) {
+    const { product_id, user_id } = req.params;
+    const { data_anuncio } = req.body;
+    try {
+      const usuario = await Usuario.findByPk(user_id);
 
-//     const anuncio = await Anuncio.findById(poster_id);
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
 
-//     return res.json(anuncio[0]);
-//   },
+      const anuncio = await Anuncio.create({
+        usuario_id: user_id,
+        produto_id: product_id,
+        data_anuncio
+      });
 
-//   async store(req, res) {
-//     const { product_id, user_id } = req.params;
-//     const anuncio = await Anuncio.create({
-//       produto_id: product_id,
-//       usuario_id: user_id
-//     });
+      return res.json(anuncio);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  },
 
-//     return res.json(anuncio[0]);
-//   },
+  async update(req, res) {
+    const { poster_id } = req.params;
+    const { status } = req.body;
+    try {
+      const anuncio = await Anuncio.findByPk(poster_id);
 
-//   async update(req, res) {
-//     const { poster_id } = req.params;
-//     const { status } = req.body;
+      if (!anuncio) {
+        return res.json({ msg: "Anuncio não encontrado!" });
+      }
 
-//     const an = await Anuncio.findById(poster_id);
+      await anuncio.update({ status });
 
-//     if (an.length === 0) {
-//       return res.json({ msg: "Anuncio não encontrado!" });
-//     }
-
-//     const anuncio = await Anuncio.Update({ anuncio_id: poster_id, status });
-
-//     return res.json(anuncio[0]);
-//   }
-// };
+      return res.json(anuncio);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
+  }
+};

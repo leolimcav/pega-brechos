@@ -4,7 +4,7 @@ class Announcement extends Model {
   static init(sequelize) {
     super.init(
       {
-        data_nascimento: DataTypes.DATEONLY,
+        data_anuncio: DataTypes.DATEONLY,
         status: DataTypes.STRING(7)
       },
       { sequelize }

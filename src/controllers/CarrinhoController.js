@@ -23,8 +23,6 @@ module.exports = {
 
       pedido.update({ total });
 
-      console.log(total);
-
       return res.json(pedido);
     } catch (err) {
       console.log(err);
@@ -58,8 +56,6 @@ module.exports = {
 
       pedido.update({ total });
 
-      console.log(total);
-
       return res.json(carrinho);
     } catch (err) {
       console.log(err);
@@ -89,8 +85,6 @@ module.exports = {
 
       pedido.update({ total });
 
-      console.log(total);
-
       return res.json(pedido);
     } catch (err) {
       console.log(err);
@@ -116,8 +110,6 @@ module.exports = {
       total = total.reduce((acc, index) => acc + index);
 
       pedido.update({ total });
-
-      console.log(total);
 
       return res.json(pedido);
     } catch (err) {
