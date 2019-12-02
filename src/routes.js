@@ -6,7 +6,7 @@ const PedidoController = require("./controllers/PedidoController");
 const CarrinhoController = require("./controllers/CarrinhoController");
 // const SearchController = require("./controllers/SearchController");
 const AnuncioController = require("./controllers/AnuncioController");
-// const SessionController = require("./controllers/SessionController");
+const SessionController = require("./controllers/SessionController");
 
 const routes = express.Router();
 
@@ -126,6 +126,6 @@ routes.post(
 routes.put("/announcements/:poster_id/users", AnuncioController.update);
 
 // Rotas de Sessão
-// routes.post("/session", SessionController.store);
+routes.post("/session", SessionController.store);
 
 module.exports = routes;
