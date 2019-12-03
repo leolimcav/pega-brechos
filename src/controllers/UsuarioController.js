@@ -30,18 +30,22 @@ module.exports = {
       is_brecho
     } = req.body;
     try {
-      const usuario = await Usuario.create({
-        nome,
-        email,
-        senha,
-        telefone,
-        rg,
-        cpf,
-        data_nascimento,
-        sexo,
-        is_brecho
-      });
-      return res.json(usuario);
+      const created = await Usuario.findOne({ where: { email } });
+      if (!created) {
+        const usuario = await Usuario.create({
+          nome,
+          email,
+          senha,
+          telefone,
+          rg,
+          cpf,
+          data_nascimento,
+          sexo,
+          is_brecho
+        });
+        return res.json(usuario);
+      }
+      return res.json({ msg: "Este email já esta em uso!" });
     } catch (err) {
       console.log(err);
       return res.json(err.detail);

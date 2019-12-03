@@ -54,7 +54,7 @@ module.exports = {
 
   async store(req, res) {
     const { product_id, user_id } = req.params;
-    const { data_anuncio } = req.body;
+    const { data_anuncio, tipo_pagamento } = req.body;
     try {
       const usuario = await Usuario.findByPk(user_id);
 
@@ -65,7 +65,8 @@ module.exports = {
       const anuncio = await Anuncio.create({
         usuario_id: user_id,
         produto_id: product_id,
-        data_anuncio
+        data_anuncio,
+        tipo_pagamento
       });
 
       return res.json(anuncio);

@@ -5,7 +5,8 @@ class Announcement extends Model {
     super.init(
       {
         data_anuncio: DataTypes.DATEONLY,
-        status: DataTypes.STRING(7)
+        status: DataTypes.STRING(7),
+        tipo_pagamento: DataTypes.STRING(20)
       },
       { sequelize }
     );

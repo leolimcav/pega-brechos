@@ -6,9 +6,12 @@ class Product extends Model {
       {
         titulo: DataTypes.STRING,
         descricao: DataTypes.TEXT,
+        marca: DataTypes.STRING(50),
+        cor: DataTypes.STRING(30),
         valor: DataTypes.REAL,
         tamanho: DataTypes.STRING,
-        estado: DataTypes.STRING(10)
+        estado: DataTypes.STRING(10),
+        imagem: DataTypes.STRING
       },
       { sequelize }
     );

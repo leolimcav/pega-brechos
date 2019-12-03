@@ -13,6 +13,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      marca: {
+        type: Sequelize.STRING(50),
+        allowNull: false
+      },
+      cor: {
+        type: Sequelize.STRING(30),
+        allowNull: false
+      },
       descricao: {
         type: Sequelize.TEXT,
         allowNull: false
@@ -28,6 +36,10 @@ module.exports = {
       estado: {
         type: Sequelize.STRING(10),
         allowNull: false
+      },
+      imagem: {
+        type: Sequelize.STRING,
+        defaultValue: "SEM IMAGEM"
       },
       usuario_id: {
         type: Sequelize.INTEGER,

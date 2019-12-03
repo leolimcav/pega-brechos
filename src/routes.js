@@ -1,4 +1,8 @@
 const express = require("express");
+const multer = require("multer");
+
+const uploadConfig = require("./config/upload");
+
 const UsuarioController = require("./controllers/UsuarioController");
 const EnderecoController = require("./controllers/EnderecoController");
 const ProdutoController = require("./controllers/ProdutoController");
@@ -9,6 +13,7 @@ const AnuncioController = require("./controllers/AnuncioController");
 const SessionController = require("./controllers/SessionController");
 
 const routes = express.Router();
+const upload = multer(uploadConfig);
 
 // Rotas do FRONTEND
 routes.get("/", (req, res) => {
@@ -94,8 +99,16 @@ routes.delete("/users/addresses/:address_id", EnderecoController.destroy);
 // Rotas de Produto
 routes.get("/products/:product_id", ProdutoController.index);
 routes.get("/products/users/:user_id", ProdutoController.findAll);
-routes.post("/products/:user_id", ProdutoController.store);
-routes.put("/products/:product_id", ProdutoController.update);
+routes.post(
+  "/products/:user_id",
+  upload.single("imagem"),
+  ProdutoController.store
+);
+routes.put(
+  "/products/:product_id",
+  upload.single("imagem"),
+  ProdutoController.update
+);
 routes.delete("/products/:product_id", ProdutoController.destroy);
 
 // Rotas de Pedido
