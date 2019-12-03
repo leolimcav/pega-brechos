@@ -32,6 +32,10 @@ module.exports = {
         allowNull: false,
         defaultValue: "ATIVO"
       },
+      tipo_pagamento: {
+        type: Sequelize.STRING(20),
+        allowNull: false
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false

@@ -38,20 +38,32 @@ module.exports = {
 
   async store(req, res) {
     const { user_id } = req.params;
-    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
+    const { filename } = req.file;
+    const {
+      titulo,
+      descricao,
+      marca,
+      cor,
+      valor,
+      categoria,
+      tamanho,
+      estado
+    } = req.body;
     try {
       const usuario = await Usuario.findByPk(user_id);
 
       if (!usuario) {
         return res.json({ msg: "Usuário não encontrado!" });
       }
-
       const produto = await Produto.create({
         titulo,
         descricao,
+        marca,
+        cor,
         valor,
         tamanho,
         estado,
+        imagem: filename,
         usuario_id: user_id
       });
 
@@ -66,7 +78,17 @@ module.exports = {
 
   async update(req, res) {
     const { product_id } = req.params;
-    const { titulo, descricao, valor, categoria, tamanho, estado } = req.body;
+    const { filename } = req.file;
+    const {
+      titulo,
+      descricao,
+      marca,
+      cor,
+      valor,
+      categoria,
+      tamanho,
+      estado
+    } = req.body;
     try {
       const produto = await Produto.findByPk(product_id, {
         include: {
@@ -80,9 +102,12 @@ module.exports = {
       await produto.update({
         titulo,
         descricao,
+        marca,
+        cor,
         valor,
         tamanho,
-        estado
+        estado,
+        imagem: filename
       });
 
       return res.json(produto);
