@@ -12,11 +12,8 @@ uf.value = localStorage.getItem("uf");
 logradouro.value = localStorage.getItem("logradouro");
 bairro.value = localStorage.getItem("bairro");
 numero.value = localStorage.getItem("numero");
-if (complemento.value === undefined) {
-  complemento.value = " ";
-} else {
-  complemento.value = localStorage.getItem("complemento");
-}
+complemento.value = localStorage.getItem("complemento");
+
 $(function() {
   $("#submit").click(function(e) {
     e.preventDefault();
@@ -30,7 +27,9 @@ $(function() {
     data.complemento = complemento.value;
 
     const id_endereco = localStorage.getItem("id_endereco");
+
     console.log(id_endereco);
+
     const request = $.ajax({
       type: "PUT",
       data: JSON.stringify(data),
@@ -39,8 +38,16 @@ $(function() {
     });
 
     request.done(function(data) {
-      console.log(data.usuario_id);
+      console.log(data);
       console.log("ok");
+      localStorage.removeItem("cep");
+      localStorage.removeItem("logradouro");
+      localStorage.removeItem("bairro");
+      localStorage.removeItem("cidade");
+      localStorage.removeItem("uf");
+      localStorage.removeItem("numero");
+      localStorage.removeItem("complemento");
+      location.href = "/address";
     });
 
     request.fail(function(jqXHR, textStatus) {

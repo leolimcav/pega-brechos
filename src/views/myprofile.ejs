@@ -18,7 +18,7 @@
   <body>
     <%- include('./partials/header.ejs'); -%>
 
-    <main>
+    <main id="main">
       <div class="profile">
         <div id="barra">
           <div id="roxo"></div>
@@ -54,85 +54,7 @@
         <div class="items">
           <div class="item">
             <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/item.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camiseta Laranja básica</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/alice.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Regata branca</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camisa florida com botão</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <div class="inPromo"><p class="percent">20% off</p></div>
-            <a href="">
-              <img src="./assets/livia.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="was">R$ 20,00</div>
-                  <div class="price">R$ 15,00</div>
-                </div>
-                <div class="name">Ciganinha tomara que caia</div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="items">
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
+              <p class="edit" onclick="editar()">Editar</p>
               <label for="anuncio">
                 <input type="checkbox" name="anuncio" id=""
               /></label>
@@ -212,6 +134,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
     ></script>
     <%- include('./partials/footer.ejs'); -%>
+    <script src="./js/anuncios.js"></script>
     <script src="./js/myprofile.js"></script>
   </body>
 </html>

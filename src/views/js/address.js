@@ -1,12 +1,12 @@
 const id = localStorage.getItem("id");
-let id_endereco;
-let bairro;
-let cep;
-let logradouro;
-let cidade;
-let uf;
-let complemento;
-let numero;
+// let id_endereco;
+// let bairro;
+// let cep;
+// let logradouro;
+// let cidade;
+// let uf;
+// let complemento;
+// let numero;
 
 const request = $.ajax({
   type: "GET",
@@ -54,10 +54,20 @@ request.done(function(data) {
     const rowAddress = document.createElement("div");
     rowAddress.setAttribute("id", "rowAddress");
 
+    const end = {
+      id_endereco: element.id,
+      cep: element.cep,
+      logradouro: element.logradouro,
+      cidade: element.cidade,
+      uf: element.uf,
+      bairro: element.bairro,
+      numero: element.numero,
+      complemento: element.complemento
+    };
     const editIMG = document.createElement("img");
     editIMG.setAttribute("src", "../assets/icons/edit.svg");
     editIMG.setAttribute("width", "18.5%");
-    editIMG.setAttribute("onclick", `editAddress(${element.id})`);
+    editIMG.setAttribute("onclick", `editAddress(${JSON.stringify(end)})`);
 
     const deleteIMG = document.createElement("img");
     deleteIMG.setAttribute("src", "../assets/icons/cancel.svg");
@@ -76,8 +86,19 @@ request.fail(function(jqXHR, textStatus) {
   console.log(textStatus.err);
 });
 
-function editAddress(id) {
-  localStorage.setItem("id_endereco", id);
+function editAddress(end) {
+  console.log(end);
+  const {
+    id_endereco,
+    cep,
+    cidade,
+    uf,
+    logradouro,
+    numero,
+    bairro,
+    complemento
+  } = end;
+  localStorage.setItem("id_endereco", id_endereco);
   localStorage.setItem("cep", cep);
   localStorage.setItem("cidade", cidade);
   localStorage.setItem("uf", uf);
@@ -85,8 +106,27 @@ function editAddress(id) {
   localStorage.setItem("numero", numero);
   localStorage.setItem("bairro", bairro);
   localStorage.setItem("complemento", complemento);
-
   location.href = "/editAddress";
 }
 
-function deleteAddress(id) {}
+function deleteAddress(id) {
+  const req = $.ajax({
+    type: "DELETE",
+    contentType: "application/json",
+    url: `/users/addresses/${id}`
+  });
+  req.done(function(data) {
+    alert("Endereço excluido! :)");
+    localStorage.removeItem("cep");
+    localStorage.removeItem("logradouro");
+    localStorage.removeItem("bairro");
+    localStorage.removeItem("cidade");
+    localStorage.removeItem("uf");
+    localStorage.removeItem("numero");
+    localStorage.removeItem("complemento");
+    location.href = "/address";
+  });
+  req.fail(function(jqXHR, textStatus) {
+    console.log(textStatus.err);
+  });
+}
