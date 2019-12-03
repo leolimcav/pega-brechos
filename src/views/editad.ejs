@@ -31,10 +31,10 @@
       <p style="font-size: 0.9em; color: #707070;">
         Campos obrigatórios são marcados com ( <span class="red">*</span> )
       </p>
-      <form action="POST">
+      <form action="POST" enctype="multipart/form-data">
         <div class="coluna" id="imgThumbnail">
           <label id="thumbnail">
-            <input type="file" name="picture" id="picture" multiple />
+            <input type="file" name="imagem" id="picture" />
             <img src="./assets/selectimg.png" alt="" id="imgThumb" />
           </label>
         </div>
@@ -89,7 +89,11 @@
                   onmouseout="fecharSubMenu('tam')"
                 >
                   <li>
-                    <input type="text" placeholder="número da roupa" />
+                    <input
+                      type="text"
+                      placeholder="número da roupa"
+                      id="tamanhoPeca"
+                    />
                   </li>
                 </ul>
               </li>
@@ -111,7 +115,7 @@
                   onmouseout="fecharSubMenu('cond')"
                 >
                   <li>
-                    <select name="categoria" id="categoria">
+                    <select name="cond" id="condicao">
                       <option value="novo">Novo</option>
                       <option value="usado">Usado</option>
                     </select>
@@ -140,12 +144,7 @@
             <p>Boleto</p>
           </label>
           <input value="ATIVO" style="display: none;" />
-          <input
-            type="button"
-            value="Anunciar"
-            id="btn"
-            onclick="javascript:location.href='/product'"
-          />
+          <input type="button" value="Anunciar" id="btn" />
         </div>
       </form>
     </main>
@@ -163,5 +162,6 @@
 
     <script src="./js/openMenu.js"></script>
     <script src="./js/setImage.js"></script>
+    <script src="./js/editad.js"></script>
   </body>
 </html>

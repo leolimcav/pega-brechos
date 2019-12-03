@@ -32,7 +32,12 @@
           <div id="photoColumn">
             <div class="photosProduct">
               <div class="mySlide">
-                <img src="./assets/semfoto.png" alt="" style="width:100%" />
+                <img
+                  src="./assets/semfoto.png"
+                  id="imagem"
+                  alt=""
+                  style="width:100%"
+                />
               </div>
               <div class="rowSlide">
                 <div class="columnSlide">
@@ -42,6 +47,7 @@
                     class="demo cursor"
                     onclick="currentSlide(1)"
                     style="width:80%"
+                    id="imgzim"
                   />
                 </div>
               </div>
@@ -50,7 +56,7 @@
           <div id="productInfo">
             <h2>Informações do produto</h2>
             <div id="description">
-              <p>
+              <p id="desc">
                 Regata básica em tecido poliéster<br />
                 tamanho M<br /><br />
                 Usada apenas 3 vezes
@@ -63,18 +69,13 @@
           <h1 id="name">Regata feminina</h1>
           <p id="status">Usada</p>
           <div id="price">
-            <p id="was">R$ 40</p>
-            <p>R$ 30</p>
-            <img src="./assets/icons/etiqueta.svg" alt="" />
-            <p id="promo">20% off</p>
+            <p id="now">R$ 30</p>
+            <!-- <p id="was"></p> -->
+            <!-- <img src="./assets/icons/etiqueta.svg" alt="" />
+            <p id="promo">20% off</p> -->
           </div>
           <div id="payments">
             <img src="./assets/icons/cartao.svg" alt="" id="card" />
-            <img src="./assets/logopag/picpay.png" alt="" />
-            <img src="./assets/logopag/Paypal.png" alt="" />
-            <img src="./assets/logopag/visa.png" alt="" />
-            <img src="./assets/logopag/master.png" alt="" />
-            <p>em até 2x</p>
           </div>
           <div id="delivery">
             <img src="./assets/icons/camisa.svg" alt="" id="clothe" />
@@ -114,11 +115,10 @@
                 </div>
                 <div id="ownerMore">
                   <p id="nameOwner">Fuá Coletivo</p>
-                  <p id="location">Quixadá/CE</p>
                 </div>
               </div>
               <button class="follow">
-                <a href=""> ver vendedor</a>
+                <a id="vendedor" href=""> ver vendedor</a>
               </button>
             </div>
             <div id="ownerDetails">
@@ -134,11 +134,11 @@
               </div>
               <div id="lastD" onmouseover="show()" onmouseout="unshow()">
                 <p onmouseover="show()" onmouseout="unshow()">últimas vendas</p>
-                <div id="lastStatus" onmouseover="show()" onmouseout="unshow()">
-                  <img src="./assets/icons/circlegreen.png" alt="" />
-                  <img src="./assets/icons/circlegreen.png" alt="" />
-                  <img src="./assets/icons/circlegreen.png" alt="" />
-                </div>
+                <div
+                  id="lastStatus"
+                  onmouseover="show()"
+                  onmouseout="unshow()"
+                ></div>
                 <div id="dropdownInfo">
                   <div>
                     <img src="./assets/icons/circlegreen.png" alt="" />
@@ -260,5 +260,6 @@
     ></script>
     <script src="./js/carousel.js"></script>
     <script src="./js/statusVenda.js"></script>
+    <script src="./js/product.js"></script>
   </body>
 </html>

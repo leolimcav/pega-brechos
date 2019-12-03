@@ -23,8 +23,8 @@ const availableTags = [
 $(function() {
   $("#btn").click(function(e) {
     e.preventDefault();
-
     const title = document.getElementById("title");
+    const img = document.getElementById("picture");
     const desc = document.getElementById("desc");
     let tags = document.getElementById("tags");
     const valor = document.getElementById("valor");
@@ -37,53 +37,57 @@ $(function() {
 
     tags = tags.value.split(",");
     tags.pop();
+    console.log(tags);
     const categorias = tags.map(item => {
       const pos = availableTags.indexOf(item) + 1;
-      return pos;
+      return Number(pos);
     });
+    console.log(categorias);
     if (
+      img.value === "" ||
       title.value === "" ||
       desc.value === "" ||
       tags.value === "" ||
       valor.value === "" ||
       tamanhoPeca.value === "" ||
-      pagamento.value === ""
+      pagamento.value === "" ||
+      cor.value === ""
     ) {
       alert("Preencha os campos obrigatórios para poder efetuar o cadastro");
     }
-    if (cor.value === undefined) {
-      cor.value = " ";
-    }
     if (marca.value === undefined) {
-      marca.value = "Genérica";
+      marca.value = "GENERICA";
     }
 
-    const data = {};
-    data.titulo = title.value;
-    data.descricao = desc.value;
-    data.categoria = categorias;
-    data.valor = valor.value;
-    data.tamanho = tamanhoPeca.value;
-    data.estado = condValue;
-    data.usuario_id = localStorage.getItem("id");
+    const data = new FormData();
+    data.append("titulo", title.value);
+    data.append("descricao", desc.value);
+    data.append("marca", marca.value);
+    data.append("cor", cor.value);
+    data.append("categoria", categorias);
+    data.append("valor", valor.value);
+    data.append("tamanho", tamanhoPeca.value);
+    data.append("estado", condValue);
+    data.append("imagem", img.files[0], img.files[0].name);
 
     const id = localStorage.getItem("id");
-
     const request = $.ajax({
       type: "POST",
-      data: JSON.stringify(data),
-      contentType: "application/json",
+      data,
+      processData: false,
+      contentType: false,
       url: `/products/${id}`
     });
     request.done(function(product) {
-      idproduto = product.id;
+      const idproduto = product.id;
+      console.log(product);
       const data_anuncio = {};
       data_anuncio.usuario_id = id;
       data_anuncio.product_id = idproduto;
       let dd = new Date();
       dd = `${dd.getFullYear()}-${dd.getMonth()}-${dd.getDate()}`;
       data_anuncio.data_anuncio = dd;
-
+      data_anuncio.tipo_pagamento = pagamento.value;
       const req = $.ajax({
         type: "POST",
         data: JSON.stringify(data_anuncio),
@@ -98,7 +102,7 @@ $(function() {
       });
     });
     request.fail(function(jqXHR, textStatus) {
-      console.log(textStatus.err);
+      console.log(textStatus);
     });
   });
 });
