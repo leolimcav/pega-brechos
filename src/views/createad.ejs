@@ -89,7 +89,11 @@
                   onmouseout="fecharSubMenu('tam')"
                 >
                   <li>
-                    <input type="text" placeholder="número da roupa" />
+                    <input
+                      type="text"
+                      placeholder="número da peca"
+                      id="tamanhoPeca"
+                    />
                   </li>
                 </ul>
               </li>
@@ -111,9 +115,9 @@
                   onmouseout="fecharSubMenu('cond')"
                 >
                   <li>
-                    <select name="categoria" id="categoria">
-                      <option value="novo">Novo</option>
-                      <option value="usado">Usado</option>
+                    <select name="cond" id="condicao">
+                      <option value="Novo">Novo</option>
+                      <option value="Usado">Usado</option>
                     </select>
                   </li>
                 </ul>
@@ -131,21 +135,34 @@
             />
             <p>* caso não tenha marca deixar em branco</p>
           </label>
-          <label for="payment" id="labelPagamento"
-            ><input type="checkbox" id="paypal" value="paypal" />
+          <label for="pagamento" id="labelPagamento">
+            <p style="color: #4d9ecc;">Pagamento</p>
+            <span class="red">*</span>
+            <input
+              type="checkbox"
+              name="pagamento"
+              id="paypal"
+              value="paypal"
+            />
             <img src="./assets/logopag/Paypal.png" alt="" width="70px" />
-            <input type="checkbox" id="dinheiro" value="dinheiro" />
+            <input
+              type="checkbox"
+              name="pagamento"
+              id="dinheiro"
+              value="dinheiro"
+              checked
+            />
             <p>Dinheiro</p>
-            <input type="checkbox" id="boleto" value="boleto" />
+            <input
+              type="checkbox"
+              name="pagamento"
+              id="boleto"
+              value="boleto"
+            />
             <p>Boleto</p>
           </label>
-          <input value="ATIVO" style="display: none;" />
-          <input
-            type="button"
-            value="Anunciar"
-            id="btn"
-            onclick="javascript:location.href='/product'"
-          />
+          <input value="ATIVO" id="status" style="display: none;" />
+          <input type="button" value="Anunciar" id="btn" />
         </div>
       </form>
     </main>
@@ -160,7 +177,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/setCategoria.js"></script>
-
+    <script src="./js/createAd.js"></script>
     <script src="./js/openMenu.js"></script>
     <script src="./js/setImage.js"></script>
   </body>
