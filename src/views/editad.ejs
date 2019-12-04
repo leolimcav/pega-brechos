@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <link rel="stylesheet" type="text/css" href="./css/header.css" />
     <link rel="stylesheet" type="text/css" href="./css/footer.css" />
@@ -20,118 +25,143 @@
     <main>
       <div id="rowFiltro">
         <div id="lineFilter"></div>
-        <p>Edite seu anúncio</p>
+        <p>Editar</p>
         <div id="lineFilter2"></div>
       </div>
       <p style="font-size: 0.9em; color: #707070;">
         Campos obrigatórios são marcados com ( <span class="red">*</span> )
       </p>
-      <form action="POST">
-        <input type="text" id="title" placeholder="Digite o título aqui" /><span
-          class="red"
-          >*</span
-        >
-        <textarea
-          name="desc"
-          id="desc"
-          cols="30"
-          rows="10"
-          placeholder="Descreva seu produto aqui"
-        ></textarea
-        ><span class="red">*</span>
-        <div id="rowAd">
+      <form action="POST" enctype="multipart/form-data">
+        <div class="coluna" id="imgThumbnail">
+          <label id="thumbnail">
+            <input type="file" name="imagem" id="picture" />
+            <img src="./assets/selectimg.png" alt="" id="imgThumb" />
+          </label>
+        </div>
+        <div class="coluna">
+          <input
+            type="text"
+            id="title"
+            placeholder="Digite o título aqui"
+          /><span class="red">*</span>
+          <textarea
+            name="desc"
+            id="desc"
+            cols="30"
+            rows="10"
+            placeholder="Descreva seu produto aqui"
+          ></textarea
+          ><span class="red">*</span>
+          <div style="display: flex; width: 100%;">
+            <label for="tags" id="tag">
+              Categoria:
+              <span class="red">*</span>
+            </label>
+            <div class="ui-widget">
+              <input id="tags" />
+            </div>
+          </div>
+
           <div id="rowrow">
-            <input type="text" id="valor" placeholder="R$ 00,00" />
+            <label>
+              Valor:
+              <input type="number" id="valor" placeholder="R$ 00,00" />
+              <span class="red">*</span></label
+            >
+            <label>
+              Cor:
+              <input type="text" id="cor" placeholder="cor da peça..." />
+            </label>
+          </div>
+          <div id="rowAd" style="margin-bottom: 5%;">
+            <ul
+              class="filterOpt"
+              onmouseover="abrirSubMenu('tam')"
+              onmouseout="fecharSubMenu('tam')"
+            >
+              <li>
+                Tamanho
+
+                <ul
+                  id="tam"
+                  class="menudropdown"
+                  onmouseover="abrirSubMenu('tam')"
+                  onmouseout="fecharSubMenu('tam')"
+                >
+                  <li>
+                    <input
+                      type="text"
+                      placeholder="número da roupa"
+                      id="tamanhoPeca"
+                    />
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <span class="red">*</span>
+
+            <ul
+              class="filterOpt"
+              onmouseover="abrirSubMenu('cond')"
+              onmouseout="fecharSubMenu('cond')"
+            >
+              <li>
+                Condição
+
+                <ul
+                  id="cond"
+                  class="menudropdown"
+                  onmouseover="abrirSubMenu('cond')"
+                  onmouseout="fecharSubMenu('cond')"
+                >
+                  <li>
+                    <select name="cond" id="condicao">
+                      <option value="novo">Novo</option>
+                      <option value="usado">Usado</option>
+                    </select>
+                  </li>
+                </ul>
+              </li>
+            </ul>
             <span class="red">*</span>
           </div>
-          <ul
-            class="filterOpt"
-            onmouseover="abrirSubMenu('categoria')"
-            onmouseout="fecharSubMenu('categoria')"
-          >
-            <li>
-              Categoria
-              <img src="assets/icons/seta-down.svg" alt="" />
+          <label id="labelMarca"
+            >Marca:
 
-              <ul
-                class="menudropdown"
-                id="categoria"
-                onmouseover="abrirSubMenu('categoria')"
-                onmouseout="fecharSubMenu('categoria')"
-              >
-                <li>
-                  <select name="categoria" id="categoria">
-                    <option value="feminino">Feminino</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="roupa">Roupas</option>
-                    <option value="acessorio">Acessórios</option>
-                    <option value="calcado">Calçados</option>
-                  </select>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <span class="red">*</span>
-          <ul
-            class="filterOpt"
-            onmouseover="abrirSubMenu('tam')"
-            onmouseout="fecharSubMenu('tam')"
-          >
-            <li>
-              Tamanho
-              <img src="assets/icons/seta-down.svg" alt="" />
-
-              <ul
-                id="tam"
-                class="menudropdown"
-                onmouseover="abrirSubMenu('tam')"
-                onmouseout="fecharSubMenu('tam')"
-              >
-                <li>
-                  <input type="text" placeholder="número da roupa" />
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <span class="red">*</span>
-
-          <ul
-            class="filterOpt"
-            onmouseover="abrirSubMenu('cond')"
-            onmouseout="fecharSubMenu('cond')"
-          >
-            <li>
-              Condição
-              <img src="assets/icons/seta-down.svg" alt="" />
-
-              <ul
-                id="cond"
-                class="menudropdown"
-                onmouseover="abrirSubMenu('cond')"
-                onmouseout="fecharSubMenu('cond')"
-              >
-                <li>
-                  <select name="categoria" id="categoria">
-                    <option value="novo">Novo</option>
-                    <option value="usado">Usado</option>
-                  </select>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <span class="red">*</span>
+            <input
+              type="text"
+              id="marca"
+              placeholder="marca da peça de roupa ou  acessórios"
+            />
+            <p>* caso não tenha marca deixar em branco</p>
+          </label>
+          <label for="payment" id="labelPagamento"
+            ><input type="checkbox" id="paypal" value="paypal" />
+            <img src="./assets/logopag/Paypal.png" alt="" width="70px" />
+            <input type="checkbox" id="dinheiro" value="dinheiro" />
+            <p>Dinheiro</p>
+            <input type="checkbox" id="boleto" value="boleto" />
+            <p>Boleto</p>
+          </label>
+          <input value="ATIVO" style="display: none;" />
+          <input type="button" value="Anunciar" id="btn" />
         </div>
-        <input value="ATIVO" style="display: none;" />
-        <input
-          type="button"
-          value="Editar"
-          id="btn"
-          onclick="javascript:location.href='/product'"
-        />
       </form>
     </main>
 
     <%- include('./partials/footer.ejs'); -%>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/setCategoria.js"></script>
+
     <script src="./js/openMenu.js"></script>
+    <script src="./js/setImage.js"></script>
+    <script src="./js/editad.js"></script>
   </body>
 </html>

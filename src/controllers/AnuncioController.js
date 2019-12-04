@@ -4,47 +4,94 @@ const Usuario = require("../models/Usuario");
 module.exports = {
   async index(req, res) {
     const { user_id } = req.params;
-    const usuario = await Usuario.findById(user_id);
+    try {
+      const anuncios = await Anuncio.findAll({
+        where: {
+          usuario_id: user_id
+        },
+        include: [
+          {
+            association: "anuncio_produto"
+          },
+          {
+            association: "anuncio_usuario",
+            attributes: []
+          }
+        ]
+      });
 
-    if (usuario.length === 0) {
-      return res.json({ msg: "Usuário não encontrado!" });
+      return res.json(anuncios);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
-
-    const anuncios = await Anuncio.findAll(user_id);
-
-    return res.json(anuncios);
   },
 
   async findOne(req, res) {
-    const { poster_id } = req.params;
+    const { poster_id, user_id } = req.params;
+    try {
+      const anuncio = await Anuncio.findByPk(poster_id, {
+        where: {
+          usuario_id: user_id
+        },
+        include: [
+          {
+            association: "anuncio_produto"
+          },
+          {
+            association: "anuncio_usuario",
+            attributes: []
+          }
+        ]
+      });
 
-    const anuncio = await Anuncio.findById(poster_id);
-
-    return res.json(anuncio[0]);
+      return res.json(anuncio);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
   },
 
   async store(req, res) {
     const { product_id, user_id } = req.params;
-    const anuncio = await Anuncio.create({
-      produto_id: product_id,
-      usuario_id: user_id
-    });
+    const { data_anuncio, tipo_pagamento } = req.body;
+    try {
+      const usuario = await Usuario.findByPk(user_id);
 
-    return res.json(anuncio[0]);
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
+
+      const anuncio = await Anuncio.create({
+        usuario_id: user_id,
+        produto_id: product_id,
+        data_anuncio,
+        tipo_pagamento
+      });
+
+      return res.json(anuncio);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
   },
 
   async update(req, res) {
     const { poster_id } = req.params;
     const { status } = req.body;
+    try {
+      const anuncio = await Anuncio.findByPk(poster_id);
 
-    const an = await Anuncio.findById(poster_id);
+      if (!anuncio) {
+        return res.json({ msg: "Anuncio não encontrado!" });
+      }
 
-    if (an.length === 0) {
-      return res.json({ msg: "Anuncio não encontrado!" });
+      await anuncio.update({ status });
+
+      return res.json(anuncio);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
-
-    const anuncio = await Anuncio.Update({ anuncio_id: poster_id, status });
-
-    return res.json(anuncio[0]);
   }
 };

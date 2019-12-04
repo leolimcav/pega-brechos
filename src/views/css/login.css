@@ -30,6 +30,7 @@ main {
 
 .identific input {
   color: #414041;
+  padding-left: 10px;
 }
 .identific input:hover {
   border: 1px solid #a34590;

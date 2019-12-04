@@ -4,102 +4,112 @@ const Usuario = require("../models/Usuario");
 module.exports = {
   async index(req, res) {
     const { user_id } = req.params;
-    const usuario = await Usuario.findById(user_id);
-
-    if (usuario.length === 0) {
-      return res.json({ msg: "Usuário não encontrado!" });
+    try {
+      const usuario = await Usuario.findByPk(user_id, {
+        include: { association: "enderecos" }
+      });
+      return res.json(usuario);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
-
-    const endereco = await Endereco.findAll(user_id);
-
-    return res.json(endereco);
   },
 
   async findOne(req, res) {
-    const { address_id, user_id } = req.params;
-    const usuario = await Usuario.findById(user_id);
-    const end = await Endereco.findById(user_id, address_id);
-
-    if (usuario.length === 0) {
-      return res.json({ msg: "Usuário não encontrado!" });
+    const { user_id, address_id } = req.params;
+    try {
+      const usuario = await Usuario.findByPk(user_id, {
+        include: {
+          association: "enderecos",
+          where: { id: address_id }
+        },
+        attributes: []
+      });
+      return res.json(usuario.enderecos[0]);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
-
-    if (end.length === 0) {
-      return res.json({ msg: "Endereço não encontrado!" });
-    }
-
-    const endereco = await Endereco.findById(user_id, address_id);
-
-    return res.json(endereco[0]);
   },
 
   async store(req, res) {
     const { user_id } = req.params;
-    const { cep, rua, bairro, cidade, uf, numero, complemento } = req.body;
-
-    const usuario = await Usuario.findById(user_id);
-
-    if (usuario.length === 0) {
-      return res.json({ msg: "Usuário não encontrado!" });
-    }
-
-    const endereco = await Endereco.create({
+    const {
       cep,
-      rua,
+      logradouro,
       bairro,
       cidade,
       uf,
       numero,
-      complemento,
-      usuario_id: user_id
-    });
+      complemento
+    } = req.body;
+    try {
+      const usuario = await Usuario.findByPk(user_id);
 
-    return res.json(endereco[0]);
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
+
+      const endereco = await Endereco.create({
+        cep,
+        logradouro,
+        bairro,
+        cidade,
+        uf,
+        numero,
+        complemento,
+        usuario_id: user_id
+      });
+
+      return res.json(endereco);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
   },
 
   async update(req, res) {
-    const { user_id, address_id } = req.params;
-    const { cep, rua, bairro, cidade, uf, numero, complemento } = req.body;
+    const { address_id } = req.params;
+    const {
+      cep,
+      logradouro,
+      bairro,
+      cidade,
+      uf,
+      numero,
+      complemento
+    } = req.body;
+    try {
+      const endereco = await Endereco.findByPk(address_id);
 
-    const usuario = await Usuario.findById(user_id);
-
-    if (usuario.length === 0) {
-      return res.json({ msg: "Usuário não encontrado!" });
-    }
-
-    const endereco = await Endereco.Update(
-      {
+      await endereco.update({
         cep,
-        rua,
+        logradouro,
         bairro,
         cidade,
         uf,
         numero,
         complemento
-      },
-      user_id,
-      address_id
-    );
+      });
 
-    return res.json(endereco[0]);
+      return res.json(endereco);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
+    }
   },
 
   async destroy(req, res) {
-    const { user_id, address_id } = req.params;
-    const usuario = await Usuario.findById(user_id);
+    const { address_id } = req.params;
+    try {
+      const endereco = await Endereco.findByPk(address_id);
 
-    if (usuario.length === 0) {
-      return res.json({ msg: "Usuário não encontrado!" });
+      await endereco.destroy();
+
+      return res.json(endereco);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
-
-    const end = await Endereco.findById(user_id, address_id);
-
-    if (end.length === 0) {
-      return res.json({ msg: "Endereço não encontrado!" });
-    }
-
-    const endereco = await Endereco.Delete(address_id, user_id);
-
-    return res.json(endereco[0]);
   }
 };

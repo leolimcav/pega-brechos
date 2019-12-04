@@ -1,97 +1,45 @@
-const pool = require("../config/database");
+const { Model, DataTypes } = require("sequelize");
 
-class Produto {
-  static async create(data, usuario_id) {
-    const client = await pool.connect();
-    const { titulo, descricao, valor, categoria, tamanho, estado } = data;
-    const {
-      rows: produto
-    } = await client.query(
-      "INSERT INTO produto (titulo, descricao, valor, categoria, tamanho, estado, usuario_id) values ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [titulo, descricao, valor, categoria, tamanho, estado, usuario_id]
+class Product extends Model {
+  static init(sequelize) {
+    super.init(
+      {
+        titulo: DataTypes.STRING,
+        descricao: DataTypes.TEXT,
+        marca: DataTypes.STRING(50),
+        cor: DataTypes.STRING(30),
+        valor: DataTypes.REAL,
+        tamanho: DataTypes.STRING,
+        estado: DataTypes.STRING(10),
+        imagem: DataTypes.STRING
+      },
+      { sequelize }
     );
-    await client.release();
-    return produto;
   }
 
-  static async findAll(usuario_id) {
-    const client = await pool.connect();
-    const {
-      rows: produtos
-    } = await client.query("SELECT * FROM produto p WHERE p.usuario_id = $1", [
-      usuario_id
-    ]);
-    await client.release();
-    return produtos;
-  }
+  static associate(models) {
+    this.belongsToMany(models.Order, {
+      foreignKey: "produto_id",
+      through: "order_products",
+      as: "orders"
+    });
 
-  static async findById(produtoId) {
-    const client = await pool.connect();
-    const {
-      rows: produto
-    } = await client.query("SELECT * FROM produto WHERE produto_id = $1", [
-      produtoId
-    ]);
-    await client.release();
-    return produto;
-  }
+    this.belongsToMany(models.Category, {
+      foreignKey: "produto_id",
+      through: "product_categories",
+      as: "categories"
+    });
 
-  static async findByName(titulo) {
-    try {
-      const client = await pool.connect();
-      const {
-        rows: produto
-      } = await client.query(
-        "SELECT * FROM produto p WHERE LOWER(p.titulo) LIKE LOWER($1) AND UPPER(p.status) LIKE UPPER('ATIVO')",
-        [`%${titulo}%`]
-      );
+    this.belongsTo(models.User, {
+      foreignKey: "usuario_id",
+      as: "produto_usuario"
+    });
 
-      return produto;
-    } catch (err) {
-      console.log(err);
-    }
-    return null;
-  }
-
-  static async findByIdAndUpdate(produtoId, data) {
-    const client = await pool.connect();
-    const {
-      rows: produto
-    } = await client.query("SELECT * FROM produto WHERE produto_id = $1", [
-      produtoId
-    ]);
-    if (produto) {
-      const { titulo, descricao, valor, categoria, tamanho, estado } = data;
-      const {
-        rows: produtoNovo
-      } = await client.query(
-        "UPDATE produto SET titulo = $1, descricao = $2, valor = $3, categoria = $4, tamanho = $5, estado = $6 RETURNING *",
-        [titulo, descricao, valor, categoria, tamanho, estado]
-      );
-      await client.release();
-      return produtoNovo;
-    }
-    await client.release();
-    return produto;
-  }
-
-  static async findByIdAndDelete(produtoId) {
-    const client = await pool.connect();
-    const {
-      rows: produto
-    } = await client.query("SELECT * FROM produto WHERE produto_id = $1", [
-      produtoId
-    ]);
-    if (produto) {
-      await client.query("DELETE from produto WHERE produto_id = $1", [
-        produtoId
-      ]);
-      await client.release();
-      return produto;
-    }
-    await client.release();
-    return produto;
+    this.hasOne(models.Announcement, {
+      foreignKey: "produto_id",
+      as: "produto_anuncio"
+    });
   }
 }
 
-module.exports = Produto;
+module.exports = Product;

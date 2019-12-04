@@ -1,20 +1,12 @@
 $(document).ready(function() {
-  const $campo = $("#cep");
-  $campo.mask("00000-000", { reverse: true });
-});
-
-$(document).ready(function() {
   function limpa_formulário_cep() {
-    // Limpa valores do formulário de cep.
     $("#rua").val("");
     $("#bairro").val("");
     $("#cidade").val("");
     $("#uf").val("");
   }
 
-  // Quando o campo cep perde o foco.
   $("#cep").blur(function() {
-    // Nova variável "cep" somente com dígitos.
     const cep = $(this)
       .val()
       .replace(/\D/g, "");

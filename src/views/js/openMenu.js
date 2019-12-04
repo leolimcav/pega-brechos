@@ -7,11 +7,13 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySideNav").style.display = "none";
 }
-
+const user = localStorage.getItem("nome").split(" ");
+const usuario = document.getElementById("usuario");
+if (user) {
+  usuario.innerHTML = `Olá, <strong> ${user[0]}!</strong>`;
+}
 function openSubmenu() {
-  const user = JSON.parse(localStorage.getItem("currentUser"));
   if (user) {
-    console.log(user.username);
     document.getElementById("submenuUser").style.display = "block";
     document.getElementById("submenuUser").style.display = "flex";
     document.getElementById("submenuUser").style.alignContent = "flex-end";

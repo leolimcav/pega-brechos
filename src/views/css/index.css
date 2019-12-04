@@ -159,8 +159,7 @@ main {
 }
 section {
   display: flex;
-  flex-wrap: wrap;
-  direction: column;
+  flex-flow: row wrap;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -278,16 +277,20 @@ section {
 }
 #img1 {
   width: 50%;
+  cursor: pointer;
 }
 #img2 {
   align-self: flex-end;
   width: 90%;
+  cursor: pointer;
 }
 #img3 {
   width: 40%;
+  cursor: pointer;
 }
 #img4 {
   width: 40%;
+  cursor: pointer;
 }
 .was {
   color: #666666;

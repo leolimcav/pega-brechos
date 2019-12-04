@@ -1,4 +1,20 @@
 /* Small devices (portrait tablets and large phones, 600px and up) */
+.btnAnunciar {
+  width: 150%;
+  border-radius: 14px;
+  border: 1px solid #be5599;
+  background-color: #be5599;
+  color: #fff;
+  font-weight: 700;
+}
+
+.mySideNav .btnAnunciar {
+  width: 70%;
+  height: 25px;
+  background-color: #fff;
+  color: #be5599;
+}
+
 @media screen and (max-width: 600px) {
   header {
     flex-flow: row wrap;
@@ -296,6 +312,7 @@ a {
   color: #be5599;
   text-decoration: none;
 }
+
 #line {
   width: 100%;
   border-top: 2px solid #be5599;

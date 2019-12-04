@@ -1,160 +1,59 @@
-const pool = require("../config/database");
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcryptjs");
 
-class Usuario {
-  static async create(data) {
-    let msg;
-    try {
-      const {
-        nome,
-        email,
-        hash_senha,
-        telefone,
-        rg,
-        cpf,
-        data_nascimento,
-        sexo
-      } = data;
-      const client = await pool.connect();
-      const {
-        rows: usuario
-      } = await client.query(
-        "INSERT INTO usuario (nome, email, hash_senha, telefone, rg, cpf, data_nascimento, sexo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-        [nome, email, hash_senha, telefone, rg, cpf, data_nascimento, sexo]
-      );
-      await client.release();
-      return usuario;
-    } catch (err) {
-      console.log(err);
-      if (err.code === "23505" || err.code === "23502") {
-        msg = "Email/Senha inválidos!";
+class User extends Model {
+  static init(sequelize) {
+    super.init(
+      {
+        nome: DataTypes.STRING,
+        email: DataTypes.STRING,
+        senha: DataTypes.VIRTUAL,
+        hash_senha: DataTypes.STRING,
+        telefone: DataTypes.STRING(11),
+        rg: DataTypes.STRING(11),
+        cpf: DataTypes.STRING(11),
+        data_nascimento: DataTypes.DATEONLY,
+        sexo: DataTypes.STRING(1),
+        is_brecho: DataTypes.STRING(1)
+      },
+      {
+        hooks: {
+          beforeSave: async user => {
+            if (user.senha) {
+              user.hash_senha = await bcrypt.hash(user.senha, 8);
+            }
+          }
+        },
+        sequelize
       }
-    }
-
-    return msg;
+    );
   }
 
-  static async findAll() {
-    const client = await pool.connect();
-    const { rows: users } = await client.query("SELECT * FROM usuario");
-    await client.release();
-    return users;
-  }
+  static associate(models) {
+    this.hasMany(models.Address, {
+      foreignKey: "usuario_id",
+      as: "enderecos"
+    });
 
-  static async findById(usuarioId) {
-    try {
-      const client = await pool.connect();
-      const {
-        rows: usuario
-      } = await client.query(
-        "SELECT * FROM usuario WHERE usuario.usuario_id = $1",
-        [usuarioId]
-      );
-      await client.release();
-      return usuario;
-    } catch (err) {
-      console.log(err);
-    }
-    return null;
-  }
+    this.hasMany(models.Product, {
+      foreignKey: "usuario_id",
+      as: "usuario_produtos"
+    });
 
-  static async findByName(nome) {
-    try {
-      const client = await pool.connect();
-      const {
-        rows: usuario
-      } = await client.query(
-        "SELECT * FROM usuario u WHERE LOWER(u.nome) LIKE LOWER($1)",
-        [`%${nome}%`]
-      );
+    this.hasMany(models.Order, {
+      foreignKey: "usuario_id",
+      as: "usuario_pedidos"
+    });
 
-      return usuario;
-    } catch (err) {
-      console.log(err);
-    }
-    return null;
-  }
-
-  static async auth(email) {
-    try {
-      const client = await pool.connect();
-      const {
-        rows: usuario
-      } = await client.query("SELECT * FROM usuario u WHERE u.email LIKE $1", [
-        email
-      ]);
-      return usuario;
-    } catch (err) {
-      console.log(err);
-    }
-    return null;
-  }
-
-  static async Update(usuarioId, data) {
-    try {
-      const client = await pool.connect();
-      const {
-        rows: usuario
-      } = await client.query(
-        "SELECT * FROM usuario WHERE usuario.usuario_id = $1",
-        [usuarioId]
-      );
-      if (usuario) {
-        const {
-          nome,
-          email,
-          hash_senha,
-          telefone,
-          rg,
-          cpf,
-          data_nascimento,
-          sexo
-        } = data;
-        const {
-          rows: updatedUser
-        } = await client.query(
-          "UPDATE usuario SET nome = $1, email = $2, hash_senha = $3, telefone = $4, rg = $5, cpf = $6, data_nascimento = $7, sexo = $8 WHERE usuario.usuario_id = $9 RETURNING *",
-          [
-            nome,
-            email,
-            hash_senha,
-            telefone,
-            rg,
-            cpf,
-            data_nascimento,
-            sexo,
-            usuarioId
-          ]
-        );
-        await client.release();
-        return updatedUser;
-      }
-    } catch (err) {
-      console.log(err);
-    }
-    return null;
-  }
-
-  static async Delete(usuarioId) {
-    try {
-      const client = await pool.connect();
-      const {
-        rows: usuario
-      } = await client.query(
-        "SELECT * FROM usuario WHERE usuario.usuario_id = $1",
-        [usuarioId]
-      );
-      if (usuario) {
-        await client.query(
-          "DELETE FROM usuario WHERE usuario.usuario_id = $1",
-          [usuarioId]
-        );
-        return usuario;
-      }
-    } catch (err) {
-      console.log(err);
-    }
-    return null;
+    this.hasMany(models.Announcement, {
+      foreignKey: "usuario_id",
+      as: "usuario_anuncios"
+    });
   }
 }
 
-module.exports = Usuario;
+User.prototype.checkPassword = function(password) {
+  return bcrypt.compare(password, this.hash_senha);
+};
+
+module.exports = User;

@@ -6,7 +6,7 @@ main {
   align-items: center;
 }
 
-.addressList {
+#addressList {
   display: flex;
   flex-flow: column;
   width: 80%;
@@ -15,7 +15,7 @@ main {
 .address {
   border: 3px solid #4d9ecc;
   border-radius: 14px;
-  padding: 25px 20px 0 20px;
+  padding: 35px 20px 20px 20px;
   margin-top: 5%;
   display: flex;
   flex-flow: row wrap;
@@ -36,10 +36,11 @@ main {
 }
 
 #rowAddress {
-  width: 10%;
+  width: 20%;
 }
 #rowAddress img {
-  margin-top: 15%;
+  margin-top: 10%;
   margin-right: 10%;
+  align-self: center;
   cursor: pointer;
 }

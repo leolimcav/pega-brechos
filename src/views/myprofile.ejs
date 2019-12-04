@@ -18,7 +18,7 @@
   <body>
     <%- include('./partials/header.ejs'); -%>
 
-    <main>
+    <main id="main">
       <div class="profile">
         <div id="barra">
           <div id="roxo"></div>
@@ -32,181 +32,31 @@
             <p onclick="javascript:location.href='myprofile'">
               (<span id="onSale">06</span>) à venda
             </p>
-            <p onclick="javascript:location.href='sold'">
+            <!-- <p
+              onclick="javascript:location.href='sold'"
+              style="cursor: pointer;"
+            >
               (<span>13</span>) vendidos
-            </p>
+            </p> -->
           </div>
           <div></div>
         </div>
         <div id="rowInfo">
-          <p id="place">
-            Quixadá - CE
-          </p>
+          <p id="place"></p>
         </div>
         <div id="rowButton">
-          <button id="red">Excluir</button>
-          <button id="blue">Dar um tempo</button>
-          <button id="green">Marcar como vendido</button>
+          <button id="red" onclick="excluir()">Excluir</button>
+          <button id="green" onclick="vender()">Marcar como vendido</button>
         </div>
       </div>
-
-      <section style="margin-top: 5%;">
-        <div class="items">
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/item.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camiseta Laranja básica</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/alice.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Regata branca</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camisa florida com botão</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <div class="inPromo"><p class="percent">20% off</p></div>
-            <a href="">
-              <img src="./assets/livia.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="was">R$ 20,00</div>
-                  <div class="price">R$ 15,00</div>
-                </div>
-                <div class="name">Ciganinha tomara que caia</div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="items">
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/item.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camiseta Laranja básica</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/alice.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Regata branca</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <a href="">
-              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="price">R$ 20,00</div>
-                </div>
-                <div class="name">Camisa florida com botão</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="item">
-            <div class="rowAnuncio">
-              <p class="edit">Editar</p>
-              <label for="anuncio">
-                <input type="checkbox" name="anuncio" id=""
-              /></label>
-            </div>
-            <div class="inPromo"><p class="percent">20% off</p></div>
-            <a href="">
-              <img src="./assets/livia.png" alt="foto do anuncio" />
-              <div class="info">
-                <div class="row">
-                  <div class="was">R$ 20,00</div>
-                  <div class="price">R$ 15,00</div>
-                </div>
-                <div class="name">Ciganinha tomara que caia</div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
     </main>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
     <%- include('./partials/footer.ejs'); -%>
+    <script src="./js/anuncios.js"></script>
+    <script src="./js/myprofile.js"></script>
   </body>
 </html>

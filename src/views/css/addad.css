@@ -6,6 +6,15 @@ main {
   align-items: center;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 #rowFiltro {
   display: flex;
   width: 80%;
@@ -75,32 +84,70 @@ form textarea::-webkit-input-placeholder {
   font-size: 1.2em;
 }
 
+#thumbnail {
+  width: 80%;
+  height: 400px;
+  background-color: #f8f8f8;
+  border: 2px solid #be5599;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+}
+#thumbnail #picture {
+  display: none;
+}
+#thumbnail img {
+  width: 100%;
+  height: 100%;
+}
+
+.coluna {
+  display: flex;
+  flex-flow: row wrap;
+  width: 50%;
+}
+
 #title {
-  width: 92%;
+  width: 90%;
 }
 #desc {
-  width: 92%;
+  width: 90%;
 }
 
 #rowAd {
   display: flex;
   flex-flow: row;
   width: 100%;
-  height: 60px;
+  height: 50px;
+}
+.ui-widget {
+  width: 15%;
+}
+#tag {
+  color: #4d9ecc;
+  width: 20%;
+  align-self: center;
+}
+#tags {
+  width: 480%;
+  align-self: center;
 }
 
 .filterOpt {
   flex-flow: column;
-  border: 1px solid #be5599;
+  border: 1px solid #4d9ecc;
   border-radius: 5px;
   padding: 10px;
-  color: #be5599;
+  color: #4d9ecc;
   font-weight: 600;
   font-size: 0.7em;
-  width: 15%;
+  width: 25%;
   margin-left: 3%;
   margin-top: 1%;
   cursor: pointer;
+}
+.filterOpt:first-child {
+  margin-left: 2%;
 }
 
 .menudropdown {
@@ -111,9 +158,9 @@ form textarea::-webkit-input-placeholder {
   position: absolute;
   background-color: #fff;
   box-shadow: 0px 10px 10px 0px rgba(88, 88, 88, 0.26);
-  width: 18%;
+  width: 10%;
   border-radius: 5px;
-  margin-left: -6.3%;
+  margin-left: -3.3%;
   margin-top: 1%;
   display: none;
 }
@@ -127,25 +174,35 @@ form textarea::-webkit-input-placeholder {
 
 .menudropdown select {
   border: 0px solid;
-  color: #be5599;
+  color: #4d9ecc;
 }
 
 #valor {
   margin: 0;
   align-self: center;
+  width: 30%;
 }
 
 #rowrow {
+  margin: 5% 0 3% 2%;
   display: flex;
   flex-flow: row;
-  width: 23.5%;
-  justify-content: center;
+  justify-content: left;
+  width: 88%;
 }
 
 #rowrow span {
   margin-left: 2%;
 }
-
+#rowrow input {
+  margin-left: 2%;
+}
+#rowrow {
+  color: #4d9ecc;
+}
+#cor {
+  width: 70%;
+}
 #btn {
   background-color: #f16364;
   color: #fff;
@@ -154,4 +211,36 @@ form textarea::-webkit-input-placeholder {
   width: 20%;
   margin-top: 5%;
   margin-left: 80%;
+}
+
+#labelMarca {
+  width: 100%;
+  color: #4d9ecc;
+}
+#labelMarca p {
+  color: #f16364;
+  opacity: 0.8;
+  font-size: 0.8em;
+  margin-top: -3%;
+}
+
+#marca {
+  width: 60%;
+}
+
+#labelPagamento {
+  width: 100%;
+  display: flex;
+  margin: 5% 0 0 -5%;
+}
+#labelPagamento input {
+  margin-left: 5%;
+  margin-right: 2%;
+}
+
+#labelPagamento img {
+  margin-top: -5%;
+}
+#labelPagamento p {
+  color: #be5599;
 }

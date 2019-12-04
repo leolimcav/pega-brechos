@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+ 
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="./css/reset.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
@@ -29,7 +29,7 @@
         <p>
           Campos obrigatórios são marcados com ( <span class="red">*</span> )
         </p>
-        <form action="POST">
+        <form method="POST" id="cadastrar"> 
           <div class="columnForm">
             <div>
               <label>Nome: <span class="red">*</span></label>
@@ -37,9 +37,24 @@
                 type="text"
                 name="nome"
                 id="nome"
-                placeholder="Prazer, qual seu nome?"
+                placeholder="Seu nome ou do seu brechó! :)"
               />
             </div>
+            <div>
+                <label for="brecho">Sou: <span class="red">*</span></label>
+                <input
+                  type="radio"
+                  name="brecho"
+                  id="brecho"
+                  value="S"
+                /> Brechó
+                <input
+                  type="radio"
+                  name="brecho"
+                  id="pf"
+                  value="N"
+                /> Pessoa Física
+              </div>
             <div>
               <label>CPF: <span class="red">*</span></label>
               <input
@@ -47,7 +62,7 @@
                 name="cpf"
                 id="cpf"
                 placeholder="xxx.xxx.xxx-xx"
-                maxlength="15"
+                maxlength="11"
               />
             </div>
             <div>
@@ -57,7 +72,7 @@
                 name="rg"
                 id="rg"
                 placeholder="xxxxxxxxxx-x"
-                maxlength="12"
+                maxlength="11"
               />
             </div>
 
@@ -80,17 +95,27 @@
 
             <div>
               <label for="sex">Sexo:</label>
-              <input type="radio" name="sex" id="fem" value="f" />
+              <input type="radio" name="sex" id="fem" value="F" />
               Feminino
-              <input type="radio" name="sex" id="masc" value="m" />
+              <input type="radio" name="sex" id="masc" value="M" />
               Masculino
-              <input type="radio" name="sex" id="outro" value="o" />
+              <input type="radio" name="sex" id="outro" value="O" />
               Outro
+              <input type="radio" name="sex" id="null" value=" " checked hidden/>
             </div>
           </div>
           <div id="divise"></div>
 
           <div class="columnForm">
+              <div class="coluna" id="imgThumbnail">
+                  <label id="thumbnail">
+                    <input type="file" name="picture" id="picture" multiple />
+                    <img src="./assets/selectimg.png" alt="" id="imgThumb" />
+                  </label>
+
+                </div>
+                <p style="margin:2% 0 5% 0;text-align: center;">Escolha uma foto de perfil</p>
+ 
             <div>
               <label>Email: <span class="red">*</span></label>
               <input
@@ -119,9 +144,10 @@
             </div>
             </div>
           </div>
+          <!-- <input type="submit" value="Cadastrar" id="submit" style="margin-top: 45%; background-color:#be5599; color: white; border: 1px solid #be5599 ;"> -->
         </form>
-
-        <button onclick="javascript:location.href='/'">Cadastrar</button>
+        <button id="submit">Cadastrar</button>
+        <!---<button onclick="addUser()">Cadastrar</button>-->
       </div>
     </main>
 
@@ -134,6 +160,9 @@
     ></script>
     <script src="./js/cpf.js"></script>
     <script src="./js/pwd.js"></script>
+    <script src="./js/localstorage.js"></script>
+    <script src="./js/signup.js"></script>
+    <script src="./js/setImage.js"></script>
 
   </body>
 </html>

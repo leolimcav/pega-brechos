@@ -1,46 +1,61 @@
 const Pedido = require("../models/Pedido");
 const Usuario = require("../models/Usuario");
-const Produto = require("../models/Produto");
-const ProdutoPedido = require("../models/ProdutoPedido");
 
 module.exports = {
   async index(req, res) {
     const { order_id, user_id } = req.params;
-    const usuario = await Usuario.findById(user_id);
+    try {
+      const usuario = await Usuario.findByPk(user_id, {
+        include: { association: "usuario_pedidos", where: { id: order_id } }
+      });
 
-    if (!usuario) {
-      return res.json({ msg: "Usuario não encontrado!" });
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
+
+      return res.json(usuario);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
+  },
 
-    const pedido = await Pedido.findById(order_id, user_id);
-    if (!pedido) {
-      return res.json({ msg: "Pedido não encontrado!" });
+  async findAll(req, res) {
+    const { user_id } = req.params;
+    try {
+      const usuario = await Usuario.findByPk(user_id, {
+        include: { association: "usuario_pedidos" }
+      });
+
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
+
+      return res.json(usuario);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
-
-    return res.json(pedido);
   },
 
   async store(req, res) {
     const { user_id } = req.params;
     const { data_pedido } = req.body;
-    const usuario = await Usuario.findById(user_id);
+    try {
+      const usuario = await Usuario.findByPk(user_id);
 
-    if (!usuario) {
-      return res.json({ msg: "Usuario não encontrado!" });
+      if (!usuario) {
+        return res.json({ msg: "Usuário não encontrado!" });
+      }
+
+      const pedido = await Pedido.create({ data_pedido, usuario_id: user_id });
+
+      return res.json(pedido);
+    } catch (err) {
+      console.log(err);
+      return res.json({ error: "An error ocurred!" });
     }
-
-    let pedido = await Pedido.create(data_pedido);
-
-    const carrinho = await ProdutoPedido.findById(pedido.pedido_id);
-
-    let total = 0;
-    carrinho.map(async item => {
-      const produto = await Produto.findById(item.produto_id);
-      total += produto.valor;
-    });
-
-    pedido = await Pedido.updateTotal(pedido.pedido_id, total);
-
-    return res.json(pedido);
   }
+
+  // async checkout(req, res) {}
 };

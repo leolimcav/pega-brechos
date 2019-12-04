@@ -41,6 +41,12 @@
               />
             </div>
             <div>
+              <label>Sou: </label>
+              <input type="radio" name="brecho" id="brecho" value="S" /> Brechó
+              <input type="radio" name="brecho" id="pf" value="N" /> Pessoa
+              Física
+            </div>
+            <div>
               <label>CPF:</label>
               <input
                 type="text"
@@ -78,25 +84,45 @@
 
             <div>
               <label for="sex">Sexo:</label>
-              <input type="radio" name="sex" id="fem" value="f" />
+              <input type="radio" name="sex" id="fem" value="F" />
               Feminino
-              <input type="radio" name="sex" id="masc" value="m" />
+              <input type="radio" name="sex" id="masc" value="M" />
               Masculino
-              <input type="radio" name="sex" id="outro" value="o" />
+              <input type="radio" name="sex" id="outro" value="O" />
               Outro
+              <input
+                type="radio"
+                name="sex"
+                id="null"
+                value=" "
+                checked
+                hidden
+              />
             </div>
           </div>
           <div id="divise"></div>
 
           <div class="columnForm">
+            <div class="coluna" id="imgThumbnail">
+              <label id="thumbnail">
+                <input type="file" name="picture" id="picture" multiple />
+                <img src="./assets/selectimg.png" alt="" id="imgThumb" />
+              </label>
+            </div>
+            <p style="margin:2% 0 5% 0;text-align: center;">
+              Escolha uma foto de perfil
+            </p>
+            <div>
+              <label>Email atual: </label>
+              <input type="email" id="email" placeholder="pega@exemplo.com" />
+            </div>
             <div>
               <label>Trocar email: </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="pega@exemplo.com"
-              />
+              <input type="email" id="email2" placeholder="pega@exemplo.com" />
+              <div
+                id="erro"
+                style="margin-top: -5%;margin-bottom: 5%;text-align: right;"
+              ></div>
             </div>
 
             <div id="row">
@@ -126,7 +152,7 @@
           </div>
         </form>
 
-        <button onclick="javascript:location.href='/'">Atualizar</button>
+        <button id="att">Atualizar</button>
       </div>
     </main>
 
@@ -137,6 +163,8 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
     ></script>
+    <script src="./js/editUser.js"></script>
+
     <script src="./js/cpf.js"></script>
     <script src="./js/pwd.js"></script>
   </body>

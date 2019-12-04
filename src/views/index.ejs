@@ -35,7 +35,7 @@
           <div class="content">
             Ofertas selecionadas <strong>para você!</strong>
           </div>
-          <div class="content2">ver mais ></div>
+          <div class="content2"><a href=""> ver mais ></a></div>
         </div>
 
         <div class="items">
@@ -100,12 +100,32 @@
           <div class="content">Encontre seu <strong>estilo</strong></div>
 
           <div class="photogrid">
-            <img src="./assets/b_modafeminina.png" alt="" id="img1" />
+            <img
+              src="./assets/b_modafeminina.png"
+              alt=""
+              id="img1"
+              onclick="javascript:location.href='/search'"
+            />
             <div id="breakpoint">
-              <img src="./assets/b_parahomens.png" alt="" id="img2" />
+              <img
+                src="./assets/b_parahomens.png"
+                alt=""
+                id="img2"
+                onclick="javascript:location.href='/search'"
+              />
               <div id="breakpoint2">
-                <img src="./assets/b_casual.png" alt="" id="img3" />
-                <img src="./assets/b_festa.png" alt="" id="img4" />
+                <img
+                  src="./assets/b_casual.png"
+                  alt=""
+                  id="img3"
+                  onclick="javascript:location.href='/search'"
+                />
+                <img
+                  src="./assets/b_festa.png"
+                  alt=""
+                  id="img4"
+                  onclick="javascript:location.href='/search'"
+                />
               </div>
             </div>
           </div>
@@ -179,6 +199,12 @@
         <%- include('./partials/newsletter.ejs'); -%>
       </section>
 
+      <div id="textbody">
+        <div id="notice">
+          <p><strong>Seu</strong> estilo <strong>meu</strong> estilo. ;)</p>
+        </div>
+      </div>
+
       <section>
         <div class="ad">
           <div class="content">O que tá <strong>pegando!</strong></div>
@@ -241,74 +267,74 @@
         </div>
       </section>
 
-      <div id="textbody">
-        <div id="notice">
-          <p><strong>Seu</strong> estilo <strong>meu</strong> estilo. ;)</p>
+      <section>
+        <div class="ad">
+          <div class="content"><strong>Pega</strong>qui!</div>
         </div>
-      </div>
+
+        <div class="items">
+          <div class="item">
+            <a href="">
+              <img src="./assets/item.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camiseta Laranja básica</div>
+                <div class="user">Brechó do Nathan</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/alice.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Regata branca</div>
+                <div class="user">Brechó da Alice</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <a href="">
+              <img src="./assets/rodrigues.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="price">R$ 20,00</div>
+                </div>
+                <div class="name">Camisa florida com botão</div>
+                <div class="user">Brechó do Rodrigues</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="item">
+            <div class="inPromo"><p class="percent">20% off</p></div>
+            <a href="">
+              <img src="./assets/livia.png" alt="foto do anuncio" />
+              <div class="info">
+                <div class="row">
+                  <div class="was">R$ 20,00</div>
+                  <div class="price">R$ 15,00</div>
+                </div>
+                <div class="name">Ciganinha tomara que caia</div>
+                <div class="user">Fuá Coletivo</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <section>
-      <div class="ad">
-        <div class="content"><strong>Pega</strong>qui!</div>
-      </div>
-
-      <div class="items">
-        <div class="item">
-          <a href="">
-            <img src="./assets/item.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="price">R$ 20,00</div>
-              </div>
-              <div class="name">Camiseta Laranja básica</div>
-              <div class="user">Brechó do Nathan</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="item">
-          <a href="">
-            <img src="./assets/alice.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="price">R$ 20,00</div>
-              </div>
-              <div class="name">Regata branca</div>
-              <div class="user">Brechó da Alice</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="item">
-          <a href="">
-            <img src="./assets/rodrigues.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="price">R$ 20,00</div>
-              </div>
-              <div class="name">Camisa florida com botão</div>
-              <div class="user">Brechó do Rodrigues</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="item">
-          <div class="inPromo"><p class="percent">20% off</p></div>
-          <a href="">
-            <img src="./assets/livia.png" alt="foto do anuncio" />
-            <div class="info">
-              <div class="row">
-                <div class="was">R$ 20,00</div>
-                <div class="price">R$ 15,00</div>
-              </div>
-              <div class="name">Ciganinha tomara que caia</div>
-              <div class="user">Fuá Coletivo</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
     <%- include('./partials/footer.ejs'); -%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
   </body>
 </html>

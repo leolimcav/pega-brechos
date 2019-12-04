@@ -1,7 +1,0 @@
-main {
-  display: flex;
-  flex-flow: column;
-  width: 100%;
-  justify-content: start;
-  align-items: center;
-}

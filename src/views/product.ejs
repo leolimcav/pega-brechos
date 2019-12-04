@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <link rel="stylesheet" type="text/css" href="./css/header.css" />
     <link rel="stylesheet" type="text/css" href="./css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="./css/newsletter.css" />
     <link rel="stylesheet" type="text/css" href="./css/product.css" />
 
     <title>Pega!</title>
@@ -33,7 +32,12 @@
           <div id="photoColumn">
             <div class="photosProduct">
               <div class="mySlide">
-                <img src="./assets/semfoto.png" alt="" style="width:100%" />
+                <img
+                  src="./assets/semfoto.png"
+                  id="imagem"
+                  alt=""
+                  style="width:100%"
+                />
               </div>
               <div class="rowSlide">
                 <div class="columnSlide">
@@ -43,6 +47,7 @@
                     class="demo cursor"
                     onclick="currentSlide(1)"
                     style="width:80%"
+                    id="imgzim"
                   />
                 </div>
               </div>
@@ -51,7 +56,7 @@
           <div id="productInfo">
             <h2>Informações do produto</h2>
             <div id="description">
-              <p>
+              <p id="desc">
                 Regata básica em tecido poliéster<br />
                 tamanho M<br /><br />
                 Usada apenas 3 vezes
@@ -64,18 +69,13 @@
           <h1 id="name">Regata feminina</h1>
           <p id="status">Usada</p>
           <div id="price">
-            <p id="was">R$ 40</p>
-            <p>R$ 30</p>
-            <img src="./assets/icons/etiqueta.svg" alt="" />
-            <p id="promo">20% off</p>
+            <p id="now">R$ 30</p>
+            <!-- <p id="was"></p> -->
+            <!-- <img src="./assets/icons/etiqueta.svg" alt="" />
+            <p id="promo">20% off</p> -->
           </div>
           <div id="payments">
             <img src="./assets/icons/cartao.svg" alt="" id="card" />
-            <img src="./assets/logopag/picpay.png" alt="" />
-            <img src="./assets/logopag/Paypal.png" alt="" />
-            <img src="./assets/logopag/visa.png" alt="" />
-            <img src="./assets/logopag/master.png" alt="" />
-            <p>em até 2x</p>
           </div>
           <div id="delivery">
             <img src="./assets/icons/camisa.svg" alt="" id="clothe" />
@@ -91,19 +91,19 @@
             <div id="tam">
               <p>tamanho:</p>
               <div class="details fig tam">
-                M
+                <span id="tamanho">M</span>
               </div>
             </div>
             <div id="marca">
               <p>marca:</p>
               <div class="details">
-                Genérica
+                <span id="marcaproduto">Genérica</span>
               </div>
             </div>
             <div id="color">
               <p>cor:</p>
               <div class="details">
-                Branca
+                <span id="cor">Branca</span>
               </div>
             </div>
           </div>
@@ -115,37 +115,46 @@
                 </div>
                 <div id="ownerMore">
                   <p id="nameOwner">Fuá Coletivo</p>
-                  <p id="location">Quixadá/CE</p>
                 </div>
               </div>
               <button class="follow">
-                <a href=""> ver vendedor</a>
+                <a id="vendedor" href=""> ver vendedor</a>
               </button>
             </div>
             <div id="ownerDetails">
               <div id="rate">
-                <p>avaliação</p>
+                <!--<p>avaliação</p>
                 <div id="stars">
                   <img src="./assets/icons/estrelaamarela.png" alt="" />
                   <img src="./assets/icons/estrelaamarela.png" alt="" />
                   <img src="./assets/icons/estrelaamarela.png" alt="" />
                   <img src="./assets/icons/estrelaamarela.png" alt="" />
                   <img src="./assets/icons/estrelaamarela.png" alt="" />
-                </div>
+                </div>-->
               </div>
-              <div id="lastD">
-                <p>últimas entregas</p>
-                <div id="lastStatus">
-                  <img src="./assets/icons/circlegreen.png" alt="" />
-                  <img src="./assets/icons/circlegreen.png" alt="" />
-                  <img src="./assets/icons/circlegreen.png" alt="" />
+              <div id="lastD" onmouseover="show()" onmouseout="unshow()">
+                <p onmouseover="show()" onmouseout="unshow()">últimas vendas</p>
+                <div
+                  id="lastStatus"
+                  onmouseover="show()"
+                  onmouseout="unshow()"
+                ></div>
+                <div id="dropdownInfo">
+                  <div>
+                    <img src="./assets/icons/circlegreen.png" alt="" />
+                    <p>entregue</p>
+                  </div>
+                  <div>
+                    <img src="./assets/icons/circlered.png" alt="" />
+                    <p>não entregue</p>
+                  </div>
                 </div>
               </div>
               <div id="since">
-                <p>vende no pega desde</p>
+                <!--<p>vende no pega! desde</p>
                 <div id="sinceDate">
                   Setembro/2019
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
@@ -244,6 +253,13 @@
       </section>
     </main>
     <%- include('./partials/footer.ejs'); -%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+    ></script>
     <script src="./js/carousel.js"></script>
+    <script src="./js/statusVenda.js"></script>
+    <script src="./js/product.js"></script>
   </body>
 </html>
