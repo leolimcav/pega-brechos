@@ -260,7 +260,7 @@ demo {
   }
   #price {
     margin-top: 2%;
-    width: 70%;
+    width: 15%;
     justify-content: space-around;
   }
   #price #promo {
@@ -331,7 +331,7 @@ demo {
   }
   #price {
     margin-top: 2%;
-    width: 70%;
+    width: 15%;
     justify-content: space-around;
   }
   #price #promo {
@@ -401,7 +401,7 @@ demo {
   }
   #price {
     margin-top: 2%;
-    width: 50%;
+    width: 15%;
   }
   #price #promo {
     font-size: 1em;
@@ -468,7 +468,7 @@ demo {
     font-size: 0.8em;
   }
   #price {
-    width: 60%;
+    width: 15%;
   }
   #price #promo {
     font-size: 1em;
@@ -492,7 +492,7 @@ demo {
   #payments img,
   #delivery img,
   #tryOn img {
-    width: 8%;
+    width: 20%;
   }
   #payments,
   #delivery,

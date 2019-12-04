@@ -72,7 +72,8 @@ $(function() {
       localStorage.setItem("tel", dTel);
       localStorage.setItem("data_nascimento", dDate);
       localStorage.setItem("sexo", dSexo);
-      location.href = "/";
+
+      location.href = "/login";
     });
     request.fail(function(jqXHR, textStatus) {
       console.log(textStatus.err);

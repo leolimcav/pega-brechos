@@ -66,8 +66,12 @@ module.exports = {
         imagem: filename,
         usuario_id: user_id
       });
-
-      await produto.addCategories(categoria);
+      if (categoria.length > 1) {
+        const cat = categoria.split(",");
+        await produto.addCategories(cat);
+      } else {
+        await produto.addCategories(categoria);
+      }
 
       return res.json(produto);
     } catch (err) {

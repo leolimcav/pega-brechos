@@ -159,8 +159,7 @@ main {
 }
 section {
   display: flex;
-  flex-wrap: wrap;
-  direction: column;
+  flex-flow: row wrap;
   width: 100%;
   align-items: center;
   justify-content: center;
